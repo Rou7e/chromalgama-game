@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://playerShips/ShipConstructor.gd" type="Script" id=1]
 [ext_resource path="res://resources/ship_constructor.png" type="Texture" id=2]
 [ext_resource path="res://playerShips/uv_beam.png" type="Texture" id=3]
+[ext_resource path="res://resources/metal2.jpg" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 40.0
 height = 200.0
+
+[sub_resource type="Theme" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16.6667, 79.4527 )
@@ -24,7 +27,81 @@ texture = ExtResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D"]
+margin_left = -960.0
+margin_top = -540.0
+margin_right = -800.0
+margin_bottom = -100.0
+theme = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="Camera2D/VBoxContainer"]
+margin_right = 160.0
+margin_bottom = 65.0
+text = "HUMAN PROTECTORATE
+FRIGATE-CLASS
+CARGO HAULER
+"
+
+[node name="Label" type="Label" parent="Camera2D/VBoxContainer"]
+margin_top = 69.0
+margin_right = 160.0
+margin_bottom = 83.0
+text = "COOLING STATUS"
+
+[node name="HEAT" type="ProgressBar" parent="Camera2D/VBoxContainer"]
+margin_top = 87.0
+margin_right = 160.0
+margin_bottom = 101.0
+value = 100.0
+
+[node name="Label2" type="Label" parent="Camera2D/VBoxContainer"]
+margin_top = 105.0
+margin_right = 160.0
+margin_bottom = 119.0
+text = "PRIMARY CHARGE"
+
+[node name="PRIMARY" type="ProgressBar" parent="Camera2D/VBoxContainer"]
+margin_top = 123.0
+margin_right = 160.0
+margin_bottom = 137.0
+value = 100.0
+
+[node name="Label3" type="Label" parent="Camera2D/VBoxContainer"]
+margin_top = 141.0
+margin_right = 160.0
+margin_bottom = 155.0
+text = "SECONDARY SUPPLIES"
+
+[node name="SECONDARY" type="ProgressBar" parent="Camera2D/VBoxContainer"]
+margin_top = 159.0
+margin_right = 160.0
+margin_bottom = 173.0
+max_value = 4.0
+value = 4.0
+
+[node name="Label4" type="Label" parent="Camera2D/VBoxContainer"]
+margin_top = 177.0
+margin_right = 160.0
+margin_bottom = 191.0
+text = "CREW AMOUNT"
+
+[node name="CREW" type="ProgressBar" parent="Camera2D/VBoxContainer"]
+margin_top = 195.0
+margin_right = 160.0
+margin_bottom = 209.0
+value = 100.0
+
+[node name="Sprite" type="Sprite" parent="Camera2D/VBoxContainer"]
+show_behind_parent = true
+position = Vector2( 83.5091, 108 )
+scale = Vector2( 0.352282, 0.734333 )
+texture = ExtResource( 4 )
+
 [node name="UVBeam" type="Area2D" parent="."]
+visible = false
 show_behind_parent = true
 position = Vector2( -0.999999, -566.5 )
 scale = Vector2( 0.36, 10.415 )
