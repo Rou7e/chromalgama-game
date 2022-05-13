@@ -24,6 +24,12 @@ margin_right = 640.0
 margin_bottom = 38.0
 text = "Tellurian Constructor"
 
+[node name="Cargoship" type="Button" parent="VBoxContainer"]
+margin_top = 42.0
+margin_right = 640.0
+margin_bottom = 62.0
+text = "Selenite Cargoship"
+
 [node name="StartBattle" type="Button" parent="."]
 margin_left = 640.0
 margin_top = 500.0
@@ -44,9 +50,20 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="VBoxContainer2"]
 margin_right = 640.0
-margin_bottom = 31.0
-text = "Enemy Selected
-Tellurian Constructor"
+margin_bottom = 14.0
+text = "Select your enemy"
+
+[node name="EConstructor" type="Button" parent="VBoxContainer2"]
+margin_top = 18.0
+margin_right = 640.0
+margin_bottom = 38.0
+text = "Tellurian Constructor"
+
+[node name="ECargoship" type="Button" parent="VBoxContainer2"]
+margin_top = 42.0
+margin_right = 640.0
+margin_bottom = 62.0
+text = "Selenite Cargoship"
 
 [node name="Alert" type="PopupDialog" parent="."]
 margin_left = 640.0
@@ -73,7 +90,9 @@ margin_right = 40.0
 margin_bottom = 14.0
 text = "Please select a ship!"
 
-[connection signal="pressed" from="VBoxContainer/Constructor" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Constructor" to="." method="_on_Constructor_pressed"]
+[connection signal="pressed" from="VBoxContainer/Cargoship" to="." method="_on_Cargoship_pressed"]
 [connection signal="pressed" from="StartBattle" to="." method="_on_StartBattle_pressed"]
+[connection signal="pressed" from="VBoxContainer2/EConstructor" to="." method="_on_EConstructor_pressed"]
+[connection signal="pressed" from="VBoxContainer2/ECargoship" to="." method="_on_ECargoship_pressed"]
 [connection signal="pressed" from="Alert/Button" to="Alert" method="_on_Button_pressed"]
