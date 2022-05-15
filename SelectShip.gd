@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 onready var player_vars = get_node("/root/global")
 
