@@ -6,6 +6,7 @@
 radius = 150.0
 
 [node name="T2BattleDrone" type="Area2D"]
+scale = Vector2( 0.2, 0.2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
