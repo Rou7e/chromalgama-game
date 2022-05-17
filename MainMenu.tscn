@@ -138,9 +138,6 @@ animations = [ {
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MainMenu" type="Node2D" parent="."]
 script = ExtResource( 1 )
@@ -159,9 +156,6 @@ patch_margin_left = 7
 patch_margin_top = 7
 patch_margin_right = 7
 patch_margin_bottom = 7
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 150.0
@@ -169,9 +163,6 @@ margin_top = 400.0
 margin_right = 500.0
 margin_bottom = 880.0
 theme = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 margin_right = 350.0
@@ -215,7 +206,7 @@ show_behind_parent = true
 position = Vector2( 1950.33, 801 )
 scale = Vector2( 3.75996, 3.75996 )
 frames = SubResource( 1 )
-frame = 72
+frame = 31
 playing = true
 
 [node name="Sprite2" type="Sprite" parent="."]
