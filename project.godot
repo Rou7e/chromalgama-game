@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "BaseShip",
+"language": "GDScript",
+"path": "res://ships/base_stuff/BaseShip.gd"
+} ]
+_global_script_class_icons={
+"BaseShip": ""
+}
+
 [application]
 
 config/name="chromalgama"
