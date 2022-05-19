@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var input_vector = Vector2.ZERO
 
@@ -13,7 +13,10 @@ func _ready():
 
 func _input(event):
 	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	input_vector.y = Input.get_action_strength("move_up") - Input.get_action_strength("move_down") 
 	var ship = get_node("BaseShip")
 	
 	ship.set_input_vector(input_vector)
+	
+	ship.set_shooting(Input.get_action_strength("shoot"))
+	ship.set_target_position(get_global_mouse_position())

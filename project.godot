@@ -13,16 +13,28 @@ _global_script_classes=[ {
 "class": "BaseShip",
 "language": "GDScript",
 "path": "res://ships/base_stuff/BaseShip.gd"
+}, {
+"base": "Area2D",
+"class": "PlasmaBullet",
+"language": "GDScript",
+"path": "res://ships/weapons/PlasmaBullet.gd"
+}, {
+"base": "Node2D",
+"class": "Plasmagun",
+"language": "GDScript",
+"path": "res://ships/weapons/Plasmagun.gd"
 } ]
 _global_script_class_icons={
-"BaseShip": ""
+"BaseShip": "",
+"PlasmaBullet": "",
+"Plasmagun": ""
 }
 
 [application]
 
 config/name="chromalgama"
 config/description="Arcade space battle game about fleet combat - with hopes of becoming a 4X strategy. "
-run/main_scene="res://MainMenu.tscn"
+run/main_scene="res://ships/base_stuff/PlayerController.tscn"
 config/icon="res://icon.png"
 
 [autoload]
