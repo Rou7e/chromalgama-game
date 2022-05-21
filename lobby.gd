@@ -1,53 +1,92 @@
-# Typical lobby implementation; imagine this being in /root/lobby.
+extends Control
 
-extends Node
-
-const PORT = 5123
-const MAX_PLAYERS = 8
-
-# Connect all functions
 func _ready():
-	get_tree().connect("network_peer_connected", self, "_player_connected")
-	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
-	get_tree().connect("connected_to_server", self, "_connected_ok")
-	get_tree().connect("connection_failed", self, "_connected_fail")
-	get_tree().connect("server_disconnected", self, "_server_disconnected")
+	# Called every time the node is added to the scene.
+	gamestate.connect("connection_failed", self, "_on_connection_failed")
+	gamestate.connect("connection_succeeded", self, "_on_connection_success")
+	gamestate.connect("player_list_changed", self, "refresh_lobby")
+	gamestate.connect("game_ended", self, "_on_game_ended")
+	gamestate.connect("game_error", self, "_on_game_error")
+	# Set the player name according to the system username. Fallback to the path.
+	#if OS.has_environment("USERNAME"):
+	#	$Connect/Name.text = OS.get_environment("USERNAME")
+	#else:
+	#	var desktop_path = OS.get_system_dir(0).replace("\\", "/").split("/")
+	#	$Connect/Name.text = desktop_path[desktop_path.size() - 2]
 
-# Player info, associate ID to data
-var player_info = {}
-# Info we send to other players
-var my_info = { name = "Johnson Magenta", favorite_color = Color8(255, 0, 255) }
 
-func _player_connected(id):
-	# Called on both clients and server when a peer connects. Send my info to it.
-	rpc_id(id, "register_player", my_info)
+func _on_host_pressed():
+	if $Connect/Name.text == "":
+		$Connect/ErrorLabel.text = "Invalid name!"
+		return
 
-func _player_disconnected(id):
-	player_info.erase(id) # Erase player from info.
+	$Connect.hide()
+	$Players.show()
+	$Connect/ErrorLabel.text = ""
 
-func _connected_ok():
-	pass # Only called on clients, not server. Will go unused; not useful here.
+	var player_name = $Connect/Name.text
+	gamestate.host_game(player_name)
+	refresh_lobby()
 
-func _server_disconnected():
-	pass # Server kicked us; show error and abort.
 
-func _connected_fail():
-	pass # Could not even connect to server; abort.
+func _on_join_pressed():
+	if $Connect/Name.text == "":
+		$Connect/ErrorLabel.text = "Invalid name!"
+		return
 
-remote func register_player(info):
-	# Get the id of the RPC sender.
-	var id = get_tree().get_rpc_sender_id()
-	# Store the info
-	player_info[id] = info
+	var ip = $Connect/IPAddress.text
+	if not ip.is_valid_ip_address():
+		$Connect/ErrorLabel.text = "Invalid IP address!"
+		return
 
-	# Call function to update lobby UI here
+	$Connect/ErrorLabel.text = ""
+	$Connect/Host.disabled = true
+	$Connect/Join.disabled = true
 
-func start_server():
-	var peer = NetworkedMultiplayerENet.new()
-	peer.create_server(PORT, MAX_PLAYERS)
-	get_tree().network_peer = peer
+	var player_name = $Connect/Name.text
+	gamestate.join_game(ip, player_name)
 
-func connect_to_server(ip):
-	var peer = NetworkedMultiplayerENet.new()
-	peer.create_client(ip, PORT)
-	get_tree().network_peer = peer
+
+func _on_connection_success():
+	$Connect.hide()
+	$Players.show()
+
+
+func _on_connection_failed():
+	$Connect/Host.disabled = false
+	$Connect/Join.disabled = false
+	$Connect/ErrorLabel.set_text("Connection failed.")
+
+
+func _on_game_ended():
+	show()
+	$Connect.show()
+	$Players.hide()
+	$Connect/Host.disabled = false
+	$Connect/Join.disabled = false
+
+
+func _on_game_error(errtxt):
+	$ErrorDialog.dialog_text = errtxt
+	$ErrorDialog.popup_centered_minsize()
+	$Connect/Host.disabled = false
+	$Connect/Join.disabled = false
+
+
+func refresh_lobby():
+	var players = gamestate.get_player_list()
+	players.sort()
+	$Players/List.clear()
+	$Players/List.add_item(gamestate.get_player_name() + " (You)")
+	for p in players:
+		$Players/List.add_item(p)
+
+	$Players/Start.disabled = not get_tree().is_network_server()
+
+
+func _on_start_pressed():
+	gamestate.begin_game()
+
+
+func _on_find_public_ip_pressed():
+	OS.shell_open("https://icanhazip.com/")
