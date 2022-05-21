@@ -1,7 +1,7 @@
 [gd_scene load_steps=128 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://resources/ui/texture/menu_bg.png" type="Texture" id=2]
+[ext_resource path="res://menus/MenuBg.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resources/ui/menu_theme.tres" type="Theme" id=3]
 [ext_resource path="res://resources/ui/menu_bg.png" type="Texture" id=4]
 [ext_resource path="res://resources/ui/logo_menu.png" type="Texture" id=5]
@@ -142,36 +142,27 @@ anchor_bottom = 1.0
 [node name="MainMenu" type="Node2D" parent="."]
 script = ExtResource( 1 )
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -850.0
-margin_top = -150.0
-margin_right = -400.0
-margin_bottom = 350.0
-texture = ExtResource( 2 )
-patch_margin_left = 7
-patch_margin_top = 7
-patch_margin_right = 7
-patch_margin_bottom = 7
+[node name="NinePatchRect" parent="." instance=ExtResource( 2 )]
+margin_left = -404.0
+margin_top = 26.0
+margin_right = 46.0
+margin_bottom = 526.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 150.0
-margin_top = 400.0
-margin_right = 500.0
-margin_bottom = 880.0
+margin_left = 256.0
+margin_top = 406.0
+margin_right = 666.0
+margin_bottom = 866.0
 theme = ExtResource( 3 )
 
 [node name="Button" type="Button" parent="VBoxContainer"]
-margin_right = 350.0
+margin_right = 410.0
 margin_bottom = 65.0
 text = "Campaign"
 
 [node name="StartGame" type="Button" parent="VBoxContainer"]
 margin_top = 69.0
-margin_right = 350.0
+margin_right = 410.0
 margin_bottom = 134.0
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 126 )
@@ -179,19 +170,19 @@ text = "Space battle"
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 margin_top = 138.0
-margin_right = 350.0
+margin_right = 410.0
 margin_bottom = 203.0
 text = "Settings"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 margin_top = 207.0
-margin_right = 350.0
+margin_right = 410.0
 margin_bottom = 272.0
 text = "about"
 
 [node name="Button4" type="Button" parent="VBoxContainer"]
 margin_top = 276.0
-margin_right = 350.0
+margin_right = 410.0
 margin_bottom = 341.0
 text = "quit"
 
@@ -206,11 +197,16 @@ show_behind_parent = true
 position = Vector2( 1950.33, 801 )
 scale = Vector2( 3.75996, 3.75996 )
 frames = SubResource( 1 )
-frame = 3
+frame = 101
 playing = true
 
 [node name="Sprite2" type="Sprite" parent="."]
 texture = ExtResource( 5 )
 centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 960, 540 )
+current = true
+zoom = Vector2( 1.5, 1.5 )
 
 [connection signal="pressed" from="VBoxContainer/StartGame" to="MainMenu" method="_on_StartGame_pressed"]

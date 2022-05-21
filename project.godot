@@ -34,19 +34,18 @@ _global_script_class_icons={
 
 config/name="chromalgama"
 config/description="Arcade space battle game about fleet combat - with hopes of becoming a 4X strategy. "
-run/main_scene="res://ships/base_stuff/PlayerController.tscn"
+run/main_scene="res://menus/MPSelection.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 global="*res://global.gd"
+Lobby="*res://lobby.gd"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
-window/size/borderless=true
-window/size/fullscreen=true
+window/size/width=1280
+window/size/height=720
 window/size/test_width=1920
 window/size/test_height=1080
 window/stretch/mode="2d"
