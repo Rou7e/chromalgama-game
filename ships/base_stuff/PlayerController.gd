@@ -20,3 +20,6 @@ func _input(event):
 	
 	ship.set_shooting(Input.get_action_strength("shoot"))
 	ship.set_target_position(get_global_mouse_position())
+
+func set_player_name(new_name):
+	$BaseShip.get_node("label").set_text(new_name)

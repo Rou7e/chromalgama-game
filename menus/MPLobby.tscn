@@ -22,3 +22,7 @@ margin_bottom = 316.0
 text = "Start"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
