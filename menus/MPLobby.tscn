@@ -1,5 +1,24 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://menus/MPLobby.gd" type="Script" id=1]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="PlayerCount" type="Label" parent="."]
+margin_left = 447.0
+margin_top = 259.0
+margin_right = 487.0
+margin_bottom = 273.0
+text = "PLCNT"
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 447.0
+margin_top = 296.0
+margin_right = 459.0
+margin_bottom = 316.0
+text = "Start"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

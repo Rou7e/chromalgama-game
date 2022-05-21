@@ -16,7 +16,7 @@ func _ready():
 # Player info, associate ID to data
 var player_info = {}
 # Info we send to other players
-var my_info = { name = "Johnson Magenta", favorite_color = Color8(255, 0, 255) }
+var my_info = { name = "TODO" }
 
 func _player_connected(id):
 	# Called on both clients and server when a peer connects. Send my info to it.
