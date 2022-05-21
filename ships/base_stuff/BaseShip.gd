@@ -6,10 +6,24 @@ export(float) var turn_speed = 90
 export(float) var acceleration = 200
 export(float) var max_speed = 250
 
+var cooling = 100
+var primary = 100
+var secondary = 100
+var turret = 100
+var crew = 4
+
+var desc= 'HUMAN PROTECTORATE \nFRIGATE-CLASS\n CARGO SHIP'
+
+var Drone = preload("res://playerSummons/T2BattleDrone.tscn")
+var overheat = false
+var secondary_cd = 5
+
 var speed_vector = Vector2.ZERO
 var input_vector = Vector2.ZERO
 
 var is_shooting = false
+var is_shooting_primary = false
+var using_ability = false
 
 func _ready():
 	pass
@@ -34,17 +48,39 @@ func _physics_process(delta):
 	if is_shooting:
 		propagate_call("shoot", [[self]])
 		
+func _process(delta):
+	if is_shooting_primary and overheat == false:
+		if primary > 0:
+			primary -= delta*30
+			#$UVBeam.visible = true
+		else:
+			primary += delta*10
+			#$UVBeam.visible = false
+			overheat = true
+	else:
+		primary += delta*10
+		#$UVBeam.visible = false
+	
+	if primary == 100:
+		overheat=false
 
+	if using_ability==true and secondary > 0 and secondary_cd>5:
+		secondary -= 1
+		secondary_cd = 0
+		var drone = Drone.instance()
+		drone.global_position = self.global_position
+		get_parent().add_child(drone)
+	else:
+		secondary_cd += delta
+		
 
-func _on_collision(value):
-	var collider = value
-	print(collider)
-
-	#Then your else if ladder
 
 func _receive_damage(amount):
 	print("Damaged by ", amount)
-	queue_free()
+	cooling-=10
+	if cooling == 0:
+		queue_free()
+	#queue_free()
 
 
 func _on_BaseShip_area_entered(area):

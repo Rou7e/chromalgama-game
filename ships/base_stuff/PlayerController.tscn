@@ -1,17 +1,192 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ships/Cargo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ships/base_stuff/PlayerController.gd" type="Script" id=2]
+[ext_resource path="res://resources/metal2.jpg" type="Texture" id=3]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="Theme" id=2]
+
+[node name="PlayerController" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="BaseShip" parent="." instance=ExtResource( 1 )]
-
-[node name="Camera2D" type="Camera2D" parent="BaseShip"]
+[node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="label" type="Label" parent="BaseShip"]
+[node name="Player_UI" type="VBoxContainer" parent="Camera2D"]
+margin_left = -640.0
+margin_top = -360.0
+margin_right = -480.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( -361, -235 )
+theme = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="Camera2D/Player_UI"]
+margin_right = 160.0
+margin_bottom = 65.0
+text = "HUMAN PROTECTORATE
+FRIGATE-CLASS
+CARGO HAULER
+"
+
+[node name="Label" type="Label" parent="Camera2D/Player_UI"]
+margin_top = 69.0
+margin_right = 160.0
+margin_bottom = 83.0
+text = "COOLING STATUS"
+
+[node name="HEAT" type="ProgressBar" parent="Camera2D/Player_UI"]
+margin_top = 87.0
+margin_right = 160.0
+margin_bottom = 101.0
+value = 100.0
+
+[node name="Label2" type="Label" parent="Camera2D/Player_UI"]
+margin_top = 105.0
+margin_right = 160.0
+margin_bottom = 119.0
+text = "PRIMARY CHARGE"
+
+[node name="PRIMARY" type="ProgressBar" parent="Camera2D/Player_UI"]
+margin_top = 123.0
+margin_right = 160.0
+margin_bottom = 137.0
+value = 100.0
+
+[node name="Label3" type="Label" parent="Camera2D/Player_UI"]
+margin_top = 141.0
+margin_right = 160.0
+margin_bottom = 155.0
+text = "SECONDARY SUPPLIES"
+
+[node name="SECONDARY" type="ProgressBar" parent="Camera2D/Player_UI"]
+margin_top = 159.0
+margin_right = 160.0
+margin_bottom = 173.0
+max_value = 4.0
+value = 4.0
+
+[node name="Label4" type="Label" parent="Camera2D/Player_UI"]
+margin_top = 177.0
+margin_right = 160.0
+margin_bottom = 191.0
+text = "CREW AMOUNT"
+
+[node name="CREW" type="ProgressBar" parent="Camera2D/Player_UI"]
+margin_top = 195.0
+margin_right = 160.0
+margin_bottom = 209.0
+value = 100.0
+
+[node name="Label6" type="Label" parent="Camera2D/Player_UI"]
+margin_top = 213.0
+margin_right = 160.0
+margin_bottom = 227.0
+text = "TURRET CHARGE"
+
+[node name="Sprite" type="Sprite" parent="Camera2D/Player_UI"]
+show_behind_parent = true
+position = Vector2( 83.5091, 127.159 )
+scale = Vector2( 0.352282, 0.863788 )
+texture = ExtResource( 3 )
+
+[node name="TURRET" type="ProgressBar" parent="Camera2D/Player_UI"]
+margin_top = 231.0
+margin_right = 160.0
+margin_bottom = 245.0
+value = 100.0
+
+[node name="ENEMY_UI" type="VBoxContainer" parent="Camera2D"]
+margin_left = 480.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = -100.0
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="Camera2D/ENEMY_UI"]
+margin_right = 160.0
+margin_bottom = 65.0
+text = "<UNDEFINED>
+<UNDEFINED>
+<UNDEFINED>
+"
+
+[node name="Label" type="Label" parent="Camera2D/ENEMY_UI"]
+margin_top = 69.0
+margin_right = 160.0
+margin_bottom = 83.0
+text = "COOLING STATUS"
+
+[node name="HEAT" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
+margin_top = 87.0
+margin_right = 160.0
+margin_bottom = 101.0
+value = 100.0
+
+[node name="Label2" type="Label" parent="Camera2D/ENEMY_UI"]
+margin_top = 105.0
+margin_right = 160.0
+margin_bottom = 119.0
+text = "PRIMARY CHARGE"
+
+[node name="PRIMARY" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
+margin_top = 123.0
+margin_right = 160.0
+margin_bottom = 137.0
+value = 100.0
+
+[node name="Label3" type="Label" parent="Camera2D/ENEMY_UI"]
+margin_top = 141.0
+margin_right = 160.0
+margin_bottom = 155.0
+text = "SECONDARY SUPPLIES"
+
+[node name="SECONDARY" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
+margin_top = 159.0
+margin_right = 160.0
+margin_bottom = 173.0
+max_value = 4.0
+value = 4.0
+
+[node name="Label4" type="Label" parent="Camera2D/ENEMY_UI"]
+margin_top = 177.0
+margin_right = 160.0
+margin_bottom = 191.0
+text = "CREW AMOUNT"
+
+[node name="CREW" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
+margin_top = 195.0
+margin_right = 160.0
+margin_bottom = 209.0
+value = 100.0
+
+[node name="Sprite" type="Sprite" parent="Camera2D/ENEMY_UI"]
+show_behind_parent = true
+position = Vector2( 76, 128.659 )
+scale = Vector2( 0.352282, 0.873923 )
+texture = ExtResource( 3 )
+
+[node name="Label6" type="Label" parent="Camera2D/ENEMY_UI"]
+margin_top = 213.0
+margin_right = 160.0
+margin_bottom = 227.0
+text = "TURRET CHARGE"
+
+[node name="TURRET" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
+margin_top = 231.0
+margin_right = 160.0
+margin_bottom = 245.0
+min_value = 100.0
+value = 100.0
+
+[node name="label" type="Label" parent="Camera2D"]
 margin_left = -116.0
 margin_top = -64.0
 margin_right = -76.0
@@ -21,5 +196,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BaseShip2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 665, -94 )
+[node name="BaseShip" parent="." instance=ExtResource( 1 )]
