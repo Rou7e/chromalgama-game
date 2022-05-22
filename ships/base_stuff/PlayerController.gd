@@ -10,6 +10,9 @@ func _ready():
 	$Camera2D/Player_UI/SECONDARY.max_value = $BaseShip.secondary
 	$Camera2D/Player_UI/TURRET.max_value = $BaseShip.turret
 	
+	$Camera2D.current = is_network_master()
+	$Camera2D.visible = is_network_master()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -21,6 +24,9 @@ func _process(delta):
 	$Camera2D/Player_UI/TURRET.value = $BaseShip.turret
 
 func _input(event):
+	if not self.is_network_master():
+		return
+	
 	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	input_vector.y = Input.get_action_strength("move_up") - Input.get_action_strength("move_down") 
 	var ship = get_node("BaseShip")
