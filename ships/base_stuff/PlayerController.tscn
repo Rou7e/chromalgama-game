@@ -190,3 +190,11 @@ margin_top = -64.0
 margin_right = -76.0
 margin_bottom = -50.0
 text = "You"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Camera2D"]
+position = Vector2( 505, 280 )
+scale = Vector2( 0.57, 0.54 )
+texture = ExtResource( 3 )
