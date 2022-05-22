@@ -12,7 +12,6 @@
 script = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
 
 [node name="Player_UI" type="VBoxContainer" parent="Camera2D"]
 margin_left = -640.0
@@ -21,9 +20,6 @@ margin_right = -480.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( -361, -235 )
 theme = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label5" type="Label" parent="Camera2D/Player_UI"]
 margin_right = 160.0

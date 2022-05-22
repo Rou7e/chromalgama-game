@@ -99,6 +99,8 @@ func _process(delta):
 	
 	if turret < 100:
 		turret+= delta*10
+	if self.is_network_master():
+		send_sync_info()
 
 
 func _receive_damage(amount):
@@ -124,3 +126,13 @@ func _on_BaseShip_area_entered(area):
 		speed_vector.y=100
 		speed_vector.x=0
 	pass # Replace with function body.
+
+func send_sync_info():
+	rpc_unreliable("recv_sync_info", global_position, global_rotation, speed_vector)
+
+puppet func recv_sync_info(position, rotation, velocity):
+	global_position = position
+	global_rotation = rotation
+	speed_vector = velocity
+	
+	
