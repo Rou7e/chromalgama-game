@@ -188,8 +188,6 @@ margin_top = -64.0
 margin_right = -76.0
 margin_bottom = -50.0
 text = "You"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BaseShip" parent="." instance=ExtResource( 1 )]
+z_index = -1
