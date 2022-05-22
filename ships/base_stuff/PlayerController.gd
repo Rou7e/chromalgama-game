@@ -2,18 +2,22 @@ extends Node2D
 
 var input_vector = Vector2.ZERO
 const mark_friend = preload("res://projectiles/mark_friendly.tscn")
+const cargo = preload("res://ships/Cargo.tscn")
+const tel_t4 = preload("res://ships/tellurian_ships/tel_t4.tscn")
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var mark = mark_friend.instance()
 	if gamestate.selected_ship == 0:
-		add_child(load("res://ships/Cargo.tscn").instance())
+		add_child(cargo.instance())
 	if gamestate.selected_ship == 1:
-		add_child(load("res://ships/tellurian_ships/tel_t4.tscn").instance())
-	#$Camera2D/Player_UI/HEAT.max_value = get_child(1).cooling
-	#$Camera2D/Player_UI/CREW.max_value = get_child(1).crew
-	#$Camera2D/Player_UI/PRIMARY.max_value = get_child(1).primary
-	#$Camera2D/Player_UI/SECONDARY.max_value = get_child(1).secondary
-	#$Camera2D/Player_UI/TURRET.max_value = get_child(1).turret
+		add_child(tel_t4.instance())
+	$Camera2D/Player_UI/HEAT.max_value = get_child(1).cooling
+	$Camera2D/Player_UI/CREW.max_value = get_child(1).crew
+	$Camera2D/Player_UI/PRIMARY.max_value = get_child(1).primary
+	$Camera2D/Player_UI/SECONDARY.max_value = get_child(1).secondary
+	$Camera2D/Player_UI/TURRET.max_value = get_child(1).turret
 	
 	$Camera2D.current = is_network_master()
 	$Camera2D.visible = is_network_master()
