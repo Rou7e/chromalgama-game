@@ -62,7 +62,7 @@ position = Vector2( 16.3594, -898.517 )
 rotation = -0.00816354
 scale = Vector2( 1.63635, 1.63369 )
 frames = SubResource( 3 )
-frame = 7
+frame = 4
 playing = true
 
 [connection signal="area_entered" from="." to="." method="_on_BaseShip_area_entered"]

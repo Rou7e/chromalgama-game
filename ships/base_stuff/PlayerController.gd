@@ -9,11 +9,11 @@ func _ready():
 		add_child(load("res://ships/Cargo.tscn").instance())
 	if gamestate.selected_ship == 1:
 		add_child(load("res://ships/tellurian_ships/tel_t4.tscn").instance())
-	$Camera2D/Player_UI/HEAT.max_value = get_child(1).cooling
-	$Camera2D/Player_UI/CREW.max_value = get_child(1).crew
-	$Camera2D/Player_UI/PRIMARY.max_value = get_child(1).primary
-	$Camera2D/Player_UI/SECONDARY.max_value = get_child(1).secondary
-	$Camera2D/Player_UI/TURRET.max_value = get_child(1).turret
+	#$Camera2D/Player_UI/HEAT.max_value = get_child(1).cooling
+	#$Camera2D/Player_UI/CREW.max_value = get_child(1).crew
+	#$Camera2D/Player_UI/PRIMARY.max_value = get_child(1).primary
+	#$Camera2D/Player_UI/SECONDARY.max_value = get_child(1).secondary
+	#$Camera2D/Player_UI/TURRET.max_value = get_child(1).turret
 	
 	$Camera2D.current = is_network_master()
 	$Camera2D.visible = is_network_master()
