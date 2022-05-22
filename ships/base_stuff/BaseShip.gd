@@ -72,7 +72,8 @@ func _process(delta):
 			primary -= delta*30
 			var bullet = PrimaryProjectile.instance()
 			bullet.velocity = Vector2(primary_proj_speed, 0).rotated(global_rotation)
-			bullet.global_position = global_position
+			bullet.global_position.x = global_position.x
+			bullet.global_position.y = global_position.y
 			bullet.global_rotation = global_rotation
 			bullet.damage = primary_damage
 			bullet.excludes = [self]

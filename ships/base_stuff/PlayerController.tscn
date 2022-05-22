@@ -19,6 +19,9 @@ margin_right = -480.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( -361, -235 )
 theme = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label5" type="Label" parent="Camera2D/Player_UI"]
 margin_right = 160.0
@@ -187,3 +190,14 @@ margin_top = -64.0
 margin_right = -76.0
 margin_bottom = -50.0
 text = "You"
+<<<<<<< Updated upstream
+=======
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Camera2D"]
+position = Vector2( 505, 280 )
+scale = Vector2( 0.570003, 0.539837 )
+texture = ExtResource( 3 )
+>>>>>>> Stashed changes
