@@ -7,6 +7,11 @@ func _ready():
 	gamestate.connect("player_list_changed", self, "refresh_lobby")
 	gamestate.connect("game_ended", self, "_on_game_ended")
 	gamestate.connect("game_error", self, "_on_game_error")
+	
+	$Connect/ItemList.add_item("TST Cargo Ship")
+	
+	
+	
 	# Set the player name according to the system username. Fallback to the path.
 	#if OS.has_environment("USERNAME"):
 	#	$Connect/Name.text = OS.get_environment("USERNAME")
@@ -19,19 +24,28 @@ func _on_host_pressed():
 	if $Connect/Name.text == "":
 		$Connect/ErrorLabel.text = "Invalid name!"
 		return
-
+	
+	if len($Connect/ItemList.get_selected_items())==0:
+		$Connect/ErrorLabel.text = "Select a ship!"
+		return
+	
 	$Connect.hide()
 	$Players.show()
 	$Connect/ErrorLabel.text = ""
 
 	var player_name = $Connect/Name.text
 	gamestate.host_game(player_name)
+	
 	refresh_lobby()
 
 
 func _on_join_pressed():
 	if $Connect/Name.text == "":
 		$Connect/ErrorLabel.text = "Invalid name!"
+		return
+
+	if len($Connect/ItemList.get_selected_items())==0:
+		$Connect/ErrorLabel.text = "Select a ship!"
 		return
 
 	var ip = $Connect/IPAddress.text
@@ -85,6 +99,7 @@ func refresh_lobby():
 
 
 func _on_start_pressed():
+	gamestate.selected_ship = $Connect/ItemList.get_selected_items()[0]
 	gamestate.begin_game()
 
 

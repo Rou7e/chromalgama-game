@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://ships/Cargo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ships/base_stuff/PlayerController.gd" type="Script" id=2]
 [ext_resource path="res://resources/metal2.jpg" type="Texture" id=3]
 
@@ -20,6 +19,9 @@ margin_right = -480.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( -361, -235 )
 theme = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label5" type="Label" parent="Camera2D/Player_UI"]
 margin_right = 160.0
@@ -185,6 +187,11 @@ margin_top = -64.0
 margin_right = -76.0
 margin_bottom = -50.0
 text = "You"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="BaseShip" parent="." instance=ExtResource( 1 )]
-z_index = -1
+[node name="Sprite" type="Sprite" parent="Camera2D"]
+position = Vector2( 505, 280 )
+scale = Vector2( 0.57, 0.54 )
+texture = ExtResource( 3 )
