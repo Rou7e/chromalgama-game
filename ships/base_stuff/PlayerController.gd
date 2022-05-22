@@ -14,15 +14,15 @@ func _ready():
 	$Camera2D.current = is_network_master()
 	$Camera2D.visible = is_network_master()
 	
-<<<<<<< HEAD
+
 	$BaseShip.id = "PC"+str(get_network_master())
 	
-=======
+
 	for i in range(get_parent().get_child_count()):
 		mark.global_position.x = get_parent().get_child(i).global_position.x/9.11
 		mark.global_position.y = get_parent().get_child(i).global_position.y/8.1
 		$Camera2D/Sprite.add_child(mark)
->>>>>>> 9531cb910bb8eff3811495193b68e314f5e28bd0
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
