@@ -5,6 +5,10 @@ const mark_friend = preload("res://projectiles/mark_friendly.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var mark = mark_friend.instance()
+	if gamestate.selected_ship == 0:
+		add_child(load("res://ships/Cargo.tscn").instance())
+	if gamestate.selected_ship == 1:
+		add_child(load("res://ships/tellurian_ships/tel_t4.tscn").instance())
 	$Camera2D/Player_UI/HEAT.max_value = $BaseShip.cooling
 	$Camera2D/Player_UI/CREW.max_value = $BaseShip.crew
 	$Camera2D/Player_UI/PRIMARY.max_value = $BaseShip.primary
