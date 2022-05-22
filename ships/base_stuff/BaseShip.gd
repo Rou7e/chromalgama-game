@@ -62,7 +62,7 @@ func _physics_process(delta):
 		propagate_call("shoot", [[self]])
 		if turret < 1:
 			overheat_turret = true
-	if turret == 100:
+	if turret > 99:
 		overheat_turret = false
 
 	
