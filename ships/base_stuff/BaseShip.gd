@@ -6,7 +6,7 @@ export(float) var turn_speed = 90
 export(float) var acceleration = 200
 export(float) var max_speed = 250
 
-export(float) var primary_proj_speed = 1000
+export(float) var primary_proj_speed = 12000
 export(float) var primary_damage = 10
 
 var cooling = 100
@@ -17,7 +17,7 @@ var crew = 4
 
 const desc= 'HUMAN PROTECTORATE \nFRIGATE-CLASS\n CARGO SHIP'
 
-const PrimaryProjectile = preload("res://ships/weapons/PlasmaBullet.tscn")
+const PrimaryProjectile = preload("res://projectiles/UVBeam.tscn")
 const Drone = preload("res://playerSummons/T2BattleDrone.tscn")
 var overheat = false
 var overheat_turret = false
@@ -73,14 +73,17 @@ func _process(delta):
 			var bullet = PrimaryProjectile.instance()
 			bullet.velocity = Vector2(primary_proj_speed, 0).rotated(global_rotation)
 			bullet.global_position = global_position
+			bullet.global_rotation = global_rotation
 			bullet.damage = primary_damage
 			bullet.excludes = [self]
 			get_node("/root").add_child(bullet)
 		else:
-			primary += delta*10
+			if primary < 100:
+				primary+= delta*10
 			overheat = true
 	else:
-		primary += delta*10
+		if primary < 100:
+			primary+= delta*10
 		#$UVBeam.visible = false
 	
 	if primary > 99:
