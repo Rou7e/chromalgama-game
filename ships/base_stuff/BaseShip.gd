@@ -6,9 +6,12 @@ export(float) var turn_speed = 90
 export(float) var acceleration = 200
 export(float) var max_speed = 250
 
+export(float) var primary_proj_speed = 1000
+export(float) var primary_damage = 10
+
 var cooling = 100
 var primary = 100
-var secondary = 100
+var secondary = 4
 var turret = 100
 var crew = 4
 
@@ -17,15 +20,16 @@ const desc= 'HUMAN PROTECTORATE \nFRIGATE-CLASS\n CARGO SHIP'
 const PrimaryProjectile = preload("res://ships/weapons/PlasmaBullet.tscn")
 const Drone = preload("res://playerSummons/T2BattleDrone.tscn")
 var overheat = false
+var overheat_turret = false
 var secondary_cd = 5
 
 var speed_vector = Vector2.ZERO
 var input_vector = Vector2.ZERO
 
-var is_shooting = false
-var is_shooting_primary = false
-var using_ability = false
-var is_boarding
+var is_shooting = 0
+var is_shooting_primary = 0
+var using_ability = 0
+var is_boarding = 0
 
 func _ready():
 	pass
@@ -53,16 +57,25 @@ func _physics_process(delta):
 	if speed_vector.length() > max_speed:
 		speed_vector = speed_vector.normalized() * max_speed
 	
-	if is_shooting:
+	if is_shooting and turret > 0 and overheat_turret==false:
+		turret -= 1
 		propagate_call("shoot", [[self]])
-		
+		if turret < 1:
+			overheat_turret = true
+	if turret == 100:
+		overheat_turret = false
+
+	
 func _process(delta):
 	if is_shooting_primary and overheat == false:
 		if primary > 0:
 			primary -= delta*30
-			var plasmaball = PrimaryProjectile.instance()
-			plasmaball.global_position = self.global_position
-			get_parent().add_child(plasmaball)
+			var bullet = PrimaryProjectile.instance()
+			bullet.velocity = Vector2(primary_proj_speed, 0).rotated(global_rotation)
+			bullet.global_position = global_position
+			bullet.damage = primary_damage
+			bullet.excludes = [self]
+			get_node("/root").add_child(bullet)
 		else:
 			primary += delta*10
 			overheat = true
@@ -70,18 +83,22 @@ func _process(delta):
 		primary += delta*10
 		#$UVBeam.visible = false
 	
-	if primary == 100:
+	if primary > 99:
 		overheat=false
-
-	if using_ability==true and secondary > 0 and secondary_cd>5:
+	if primary < 100:
+		primary+= delta*10
+	
+	if using_ability and secondary > 0 and secondary_cd>5:
 		secondary -= 1
 		secondary_cd = 0
 		var drone = Drone.instance()
 		drone.global_position = self.global_position
-		get_parent().add_child(drone)
+		get_node("/root").add_child(drone)
 	else:
 		secondary_cd += delta
-		
+	
+	if turret < 100:
+		turret+= delta*10
 
 
 func _receive_damage(amount):
