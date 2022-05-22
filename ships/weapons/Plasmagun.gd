@@ -28,11 +28,18 @@ func shoot(excludes):
 	var time_per_shot = 60/fire_rate
 	var times_fired_this_tick = 0
 	while recharge_time < 0:
-		var bullet = BULLET.instance()
-		bullet.velocity = Vector2(bullet_speed, 0).rotated(global_rotation)
-		bullet.global_position = global_position + times_fired_this_tick * time_per_shot * bullet.velocity
-		bullet.damage = bullet_damage
-		bullet.excludes = excludes
-		get_node("/root").add_child(bullet)
+		var vel = Vector2(bullet_speed, 0).rotated(global_rotation)
+		var pos = global_position + times_fired_this_tick * time_per_shot * vel
+		rpc("spawn_bullet", pos, vel, excludes, bullet_damage)
 		recharge_time += time_per_shot
 		times_fired_this_tick += 1
+		
+
+remotesync func spawn_bullet(position, velocity, excludes, damage):
+	var bullet = BULLET.instance()
+	bullet.velocity = velocity
+	bullet.global_position = position
+	bullet.damage = damage
+	bullet.excludes = excludes
+	get_node("/root").add_child(bullet)
+	

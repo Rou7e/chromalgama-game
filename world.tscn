@@ -44,8 +44,9 @@ position = Vector2( 641, 355 )
 shape = SubResource( 4 )
 
 [node name="bg" type="Sprite" parent="."]
-position = Vector2( 666, 341.5 )
+position = Vector2( 670, 341 )
 scale = Vector2( 0.518519, 0.526185 )
+z_index = -2
 texture = ExtResource( 1 )
 
 [node name="SpawnPoints" type="Node2D" parent="."]

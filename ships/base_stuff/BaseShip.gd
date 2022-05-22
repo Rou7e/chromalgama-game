@@ -31,6 +31,8 @@ var is_shooting_primary = 0
 var using_ability = 0
 var is_boarding = 0
 
+var id = "_no_id"
+
 func _ready():
 	pass
 
@@ -46,10 +48,14 @@ func set_primary(val):
 func set_boarding(val):
 	is_boarding = val
 
+var target_position = Vector2.ZERO
+
 func set_target_position(position):
-	propagate_call("target", [position])
+	target_position = position
 
 func _physics_process(delta):
+	propagate_call("target", [target_position])
+	
 	global_rotation_degrees += input_vector.x*turn_speed*delta
 	speed_vector = speed_vector * inertia_factor + (Vector2(input_vector.y, 0)*acceleration*delta).rotated(global_rotation)
 	global_position += speed_vector*delta
@@ -59,7 +65,7 @@ func _physics_process(delta):
 	
 	if is_shooting and turret > 0 and overheat_turret==false:
 		turret -= 1
-		propagate_call("shoot", [[self]])
+		propagate_call("shoot", [[id]])
 		if turret < 1:
 			overheat_turret = true
 	if turret == 100:
@@ -106,11 +112,10 @@ func _process(delta):
 		send_sync_info()
 
 
-func _receive_damage(amount):
-	print("Damaged by ", amount)
+remotesync func receive_damage(amount):
 	cooling-=10
-	if cooling == 0:
-		queue_free()
+	#if cooling == 0:
+	#	queue_free()
 	#queue_free()
 
 
@@ -131,11 +136,12 @@ func _on_BaseShip_area_entered(area):
 	pass # Replace with function body.
 
 func send_sync_info():
-	rpc_unreliable("recv_sync_info", global_position, global_rotation, speed_vector)
+	rpc_unreliable("recv_sync_info", global_position, global_rotation, speed_vector, target_position)
 
-puppet func recv_sync_info(position, rotation, velocity):
+puppet func recv_sync_info(position, rotation, velocity, target_position):
 	global_position = position
 	global_rotation = rotation
 	speed_vector = velocity
+	set_target_position(target_position)
 	
 	

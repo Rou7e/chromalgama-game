@@ -16,9 +16,9 @@ func _physics_process(delta):
 
 
 func _area_entered(area):
-	if excludes.has(area):
+	if excludes.has(area.get("id")):
 		return
-	if area.has_method("_receive_damage"):
-		area._receive_damage(damage)
+	if area.has_method("receive_damage"):
+		area.rpc("receive_damage", damage)
 		queue_free()
 		

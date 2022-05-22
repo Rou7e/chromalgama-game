@@ -13,6 +13,8 @@ func _ready():
 	$Camera2D.current = is_network_master()
 	$Camera2D.visible = is_network_master()
 	
+	$BaseShip.id = "PC"+str(get_network_master())
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -22,6 +24,11 @@ func _process(delta):
 	$Camera2D/Player_UI/PRIMARY.value = $BaseShip.primary
 	$Camera2D/Player_UI/SECONDARY.value = $BaseShip.secondary
 	$Camera2D/Player_UI/TURRET.value = $BaseShip.turret
+
+func _physics_process(delta):
+	if self.is_network_master():
+		var ship = get_node("BaseShip")
+		ship.set_target_position(get_global_mouse_position())
 
 func _input(event):
 	if not self.is_network_master():
@@ -38,7 +45,7 @@ func _input(event):
 	ship.set_primary(Input.get_action_strength("primary_shoot"))
 	ship.set_boarding(Input.get_action_strength("act_board"))
 	
-	ship.set_target_position(get_global_mouse_position())
+	
 
 func set_player_name(new_name):
 	$Camera2D.get_node("label").set_text(new_name)

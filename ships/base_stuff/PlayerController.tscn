@@ -102,9 +102,6 @@ margin_top = -360.0
 margin_right = 640.0
 margin_bottom = -100.0
 theme = SubResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label5" type="Label" parent="Camera2D/ENEMY_UI"]
 margin_right = 160.0
