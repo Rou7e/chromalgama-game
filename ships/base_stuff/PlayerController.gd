@@ -28,6 +28,10 @@ func _input(event):
 	ship.set_input_vector(input_vector)
 	
 	ship.set_shooting(Input.get_action_strength("shoot"))
+	ship.set_ability(Input.get_action_strength("ability"))
+	ship.set_primary(Input.get_action_strength("primary_shoot"))
+	ship.set_boarding(Input.get_action_strength("act_board"))
+	
 	ship.set_target_position(get_global_mouse_position())
 
 func set_player_name(new_name):

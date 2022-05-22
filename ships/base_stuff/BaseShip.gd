@@ -12,9 +12,10 @@ var secondary = 100
 var turret = 100
 var crew = 4
 
-var desc= 'HUMAN PROTECTORATE \nFRIGATE-CLASS\n CARGO SHIP'
+const desc= 'HUMAN PROTECTORATE \nFRIGATE-CLASS\n CARGO SHIP'
 
-var Drone = preload("res://playerSummons/T2BattleDrone.tscn")
+const PrimaryProjectile = preload("res://ships/weapons/PlasmaBullet.tscn")
+const Drone = preload("res://playerSummons/T2BattleDrone.tscn")
 var overheat = false
 var secondary_cd = 5
 
@@ -24,6 +25,7 @@ var input_vector = Vector2.ZERO
 var is_shooting = false
 var is_shooting_primary = false
 var using_ability = false
+var is_boarding
 
 func _ready():
 	pass
@@ -33,6 +35,12 @@ func set_input_vector(vector):
 	
 func set_shooting(val):
 	is_shooting = val
+func set_ability(val):
+	using_ability = val
+func set_primary(val):
+	is_shooting_primary = val
+func set_boarding(val):
+	is_boarding = val
 
 func set_target_position(position):
 	propagate_call("target", [position])
@@ -52,10 +60,11 @@ func _process(delta):
 	if is_shooting_primary and overheat == false:
 		if primary > 0:
 			primary -= delta*30
-			#$UVBeam.visible = true
+			var plasmaball = PrimaryProjectile.instance()
+			plasmaball.global_position = self.global_position
+			get_parent().add_child(plasmaball)
 		else:
 			primary += delta*10
-			#$UVBeam.visible = false
 			overheat = true
 	else:
 		primary += delta*10
