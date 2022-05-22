@@ -9,17 +9,17 @@ func _ready():
 		add_child(load("res://ships/Cargo.tscn").instance())
 	if gamestate.selected_ship == 1:
 		add_child(load("res://ships/tellurian_ships/tel_t4.tscn").instance())
-	$Camera2D/Player_UI/HEAT.max_value = $BaseShip.cooling
-	$Camera2D/Player_UI/CREW.max_value = $BaseShip.crew
-	$Camera2D/Player_UI/PRIMARY.max_value = $BaseShip.primary
-	$Camera2D/Player_UI/SECONDARY.max_value = $BaseShip.secondary
-	$Camera2D/Player_UI/TURRET.max_value = $BaseShip.turret
+	$Camera2D/Player_UI/HEAT.max_value = get_child(1).cooling
+	$Camera2D/Player_UI/CREW.max_value = get_child(1).crew
+	$Camera2D/Player_UI/PRIMARY.max_value = get_child(1).primary
+	$Camera2D/Player_UI/SECONDARY.max_value = get_child(1).secondary
+	$Camera2D/Player_UI/TURRET.max_value = get_child(1).turret
 	
 	$Camera2D.current = is_network_master()
 	$Camera2D.visible = is_network_master()
 	
 
-	$BaseShip.id = "PC"+str(get_network_master())
+	get_child(1).id = "PC"+str(get_network_master())
 	
 
 	for i in range(get_parent().get_child_count()):
@@ -32,12 +32,12 @@ func _ready():
 func _process(delta):
 	var mark = mark_friend.instance()
 	
-	$Camera2D.global_position = $BaseShip.global_position
-	$Camera2D/Player_UI/HEAT.value = $BaseShip.cooling
-	$Camera2D/Player_UI/CREW.value = $BaseShip.crew
-	$Camera2D/Player_UI/PRIMARY.value = $BaseShip.primary
-	$Camera2D/Player_UI/SECONDARY.value = $BaseShip.secondary
-	$Camera2D/Player_UI/TURRET.value = $BaseShip.turret
+	$Camera2D.global_position = get_child(1).global_position
+	$Camera2D/Player_UI/HEAT.value = get_child(1).cooling
+	$Camera2D/Player_UI/CREW.value = get_child(1).crew
+	$Camera2D/Player_UI/PRIMARY.value = get_child(1).primary
+	$Camera2D/Player_UI/SECONDARY.value = get_child(1).secondary
+	$Camera2D/Player_UI/TURRET.value = get_child(1).turret
 	for i in range($Camera2D/Sprite.get_child_count()):
 		$Camera2D/Sprite.remove_child($Camera2D/Sprite.get_child(i))
 	for i in range(get_parent().get_child_count()):

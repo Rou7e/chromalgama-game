@@ -88,8 +88,6 @@ remote func pre_start_game(spawn_points):
 		var spawn_pos = world.get_node("SpawnPoints/" + str(spawn_points[p_id])).position
 		var player = player_scene.instance()
 		
-
-		
 		player.set_name(str(p_id)) # Use unique ID as node name.
 		player.position=spawn_pos
 		player.set_network_master(p_id) #set unique id as master.
