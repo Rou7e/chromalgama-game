@@ -90,6 +90,8 @@ remote func pre_start_game(spawn_points):
 		
 		if selected_ship == 0:
 			player.add_child(load("res://ships/Cargo.tscn").instance())
+		if selected_ship == 1:
+			player.add_child(load("res://ships/tellurian_ships/tel_t4.tscn").instance())
 		
 		player.set_name(str(p_id)) # Use unique ID as node name.
 		player.position=spawn_pos
