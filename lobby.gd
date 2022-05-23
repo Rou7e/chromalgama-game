@@ -9,7 +9,7 @@ func _ready():
 	gamestate.connect("game_error", self, "_on_game_error")
 	
 	$Connect/ItemList.add_item("TST Cargo Ship")
-	
+	$Connect/ItemList.add_item("T4 Tellurian Ship")
 	
 	
 	# Set the player name according to the system username. Fallback to the path.
@@ -34,8 +34,8 @@ func _on_host_pressed():
 	$Connect/ErrorLabel.text = ""
 
 	var player_name = $Connect/Name.text
-	gamestate.host_game(player_name)
-	
+	gamestate.host_game(player_name, $Connect/ItemList.get_selected_items()[0])
+	#gamestate.selected_ships.append($Connect/ItemList.get_selected_items()[0])
 	refresh_lobby()
 
 
@@ -58,12 +58,13 @@ func _on_join_pressed():
 	$Connect/Join.disabled = true
 
 	var player_name = $Connect/Name.text
-	gamestate.join_game(ip, player_name)
+	gamestate.join_game(ip, player_name, $Connect/ItemList.get_selected_items()[0])
 
 
 func _on_connection_success():
 	$Connect.hide()
 	$Players.show()
+	#gamestate.selected_ships.append($Connect/ItemList.get_selected_items()[0])
 
 
 func _on_connection_failed():
@@ -99,7 +100,7 @@ func refresh_lobby():
 
 
 func _on_start_pressed():
-	gamestate.selected_ship = $Connect/ItemList.get_selected_items()[0]
+	
 	gamestate.begin_game()
 
 

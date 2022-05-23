@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ships/base_stuff/BaseShip.gd"
 }, {
+"base": "Node2D",
+"class": "Microwave",
+"language": "GDScript",
+"path": "res://ships/tellurian_ships/microwave.gd"
+}, {
 "base": "Area2D",
 "class": "PlasmaBullet",
 "language": "GDScript",
@@ -23,11 +28,18 @@ _global_script_classes=[ {
 "class": "Plasmagun",
 "language": "GDScript",
 "path": "res://ships/weapons/Plasmagun.gd"
+}, {
+"base": "Area2D",
+"class": "tel_t4",
+"language": "GDScript",
+"path": "res://ships/tellurian_ships/tel_t4.gd"
 } ]
 _global_script_class_icons={
 "BaseShip": "",
+"Microwave": "",
 "PlasmaBullet": "",
-"Plasmagun": ""
+"Plasmagun": "",
+"tel_t4": ""
 }
 
 [application]

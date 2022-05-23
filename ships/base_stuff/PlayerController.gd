@@ -4,14 +4,14 @@ var input_vector = Vector2.ZERO
 const mark_friend = preload("res://projectiles/mark_friendly.tscn")
 const cargo = preload("res://ships/Cargo.tscn")
 const tel_t4 = preload("res://ships/tellurian_ships/tel_t4.tscn")
-
+var selected_ship
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var mark = mark_friend.instance()
-	if gamestate.selected_ship == 0:
+	if selected_ship == 0:
 		add_child(cargo.instance())
-	if gamestate.selected_ship == 1:
+	if selected_ship == 1:
 		add_child(tel_t4.instance())
 	$Camera2D/Player_UI/HEAT.max_value = get_child(1).cooling
 	$Camera2D/Player_UI/CREW.max_value = get_child(1).crew
@@ -27,8 +27,8 @@ func _ready():
 	
 
 	for i in range(get_parent().get_child_count()):
-		mark.global_position.x = get_parent().get_child(i).global_position.x/9.11
-		mark.global_position.y = get_parent().get_child(i).global_position.y/8.1
+		mark.global_position.x = (get_parent().get_child(i).get_child(1).global_position.x+1200)/9.11
+		mark.global_position.y = (get_parent().get_child(i).get_child(1).global_position.y+2300)/8.1
 		$Camera2D/Sprite.add_child(mark)
 
 
@@ -45,8 +45,8 @@ func _process(delta):
 	for i in range($Camera2D/Sprite.get_child_count()):
 		$Camera2D/Sprite.remove_child($Camera2D/Sprite.get_child(i))
 	for i in range(get_parent().get_child_count()):
-		mark.global_position.x = get_parent().get_child(i).get_child(1).global_position.x/9.11
-		mark.global_position.y = get_parent().get_child(i).get_child(1).global_position.y/8.1
+		mark.global_position.x = (get_parent().get_child(i).get_child(1).global_position.x-2300)/9.11
+		mark.global_position.y = (get_parent().get_child(i).get_child(1).global_position.y-1200)/8.1
 		$Camera2D/Sprite.add_child(mark)
 
 func _physics_process(delta):

@@ -12,12 +12,12 @@ var peer = null
 
 # Name for my player.
 var player_name = "The Warrior"
-
+var selected_ship
 # Names for remote players in id:name format.
 var players = {}
 var players_ready = []
+var selected_ships = {}
 
-var selected_ship
 
 # Signals to let lobby GUI know what's going on.
 signal player_list_changed()
@@ -29,7 +29,8 @@ signal game_error(what)
 # Callback from SceneTree.
 func _player_connected(id):
 	# Registration of a client beings here, tell the connected player that we are here.
-	rpc_id(id, "register_player", player_name)
+	rpc_id(id, "register_player", player_name, selected_ship)
+	
 
 
 # Callback from SceneTree.
@@ -63,15 +64,17 @@ func _connected_fail():
 
 # Lobby management functions.
 
-remote func register_player(new_player_name):
+remote func register_player(new_player_name, selected_ship):
 	var id = get_tree().get_rpc_sender_id()
 	print(id)
 	players[id] = new_player_name
+	selected_ships[id] = selected_ship
 	emit_signal("player_list_changed")
 
 
 func unregister_player(id):
 	players.erase(id)
+	selected_ships.erase(id)
 	emit_signal("player_list_changed")
 
 
@@ -83,7 +86,6 @@ remote func pre_start_game(spawn_points):
 	get_tree().get_root().get_node("Lobby").hide()
 
 	var player_scene = load("res://ships/base_stuff/PlayerController.tscn")
-
 	for p_id in spawn_points:
 		var spawn_pos = world.get_node("SpawnPoints/" + str(spawn_points[p_id])).position
 		var player = player_scene.instance()
@@ -91,14 +93,17 @@ remote func pre_start_game(spawn_points):
 		player.set_name(str(p_id)) # Use unique ID as node name.
 		player.position=spawn_pos
 		player.set_network_master(p_id) #set unique id as master.
-
+		
+		
 		if p_id == get_tree().get_network_unique_id():
 			# If node for this peer id, set name.
 			player.set_player_name(player_name)
+			player.selected_ship = selected_ship
 		else:
 			# Otherwise set name from peer.
 			player.set_player_name(players[p_id])
-
+			player.selected_ship = selected_ships[p_id]
+			
 		world.get_node("Players").add_child(player)
 
 	# Set up score.
@@ -129,15 +134,17 @@ remote func ready_to_start(id):
 		post_start_game()
 
 
-func host_game(new_player_name):
+func host_game(new_player_name, selected_ship_host):
 	player_name = new_player_name
+	selected_ship=selected_ship_host
 	peer = NetworkedMultiplayerENet.new()
 	peer.create_server(DEFAULT_PORT, MAX_PEERS)
 	get_tree().set_network_peer(peer)
 
 
-func join_game(ip, new_player_name):
+func join_game(ip, new_player_name, selected_ship_client):
 	player_name = new_player_name
+	selected_ship = selected_ship_client
 	peer = NetworkedMultiplayerENet.new()
 	peer.create_client(ip, DEFAULT_PORT)
 	get_tree().set_network_peer(peer)

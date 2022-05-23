@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://resources/placeholder_ships/tel_t4.png" type="Texture" id=1]
-[ext_resource path="res://ships/base_stuff/BaseShip.gd" type="Script" id=2]
+[ext_resource path="res://ships/tellurian_ships/tel_t4.gd" type="Script" id=2]
 [ext_resource path="res://resources/placeholder_turrets/microwave.png" type="Texture" id=3]
-[ext_resource path="res://ships/weapons/Plasmagun.gd" type="Script" id=4]
+[ext_resource path="res://ships/tellurian_ships/microwave.gd" type="Script" id=4]
 [ext_resource path="res://resources/projectiles/microwave/2.png" type="Texture" id=5]
 [ext_resource path="res://resources/projectiles/microwave/3.png" type="Texture" id=6]
 [ext_resource path="res://resources/projectiles/microwave/4.png" type="Texture" id=7]
@@ -52,7 +52,6 @@ scale = Vector2( 0.122224, 0.122422 )
 texture = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="Plasmagun/FusionGuardianWeapon"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plasmagun/FusionGuardianWeapon/Area2D"]
 shape = SubResource( 2 )
@@ -62,7 +61,7 @@ position = Vector2( 16.3594, -898.517 )
 rotation = -0.00816354
 scale = Vector2( 1.63635, 1.63369 )
 frames = SubResource( 3 )
-frame = 4
+frame = 6
 playing = true
 
 [connection signal="area_entered" from="." to="." method="_on_BaseShip_area_entered"]
