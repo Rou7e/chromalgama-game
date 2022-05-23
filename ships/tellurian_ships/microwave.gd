@@ -24,14 +24,11 @@ func _physics_process(delta):
 	if recharge_time >= 0:
 		recharge_time -= delta
 	
-	if shoot_time > 1:
+	if shoot_time > 0.05:
 		is_shooting = false
 	
 	if is_shooting:
-		$FusionGuardianWeapon/Area2D/AnimatedSprite.visible=true
 		shoot_time+=delta
-	else:
-		$FusionGuardianWeapon/Area2D/AnimatedSprite.visible=false
 
 func target(position):
 	target_position = position
@@ -40,6 +37,7 @@ func shoot(excludes):
 	var time_per_shot = 60/fire_rate
 	var times_fired_this_tick = 0
 	is_shooting = true
+	shoot_time = 0
 	while recharge_time < 0:
 
 		#var vel = Vector2(bullet_speed, 0).rotated(global_rotation)
@@ -54,11 +52,12 @@ func shoot(excludes):
 		#get_node("/root").add_child(bullet)
 #		FusionGuardianWeapon/Area2D.disabled=false
 		
-
+		$FusionGuardianWeapon/Area2D/AnimatedSprite.set_frame(0)
 		recharge_time += time_per_shot
 		times_fired_this_tick += 1
 
 
+		
 #remotesync func spawn_bullet(position, velocity, excludes, damage):
 	#var bullet = BULLET.instance()
 	#bullet.velocity = velocity
@@ -67,3 +66,11 @@ func shoot(excludes):
 	#bullet.excludes = excludes
 	#get_node("/root").add_child(bullet)
 	
+
+
+func _on_Area2D_area_entered(area):
+	
+	if area==get_parent():
+		return
+	if area.has_method("receive_damage") and is_shooting:
+		area.rpc("receive_damage", 0.1)

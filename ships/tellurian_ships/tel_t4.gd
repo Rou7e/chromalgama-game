@@ -11,11 +11,11 @@ export(float) var primary_damage = 10
 
 var cooling = 100
 var primary = 100
-var secondary = 4
+var secondary = 2
 var turret = 100
 var crew = 4
 
-const desc= 'HUMAN PROTECTORATE \nFRIGATE-CLASS\n CARGO SHIP'
+const desc= 'FREE CONVENTION \nCORVETTE-CLASS\n REVENANT'
 
 const PrimaryProjectile = preload("res://projectiles/UVBeam.tscn")
 const Drone = preload("res://playerSummons/T2BattleDrone.tscn")
@@ -56,9 +56,13 @@ func set_target_position(position):
 func _physics_process(delta):
 	propagate_call("target", [target_position])
 	
+	#global_rotation_degrees += input_vector.x*turn_speed*delta
+	#speed_vector = speed_vector * inertia_factor + (Vector2(input_vector.y, 0)*acceleration*delta).rotated(global_rotation)
 	global_rotation_degrees += input_vector.x*turn_speed*delta
-	speed_vector = speed_vector * inertia_factor + (Vector2(input_vector.y, 0)*acceleration*delta).rotated(global_rotation)
-	global_position += speed_vector*delta
+	speed_vector.x = -cos(global_rotation)*input_vector.y*acceleration*50*delta
+	speed_vector.y = sin(global_rotation)*input_vector.y*acceleration*50*delta
+	global_position.x -= speed_vector.x*delta
+	global_position.y += speed_vector.y*delta
 	
 	if speed_vector.length() > max_speed:
 		speed_vector = speed_vector.normalized() * max_speed
@@ -75,11 +79,11 @@ func _physics_process(delta):
 func _process(delta):
 	if is_shooting_primary and overheat == false:
 		if primary > 0:
-			primary -= delta*30
+			primary -= delta*60
 			var bullet = PrimaryProjectile.instance()
 			bullet.velocity = Vector2(primary_proj_speed, 0).rotated(global_rotation)
-			bullet.global_position.x = global_position.x
-			bullet.global_position.y = global_position.y
+			bullet.global_position.x = $BeamSpawn.global_position.x
+			bullet.global_position.y = $BeamSpawn.global_position.y
 			bullet.global_rotation = global_rotation
 			bullet.damage = primary_damage
 			bullet.excludes = [self]
@@ -124,15 +128,15 @@ func _on_BaseShip_area_entered(area):
 
 	if area.name == "Area2D":
 		speed_vector.y=0
-		speed_vector.x=100
+		global_position.x+=10
 	if area.name == "Area2D3":
 		speed_vector.y=0
-		speed_vector.x=-100
+		global_position.x+=-10
 	if area.name == "Area2D4":
-		speed_vector.y=-100
+		global_position.y+=-10
 		speed_vector.x=0
 	if area.name == "Area2D2":
-		speed_vector.y=100
+		global_position.y+=10
 		speed_vector.x=0
 	pass # Replace with function body.
 

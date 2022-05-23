@@ -26,9 +26,9 @@ __meta__ = {
 [node name="Label5" type="Label" parent="Camera2D/Player_UI"]
 margin_right = 160.0
 margin_bottom = 65.0
-text = "HUMAN PROTECTORATE
-FRIGATE-CLASS
-CARGO HAULER
+text = "<UNDEFINED>
+<UNDEFINED>
+<UNDEFINED>
 "
 
 [node name="Label" type="Label" parent="Camera2D/Player_UI"]

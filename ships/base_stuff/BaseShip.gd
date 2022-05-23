@@ -34,6 +34,7 @@ var is_boarding = 0
 var id = "_no_id"
 
 func _ready():
+	set_network_master(get_parent().get_network_master())
 	pass
 
 func set_input_vector(vector):

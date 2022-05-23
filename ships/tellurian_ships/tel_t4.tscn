@@ -23,7 +23,7 @@ points = PoolVector2Array( 0, -80, -400, -1500, 400, -1500 )
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 10 ) ],
-"loop": true,
+"loop": false,
 "name": "default",
 "speed": 30.0
 } ]
@@ -61,7 +61,11 @@ position = Vector2( 16.3594, -898.517 )
 rotation = -0.00816354
 scale = Vector2( 1.63635, 1.63369 )
 frames = SubResource( 3 )
-frame = 6
+frame = 7
 playing = true
 
+[node name="BeamSpawn" type="Position2D" parent="."]
+position = Vector2( -84, 25 )
+
 [connection signal="area_entered" from="." to="." method="_on_BaseShip_area_entered"]
+[connection signal="area_entered" from="Plasmagun/FusionGuardianWeapon/Area2D" to="Plasmagun" method="_on_Area2D_area_entered"]
