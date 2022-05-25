@@ -25,10 +25,9 @@ func _ready():
 	$Camera2D.scale.x = 0.5/get_child(1).scale.x
 	$Camera2D.scale.y = 0.5/get_child(1).scale.y
 	$Camera2D/Player_UI/HEAT.max_value = get_child(1).cooling
-	$Camera2D/Player_UI/CREW.max_value = get_child(1).crew
-	$Camera2D/Player_UI/PRIMARY.max_value = get_child(1).primary
-	$Camera2D/Player_UI/SECONDARY.max_value = get_child(1).secondary
-	$Camera2D/Player_UI/TURRET.max_value = get_child(1).turret
+	$Camera2D/Player_UI/PRIMARY.max_value = $BaseShip.charge_states["primary"].charge
+	$Camera2D/Player_UI/TURRET.max_value = $BaseShip.charge_states["secondary"].charge
+	$Camera2D/Player_UI/SECONDARY.max_value = $BaseShip.charge_states["ability"].charge
 	
 	$Camera2D.current = is_network_master()
 	$Camera2D.visible = is_network_master()
