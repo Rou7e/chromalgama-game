@@ -11,6 +11,8 @@
 script = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2( 2, 2 )
+zoom = Vector2( 2, 2 )
 
 [node name="Player_UI" type="VBoxContainer" parent="Camera2D"]
 margin_left = -640.0
