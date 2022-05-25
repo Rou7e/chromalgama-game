@@ -6,6 +6,8 @@ const mark_enemy = preload("res://projectiles/mark_enemy.tscn")
 const mark_cursor = preload("res://projectiles/mark_cursor.tscn")
 const cargo = preload("res://ships/selenite_ships/Cargo.tscn")
 const tel_t4 = preload("res://ships/tellurian_ships/tel_t4.tscn")
+const tel_t2 = preload("res://ships/tellurian_ships/tel_t2.tscn")
+
 var selected_ship
 
 # Called when the node enters the scene tree for the first time.
@@ -15,11 +17,18 @@ func _ready():
 		add_child(cargo.instance())
 	if selected_ship == 1:
 		add_child(tel_t4.instance())
-	$Camera2D/Player_UI/HEAT.max_value = $BaseShip.cooling
-	#$Camera2D/Player_UI/CREW.max_value = $BaseShip.crew
-	$Camera2D/Player_UI/PRIMARY.max_value = $BaseShip.charge_states["primary"].charge
-	$Camera2D/Player_UI/TURRET.max_value = $BaseShip.charge_states["secondary"].charge
-	$Camera2D/Player_UI/SECONDARY.max_value = $BaseShip.charge_states["ability"].charge
+	if selected_ship == 2:
+		add_child(tel_t2.instance())
+
+	$Camera2D.zoom.x = 0.5/get_child(1).scale.x
+	$Camera2D.zoom.y = 0.5/get_child(1).scale.y
+	$Camera2D.scale.x = 0.5/get_child(1).scale.x
+	$Camera2D.scale.y = 0.5/get_child(1).scale.y
+	$Camera2D/Player_UI/HEAT.max_value = get_child(1).cooling
+	$Camera2D/Player_UI/CREW.max_value = get_child(1).crew
+	$Camera2D/Player_UI/PRIMARY.max_value = get_child(1).primary
+	$Camera2D/Player_UI/SECONDARY.max_value = get_child(1).secondary
+	$Camera2D/Player_UI/TURRET.max_value = get_child(1).turret
 	
 	$Camera2D.current = is_network_master()
 	$Camera2D.visible = is_network_master()

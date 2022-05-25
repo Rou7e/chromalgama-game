@@ -10,7 +10,7 @@ func _ready():
 	
 	$Connect/ItemList.add_item("TST Cargo Ship")
 	$Connect/ItemList.add_item("T4 Tellurian Ship")
-	
+	$Connect/ItemList.add_item("T2 Tellurian Ship")
 	
 	# Set the player name according to the system username. Fallback to the path.
 	#if OS.has_environment("USERNAME"):

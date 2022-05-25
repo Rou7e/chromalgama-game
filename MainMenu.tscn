@@ -1,7 +1,7 @@
 [gd_scene load_steps=128 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://menus/MenuBg.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MainMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://resources/ui/menu_theme.tres" type="Theme" id=3]
 [ext_resource path="res://resources/ui/menu_bg.png" type="Texture" id=4]
 [ext_resource path="res://resources/ui/logo_menu.png" type="Texture" id=5]
@@ -126,6 +126,7 @@
 [ext_resource path="res://resources/ui/earth_anim/11zon_21.jpeg" type="Texture" id=124]
 [ext_resource path="res://resources/ui/earth_anim/11zon_11.jpeg" type="Texture" id=125]
 [ext_resource path="res://resources/fonts/header.tres" type="DynamicFont" id=126]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
