@@ -4,7 +4,7 @@ var input_vector = Vector2.ZERO
 const mark_friend = preload("res://projectiles/mark_friendly.tscn")
 const mark_enemy = preload("res://projectiles/mark_enemy.tscn")
 const mark_cursor = preload("res://projectiles/mark_cursor.tscn")
-const cargo = preload("res://ships/Cargo.tscn")
+const cargo = preload("res://ships/selenite_ships/Cargo.tscn")
 const tel_t4 = preload("res://ships/tellurian_ships/tel_t4.tscn")
 var selected_ship
 
@@ -15,23 +15,23 @@ func _ready():
 		add_child(cargo.instance())
 	if selected_ship == 1:
 		add_child(tel_t4.instance())
-	$Camera2D/Player_UI/HEAT.max_value = get_child(1).cooling
-	$Camera2D/Player_UI/CREW.max_value = get_child(1).crew
-	$Camera2D/Player_UI/PRIMARY.max_value = get_child(1).primary
-	$Camera2D/Player_UI/SECONDARY.max_value = get_child(1).secondary
-	$Camera2D/Player_UI/TURRET.max_value = get_child(1).turret
+	$Camera2D/Player_UI/HEAT.max_value = $BaseShip.cooling
+	#$Camera2D/Player_UI/CREW.max_value = $BaseShip.crew
+	$Camera2D/Player_UI/PRIMARY.max_value = $BaseShip.charge_states["primary"].charge
+	$Camera2D/Player_UI/TURRET.max_value = $BaseShip.charge_states["secondary"].charge
+	$Camera2D/Player_UI/SECONDARY.max_value = $BaseShip.charge_states["ability"].charge
 	
 	$Camera2D.current = is_network_master()
 	$Camera2D.visible = is_network_master()
 	
 
-	get_child(1).id = "PC"+str(get_network_master())
-	mark.global_position.x = (get_child(1).global_position.x-2300)/9.11
-	mark.global_position.y = (get_child(1).global_position.y-1200)/8.1
+	$BaseShip.id = "PC"+str(get_network_master())
+	mark.global_position.x = ($BaseShip.global_position.x-2300)/9.11
+	mark.global_position.y = ($BaseShip.global_position.y-1200)/8.1
 
 	#for i in range(get_parent().get_child_count()):
-	#	mark.global_position.x = (get_parent().get_child(i).get_child(1).global_position.x+1200)/9.11
-	#	mark.global_position.y = (get_parent().get_child(i).get_child(1).global_position.y+2300)/8.1
+	#	mark.global_position.x = (get_parent().get_child(i).$BaseShip.global_position.x+1200)/9.11
+	#	mark.global_position.y = (get_parent().get_child(i).$BaseShip.global_position.y+2300)/8.1
 	#	$Camera2D/Sprite.add_child(mark)
 
 
@@ -39,20 +39,20 @@ func _ready():
 func _process(delta):
 	var mark = mark_friend.instance()
 	
-	$Camera2D.global_position = get_child(1).global_position
-	$Camera2D/Player_UI/Label5.text = get_child(1).desc
-	$Camera2D/Player_UI/HEAT.value = get_child(1).cooling
-	$Camera2D/Player_UI/CREW.value = get_child(1).crew
-	$Camera2D/Player_UI/PRIMARY.value = get_child(1).primary
-	$Camera2D/Player_UI/SECONDARY.value = get_child(1).secondary
-	$Camera2D/Player_UI/TURRET.value = get_child(1).turret
+	$Camera2D.global_position = $BaseShip.global_position
+	$Camera2D/Player_UI/Label5.text = $BaseShip.desc
+	$Camera2D/Player_UI/HEAT.value = $BaseShip.cooling
+	#$Camera2D/Player_UI/CREW.value = $BaseShip.crew
+	$Camera2D/Player_UI/PRIMARY.value = $BaseShip.charge_states["primary"].charge
+	$Camera2D/Player_UI/TURRET.value = $BaseShip.charge_states["secondary"].charge
+	$Camera2D/Player_UI/SECONDARY.value = $BaseShip.charge_states["ability"].charge
 	
 	
 	
 	for i in range($Camera2D/Sprite.get_child_count()):
 		$Camera2D/Sprite.remove_child($Camera2D/Sprite.get_child(i))
-	mark.global_position.x = (get_child(1).global_position.x-2300)/9.11
-	mark.global_position.y = (get_child(1).global_position.y-1200)/8.1
+	mark.global_position.x = ($BaseShip.global_position.x-2300)/9.11
+	mark.global_position.y = ($BaseShip.global_position.y-1200)/8.1
 	$Camera2D/Sprite.add_child(mark)
 	
 	mark = mark_cursor.instance()
@@ -97,7 +97,7 @@ func _input(event):
 	ship.set_shooting(Input.get_action_strength("shoot"))
 	ship.set_ability(Input.get_action_strength("ability"))
 	ship.set_primary(Input.get_action_strength("primary_shoot"))
-	ship.set_boarding(Input.get_action_strength("act_board"))
+	#ship.set_boarding(Input.get_action_strength("act_board"))
 	
 	
 

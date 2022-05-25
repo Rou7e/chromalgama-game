@@ -22,12 +22,12 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "PlasmaBullet",
 "language": "GDScript",
-"path": "res://ships/weapons/PlasmaBullet.gd"
+"path": "res://ships/base_stuff/projectiles/PlasmaBullet.gd"
 }, {
 "base": "Node2D",
 "class": "Plasmagun",
 "language": "GDScript",
-"path": "res://ships/weapons/Plasmagun.gd"
+"path": "res://ships/base_stuff/BaseGun.gd"
 }, {
 "base": "Area2D",
 "class": "tel_t4",
