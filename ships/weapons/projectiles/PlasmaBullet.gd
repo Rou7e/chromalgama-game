@@ -3,6 +3,7 @@ class_name PlasmaBullet
 
 var velocity = Vector2.ZERO;
 var damage = 0;
+var time_to_live = 10
 var excludes = [];
 
 func _ready():
@@ -10,8 +11,8 @@ func _ready():
 	
 func _physics_process(delta):
 	global_position += velocity * delta
-	velocity -= velocity.normalized() * delta * 100
-	if velocity.length_squared() < 1:
+	time_to_live -= delta
+	if time_to_live < 0:
 		queue_free()
 
 

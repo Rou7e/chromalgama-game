@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "BaseGun",
+"language": "GDScript",
+"path": "res://ships/weapons/BaseGun.gd"
+}, {
 "base": "Area2D",
 "class": "BaseShip",
 "language": "GDScript",
 "path": "res://ships/base_stuff/BaseShip.gd"
+}, {
+"base": "PlasmaBullet",
+"class": "ChargedBullet",
+"language": "GDScript",
+"path": "res://ships/weapons/projectiles/ChargedBullet.gd"
 }, {
 "base": "Node2D",
 "class": "Microwave",
@@ -22,12 +32,12 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "PlasmaBullet",
 "language": "GDScript",
-"path": "res://ships/base_stuff/projectiles/PlasmaBullet.gd"
+"path": "res://ships/weapons/projectiles/PlasmaBullet.gd"
 }, {
-"base": "Node2D",
-"class": "Plasmagun",
+"base": "BaseGun",
+"class": "ProjectileGun",
 "language": "GDScript",
-"path": "res://ships/base_stuff/BaseGun.gd"
+"path": "res://ships/weapons/ProjectileGun.gd"
 }, {
 "base": "Area2D",
 "class": "tel_t4",
@@ -35,10 +45,12 @@ _global_script_classes=[ {
 "path": "res://ships/tellurian_ships/tel_t4.gd"
 } ]
 _global_script_class_icons={
+"BaseGun": "",
 "BaseShip": "",
+"ChargedBullet": "",
 "Microwave": "",
 "PlasmaBullet": "",
-"Plasmagun": "",
+"ProjectileGun": "",
 "tel_t4": ""
 }
 

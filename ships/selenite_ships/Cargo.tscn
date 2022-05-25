@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://playerShips/ship_cargo.png" type="Texture" id=1]
 [ext_resource path="res://ships/base_stuff/BaseShip.gd" type="Script" id=2]
 [ext_resource path="res://ships/weapons/fusion_guardian_weapon.png" type="Texture" id=3]
-[ext_resource path="res://ships/base_stuff/BaseGun.gd" type="Script" id=4]
+[ext_resource path="res://ships/weapons/ProjectileGun.gd" type="Script" id=4]
+[ext_resource path="res://ships/weapons/projectiles/ChargedBullet.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 29.0
@@ -39,6 +40,19 @@ cost = 5.0
 [node name="FusionGuardianWeapon" type="Sprite" parent="Plasmagun2"]
 rotation = 1.5708
 scale = Vector2( 1, -5 )
+texture = ExtResource( 3 )
+
+[node name="ProjectileGun" type="Node2D" parent="."]
+position = Vector2( -20, 0 )
+script = ExtResource( 4 )
+gun_group = "primary"
+turn_speed = 0.5
+bullet_speed = 50.0
+projectile = ExtResource( 5 )
+
+[node name="FusionGuardianWeapon2" type="Sprite" parent="ProjectileGun"]
+rotation = 1.5708
+scale = Vector2( 2, -11 )
 texture = ExtResource( 3 )
 
 [connection signal="area_entered" from="." to="." method="_on_BaseShip_area_entered"]
