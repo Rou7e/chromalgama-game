@@ -23,7 +23,7 @@ points = PoolVector2Array( 0, -80, -400, -1500, 400, -1500 )
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 10 ) ],
-"loop": false,
+"loop": true,
 "name": "default",
 "speed": 30.0
 } ]
@@ -61,7 +61,7 @@ position = Vector2( 16.3594, -898.517 )
 rotation = -0.00816354
 scale = Vector2( 1.63635, 1.63369 )
 frames = SubResource( 3 )
-frame = 7
+frame = 5
 playing = true
 
 [node name="BeamSpawn" type="Position2D" parent="."]

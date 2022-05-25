@@ -6,48 +6,42 @@ export(float) var turn_speed = 90
 export(float) var acceleration = 200
 export(float) var max_speed = 250
 
-export(float) var primary_proj_speed = 12000
-export(float) var primary_damage = 10
-
 var cooling = 100
-var primary = 100
-var secondary = 4
-var turret = 100
-var crew = 4
 
-const desc= 'HUMAN PROTECTORATE \nFRIGATE-CLASS\n CARGO SHIP'
+export var desc = 'HUMAN PROTECTORATE \nFRIGATE-CLASS\n CARGO SHIP'
 
-const PrimaryProjectile = preload("res://projectiles/UVBeam.tscn")
-const Drone = preload("res://playerSummons/T2BattleDrone.tscn")
-var overheat = false
-var overheat_turret = false
-var secondary_cd = 5
+var is_active = {
+	"primary": false,
+	"secondary": false,
+	"ability": false,
+}
+
+class ChargeState:
+	var charge = 100
+	var overheat = 0
+
+var charge_states = {}
+
 
 var speed_vector = Vector2.ZERO
 var input_vector = Vector2.ZERO
-
-var is_shooting = 0
-var is_shooting_primary = 0
-var using_ability = 0
-var is_boarding = 0
 
 var id = "_no_id"
 
 func _ready():
 	set_network_master(get_parent().get_network_master())
-	pass
+	for key in is_active.keys():
+		charge_states[key] = ChargeState.new()
 
 func set_input_vector(vector):
 	input_vector = vector
 	
 func set_shooting(val):
-	is_shooting = val
+	is_active["secondary"] = val
 func set_ability(val):
-	using_ability = val
+	is_active["ability"] = val
 func set_primary(val):
-	is_shooting_primary = val
-func set_boarding(val):
-	is_boarding = val
+	is_active["primary"] = val
 
 var target_position = Vector2.ZERO
 
@@ -64,65 +58,26 @@ func _physics_process(delta):
 	if speed_vector.length() > max_speed:
 		speed_vector = speed_vector.normalized() * max_speed
 	
-	if is_shooting and turret > 0 and overheat_turret==false:
-		turret -= 1
-		propagate_call("shoot", [[id]])
-		if turret < 1:
-			overheat_turret = true
-	if turret > 99:
-		overheat_turret = false
-
+	for key in is_active.keys():
+		if is_active[key]:
+			propagate_call("shoot", [key, charge_states[key], [id]])
 	
-func _process(delta):
-	if is_shooting_primary and overheat == false:
-		if primary > 0:
-			primary -= delta*30
-			var bullet = PrimaryProjectile.instance()
-			bullet.velocity = Vector2(primary_proj_speed, 0).rotated(global_rotation)
-			bullet.global_position.x = global_position.x
-			bullet.global_position.y = global_position.y
-			bullet.global_rotation = global_rotation
-			bullet.damage = primary_damage
-			bullet.excludes = [self]
-			get_node("/root").add_child(bullet)
-		else:
-			if primary < 100:
-				primary+= delta*10
-			overheat = true
-	else:
-		if primary < 100:
-			primary+= delta*10
-		#$UVBeam.visible = false
+	for key in is_active.keys():
+		charge_states[key].charge += delta * 10
 	
-	if primary > 99:
-		overheat=false
-	if primary < 100:
-		primary+= delta*10
 	
-	if using_ability and secondary > 0 and secondary_cd>5:
-		secondary -= 1
-		secondary_cd = 0
-		var drone = Drone.instance()
-		drone.global_position = self.global_position
-		get_node("/root").add_child(drone)
-	else:
-		secondary_cd += delta
-	
-	if turret < 100:
-		turret+= delta*10
+func _process(delta):	
 	if self.is_network_master():
 		send_sync_info()
 
 
 remotesync func receive_damage(amount):
-	cooling-=10
+	cooling -= amount
 	#if cooling == 0:
 	#	queue_free()
 	#queue_free()
 
-
 func _on_BaseShip_area_entered(area):
-
 	if area.name == "Area2D":
 		speed_vector.y=0
 		speed_vector.x=100
@@ -135,11 +90,11 @@ func _on_BaseShip_area_entered(area):
 	if area.name == "Area2D2":
 		speed_vector.y=100
 		speed_vector.x=0
-	pass # Replace with function body.
 
 func send_sync_info():
 	rpc_unreliable("recv_sync_info", global_position, global_rotation, speed_vector, target_position)
 
+# warning-ignore:shadowed_variable
 puppet func recv_sync_info(position, rotation, velocity, target_position):
 	global_position = position
 	global_rotation = rotation
