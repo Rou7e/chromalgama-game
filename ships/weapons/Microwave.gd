@@ -1,11 +1,11 @@
 extends BaseGun
 
-class_name ProjectileGun
+class_name MicrowaveGun
 
-export(float) var bullet_speed = 1000
-export(float) var bullet_damage = 10
+export(float) var bullet_speed = 0
+export(float) var bullet_damage = 4
 
-export var projectile = preload("res://ships/weapons/projectiles/ChargedBullet.tscn")
+export var projectile = preload("res://ships/weapons/projectiles/MicrowaveCone.tscn")
 
 func _ready():
 	pass
@@ -18,7 +18,8 @@ func fire(excludes, subtick_time):
 remotesync func spawn_bullet(position, velocity, excludes, damage):
 	var bullet = projectile.instance()
 	bullet.velocity = velocity
-	bullet.global_position = position
+	bullet.global_position = global_position
+	bullet.global_rotation = global_rotation
 	bullet.damage = damage
 	bullet.excludes = excludes
 	bullet.set("target_position", target_position)

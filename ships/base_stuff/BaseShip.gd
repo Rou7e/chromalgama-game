@@ -34,8 +34,9 @@ func _ready():
 		charge_states[key] = ChargeState.new()
 
 func set_input_vector(vector):
+
 	input_vector = vector
-	
+
 func set_shooting(val):
 	is_active["secondary"] = val
 func set_ability(val):
@@ -49,6 +50,27 @@ func set_target_position(position):
 	target_position = position
 
 func _physics_process(delta):
+	if input_vector.y > 0:
+		for i in $Engines.get_children():
+			i.animation="running"
+	else:
+		for i in $Engines.get_children():
+			i.animation="stopped"
+			
+	if input_vector.x < 0:
+		for i in $LeftThrusters.get_children():
+			i.animation="running"
+	else:
+		for i in $LeftThrusters.get_children():
+			i.animation="default"
+			
+	if input_vector.x > 0:
+		for i in $RightThrusters.get_children():
+			i.animation="running"
+	else:
+		for i in $RightThrusters.get_children():
+			i.animation="default"
+			
 	propagate_call("target", [target_position])
 	
 	global_rotation_degrees += input_vector.x*turn_speed*delta

@@ -20,10 +20,10 @@ func _ready():
 	if selected_ship == 2:
 		add_child(tel_t2.instance())
 
-	$Camera2D.zoom.x = 0.5/get_child(1).scale.x
-	$Camera2D.zoom.y = 0.5/get_child(1).scale.y
-	$Camera2D.scale.x = 0.5/get_child(1).scale.x
-	$Camera2D.scale.y = 0.5/get_child(1).scale.y
+	$Camera2D.zoom.x = 0.5/get_child(1).get_child(0).scale.x
+	$Camera2D.zoom.y = 0.5/get_child(1).get_child(0).scale.y
+	$Camera2D.scale.x = 0.5/get_child(1).get_child(0).scale.x
+	$Camera2D.scale.y = 0.5/get_child(1).get_child(0).scale.y
 	$Camera2D/Player_UI/HEAT.max_value = get_child(1).cooling
 	$Camera2D/Player_UI/PRIMARY.max_value = $BaseShip.charge_states["primary"].charge
 	$Camera2D/Player_UI/TURRET.max_value = $BaseShip.charge_states["secondary"].charge

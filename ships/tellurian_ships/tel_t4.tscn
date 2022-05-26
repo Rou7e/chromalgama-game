@@ -61,7 +61,7 @@ position = Vector2( 16.3594, -898.517 )
 rotation = -0.00816354
 scale = Vector2( 1.63635, 1.63369 )
 frames = SubResource( 3 )
-frame = 5
+frame = 7
 playing = true
 
 [node name="BeamSpawn" type="Position2D" parent="."]

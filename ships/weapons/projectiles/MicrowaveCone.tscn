@@ -1,0 +1,40 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://ships/weapons/projectiles/MicrowaveCone.gd" type="Script" id=1]
+[ext_resource path="res://resources/projectiles/microwave/1.png" type="Texture" id=3]
+[ext_resource path="res://resources/projectiles/microwave/5.png" type="Texture" id=4]
+[ext_resource path="res://resources/projectiles/microwave/4.png" type="Texture" id=5]
+[ext_resource path="res://resources/projectiles/microwave/8.png" type="Texture" id=6]
+[ext_resource path="res://resources/projectiles/microwave/7.png" type="Texture" id=7]
+[ext_resource path="res://resources/projectiles/microwave/6.png" type="Texture" id=8]
+[ext_resource path="res://resources/projectiles/microwave/3.png" type="Texture" id=9]
+[ext_resource path="res://resources/projectiles/microwave/2.png" type="Texture" id=10]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, -400, -1500, 0, -1600, 400, -1500 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 30.0
+} ]
+
+[node name="Node2D" type="Area2D"]
+input_pickable = false
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 873, 19.0002 )
+rotation = 1.5708
+scale = Vector2( 1.63635, 1.63369 )
+frames = SubResource( 2 )
+frame = 7
+playing = true
+
+[connection signal="area_entered" from="." to="." method="_area_entered"]
