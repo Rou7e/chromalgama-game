@@ -1,8 +1,8 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://resources/placeholder_ships/sel_t5.png" type="Texture" id=1]
 [ext_resource path="res://ships/base_stuff/BaseShip.gd" type="Script" id=2]
-[ext_resource path="res://resources/placeholder_turrets/microwave.png" type="Texture" id=3]
+[ext_resource path="res://ships/weapons/ProjectileGun.gd" type="Script" id=3]
 [ext_resource path="res://ships/weapons/UVBeamGun.gd" type="Script" id=4]
 [ext_resource path="res://resources/projectiles/sel_engine/stopped/8.png" type="Texture" id=5]
 [ext_resource path="res://resources/projectiles/sel_engine/stopped/4.png" type="Texture" id=6]
@@ -28,7 +28,9 @@
 [ext_resource path="res://resources/projectiles/turning_thruster/6.png" type="Texture" id=26]
 [ext_resource path="res://resources/projectiles/turning_thruster/5.png" type="Texture" id=27]
 [ext_resource path="res://resources/projectiles/turning_thruster/1.png" type="Texture" id=28]
-[ext_resource path="res://ships/weapons/Microwave.gd" type="Script" id=29]
+[ext_resource path="res://resources/placeholder_turrets/mortar.png" type="Texture" id=29]
+[ext_resource path="res://ships/weapons/projectiles/MRP_shot.tscn" type="PackedScene" id=30]
+[ext_resource path="res://ships/weapons/projectiles/IRBeam.tscn" type="PackedScene" id=31]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 60.9996
@@ -76,18 +78,6 @@ position = Vector2( -2, -18 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="Plasmagun" type="Node2D" parent="."]
-position = Vector2( -70, 40 )
-script = ExtResource( 29 )
-fire_rate = 600.0
-cost = 1.0
-turn_speed = 3.0
-
-[node name="FusionGuardianWeapon" type="Sprite" parent="Plasmagun"]
-rotation = 1.5708
-scale = Vector2( 0.15, 0.15 )
-texture = ExtResource( 3 )
-
 [node name="ProjectileGun" type="Node2D" parent="."]
 position = Vector2( 158, -11 )
 script = ExtResource( 4 )
@@ -95,6 +85,7 @@ gun_group = "primary"
 fire_rate = 2400.0
 cost = 1.0
 turnable = false
+projectile = ExtResource( 31 )
 
 [node name="Engines" type="Node2D" parent="."]
 show_behind_parent = true
@@ -105,7 +96,7 @@ rotation = 1.5708
 scale = Vector2( 0.0209933, 0.0264571 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 5
+frame = 1
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -115,7 +106,7 @@ rotation = 1.5708
 scale = Vector2( 0.0209933, 0.0264571 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -125,7 +116,7 @@ rotation = 1.5708
 scale = Vector2( 0.0385984, 0.0264571 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -135,7 +126,7 @@ rotation = 1.5708
 scale = Vector2( 0.0209933, 0.0264571 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -145,7 +136,7 @@ rotation = 1.5708
 scale = Vector2( 0.0209933, 0.0264571 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -212,5 +203,15 @@ rotation = 1.57079
 scale = Vector2( 0.46, 0.46 )
 frames = SubResource( 3 )
 playing = true
+
+[node name="Plasmagun" type="Node2D" parent="."]
+position = Vector2( -73, 43 )
+script = ExtResource( 3 )
+projectile = ExtResource( 30 )
+
+[node name="FusionGuardianWeapon" type="Sprite" parent="Plasmagun"]
+rotation = 1.5708
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 29 )
 
 [connection signal="area_entered" from="." to="." method="_on_BaseShip_area_entered"]

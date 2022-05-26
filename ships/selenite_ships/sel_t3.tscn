@@ -19,6 +19,7 @@
 [ext_resource path="res://resources/projectiles/sel_engine/stopped/6.png" type="Texture" id=17]
 [ext_resource path="res://resources/projectiles/sel_engine/1.png" type="Texture" id=18]
 [ext_resource path="res://resources/projectiles/sel_engine/7.png" type="Texture" id=19]
+[ext_resource path="res://ships/weapons/projectiles/OpticSteam.tscn" type="PackedScene" id=20]
 [ext_resource path="res://resources/projectiles/turning_thruster/4.png" type="Texture" id=21]
 [ext_resource path="res://resources/projectiles/turning_thruster/8.png" type="Texture" id=22]
 [ext_resource path="res://resources/projectiles/turning_thruster/2.png" type="Texture" id=23]
@@ -27,7 +28,6 @@
 [ext_resource path="res://resources/projectiles/turning_thruster/6.png" type="Texture" id=26]
 [ext_resource path="res://resources/projectiles/turning_thruster/5.png" type="Texture" id=27]
 [ext_resource path="res://resources/projectiles/turning_thruster/1.png" type="Texture" id=28]
-[ext_resource path="res://ships/weapons/projectiles/MoltenNail.tscn" type="PackedScene" id=29]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.9999
@@ -78,25 +78,25 @@ shape = SubResource( 1 )
 position = Vector2( 1, -27 )
 script = ExtResource( 4 )
 gun_group = "primary"
-projectile = ExtResource( 29 )
+projectile = ExtResource( 20 )
 
 [node name="ProjectileGun3" type="Node2D" parent="."]
 position = Vector2( 2, -20 )
 script = ExtResource( 4 )
 gun_group = "primary"
-projectile = ExtResource( 29 )
+projectile = ExtResource( 20 )
 
 [node name="ProjectileGun4" type="Node2D" parent="."]
 position = Vector2( 2, 20 )
 script = ExtResource( 4 )
 gun_group = "primary"
-projectile = ExtResource( 29 )
+projectile = ExtResource( 20 )
 
 [node name="ProjectileGun5" type="Node2D" parent="."]
 position = Vector2( 0, 28 )
 script = ExtResource( 4 )
 gun_group = "primary"
-projectile = ExtResource( 29 )
+projectile = ExtResource( 20 )
 
 [node name="Engines" type="Node2D" parent="."]
 show_behind_parent = true
@@ -107,7 +107,7 @@ rotation = 1.5708
 scale = Vector2( 0.0188565, 0.0171699 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 1
+frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 

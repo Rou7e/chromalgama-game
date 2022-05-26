@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ships/weapons/projectiles/UVBeam.gd" type="Script" id=1]
+[ext_resource path="res://resources/projectiles/ir_beam.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 67.0
+height = 8292.0
+
+[node name="Node2D" type="Area2D"]
+scale = Vector2( 3, 0.2 )
+input_pickable = false
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 4359.42, -36.1528 )
+rotation = 1.5708
+scale = Vector2( 1.98856, 8.69481 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 4198.01, -31.8667 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[connection signal="area_entered" from="." to="." method="_area_entered"]

@@ -1,6 +1,5 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
-[ext_resource path="res://ships/weapons/LightningSphere.gd" type="Script" id=1]
 [ext_resource path="res://ships/base_stuff/BaseShip.gd" type="Script" id=2]
 [ext_resource path="res://resources/projectiles/sel_engine/stopped/8.png" type="Texture" id=3]
 [ext_resource path="res://ships/weapons/ProjectileGun.gd" type="Script" id=4]
@@ -28,7 +27,9 @@
 [ext_resource path="res://resources/projectiles/turning_thruster/6.png" type="Texture" id=26]
 [ext_resource path="res://resources/projectiles/turning_thruster/5.png" type="Texture" id=27]
 [ext_resource path="res://resources/projectiles/turning_thruster/1.png" type="Texture" id=28]
-[ext_resource path="res://ships/weapons/projectiles/MoltenNail.tscn" type="PackedScene" id=29]
+[ext_resource path="res://ships/weapons/projectiles/OpticSteam.tscn" type="PackedScene" id=29]
+[ext_resource path="res://ships/weapons/projectiles/HE_shot.tscn" type="PackedScene" id=30]
+[ext_resource path="res://resources/placeholder_turrets/powder_cannon.png" type="Texture" id=31]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.99998
@@ -78,7 +79,13 @@ shape = SubResource( 1 )
 
 [node name="Plasmagun" type="Node2D" parent="."]
 position = Vector2( -10, 0 )
-script = ExtResource( 1 )
+script = ExtResource( 4 )
+projectile = ExtResource( 30 )
+
+[node name="Sprite" type="Sprite" parent="Plasmagun"]
+rotation = 1.5708
+scale = Vector2( 0.04, 0.04 )
+texture = ExtResource( 31 )
 
 [node name="ProjectileGun2" type="Node2D" parent="."]
 position = Vector2( 8, 10 )
@@ -103,7 +110,7 @@ rotation = 1.5708
 scale = Vector2( 0.00335473, 0.00402254 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 4
+frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -113,7 +120,7 @@ rotation = 1.5708
 scale = Vector2( 0.00308921, 0.00424043 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 4
+frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
