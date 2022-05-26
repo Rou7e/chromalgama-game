@@ -8,10 +8,25 @@ func _ready():
 	gamestate.connect("game_ended", self, "_on_game_ended")
 	gamestate.connect("game_error", self, "_on_game_error")
 	
-	$Connect/ItemList.add_item("TST Cargo Ship")
-	$Connect/ItemList.add_item("T4 Tellurian Ship")
-	$Connect/ItemList.add_item("T2 Tellurian Ship")
+	$Connect/ItemList.add_item("TST T4 TEST SHIP")
 	
+	$Connect/ItemList.add_item("TEL T1 Drone")
+	$Connect/ItemList.add_item("TEL T2 Drone")
+	$Connect/ItemList.add_item("TEL T3 Drone")
+	$Connect/ItemList.add_item("TEL T4 Revenant")
+	$Connect/ItemList.add_item("TEL T5 Constructor")
+	$Connect/ItemList.add_item("TEL T6 Dequisitor")
+	$Connect/ItemList.add_item("TEL T7 Balor")
+	
+	$Connect/ItemList.add_item("SEL T1 Kunai")
+	$Connect/ItemList.add_item("SEL T2 Navaja")
+	$Connect/ItemList.add_item("SEL T3 Cutlass")
+	$Connect/ItemList.add_item("SEL T4 Machete")
+	$Connect/ItemList.add_item("SEL T5 Tanto")
+	$Connect/ItemList.add_item("SEL T6 Claymore")
+	$Connect/ItemList.add_item("SEL T7 Zweihander")
+	
+	$Connect/ItemList.add_item("REM T4 Lex Aeterna")
 	# Set the player name according to the system username. Fallback to the path.
 	#if OS.has_environment("USERNAME"):
 	#	$Connect/Name.text = OS.get_environment("USERNAME")

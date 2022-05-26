@@ -22,6 +22,7 @@ animations = [ {
 } ]
 
 [node name="Node2D" type="Area2D"]
+scale = Vector2( 0.2, 0.2 )
 input_pickable = false
 script = ExtResource( 1 )
 
@@ -34,7 +35,7 @@ position = Vector2( 873, 19.0002 )
 rotation = 1.5708
 scale = Vector2( 1.63635, 1.63369 )
 frames = SubResource( 2 )
-frame = 7
+frame = 6
 playing = true
 
 [connection signal="area_entered" from="." to="." method="_area_entered"]

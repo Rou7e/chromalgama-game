@@ -1,11 +1,11 @@
 extends BaseGun
 
-class_name ProjectileGun
+class_name MRP
 
 export(float) var bullet_speed = 1000
 export(float) var bullet_damage = 10
 
-export var projectile = preload("res://ships/weapons/projectiles/ChargedBullet.tscn")
+export var projectile = preload("res://ships/weapons/projectiles/MRP_shot.tscn")
 
 func _ready():
 	pass

@@ -10,7 +10,7 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
-	global_position += get_parent().global_position
+	global_position += velocity*delta
 	time_to_live -= delta
 	if time_to_live < 0:
 		queue_free()

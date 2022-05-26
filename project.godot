@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ships/weapons/projectiles/ChargedBullet.gd"
 }, {
-"base": "Node2D",
-"class": "Discharger",
-"language": "GDScript",
-"path": "res://ships/tellurian_ships/discharger.gd"
-}, {
 "base": "Area2D",
 "class": "LightningBolt",
 "language": "GDScript",
@@ -39,10 +34,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ships/weapons/LightningSphere.gd"
 }, {
-"base": "Node2D",
-"class": "Microwave",
+"base": "BaseGun",
+"class": "MRP",
 "language": "GDScript",
-"path": "res://ships/tellurian_ships/microwave.gd"
+"path": "res://ships/weapons/MRP.gd"
+}, {
+"base": "PlasmaBullet",
+"class": "MRPShot",
+"language": "GDScript",
+"path": "res://ships/weapons/projectiles/MRP_shot.gd"
 }, {
 "base": "Area2D",
 "class": "MicrowaveCone",
@@ -69,31 +69,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ships/weapons/projectiles/UVBeam.gd"
 }, {
-"base": "Area2D",
-"class": "tel_t2",
+"base": "BaseGun",
+"class": "UVBeamGun",
 "language": "GDScript",
-"path": "res://ships/tellurian_ships/tel_t2.gd"
-}, {
-"base": "Area2D",
-"class": "tel_t4",
-"language": "GDScript",
-"path": "res://ships/tellurian_ships/tel_t4.gd"
+"path": "res://ships/weapons/UVBeamGun.gd"
 } ]
 _global_script_class_icons={
 "BaseGun": "",
 "BaseShip": "",
 "ChargedBullet": "",
-"Discharger": "",
 "LightningBolt": "",
 "LightningSphere": "",
-"Microwave": "",
+"MRP": "",
+"MRPShot": "",
 "MicrowaveCone": "",
 "MicrowaveGun": "",
 "PlasmaBullet": "",
 "ProjectileGun": "",
 "UVBeam": "",
-"tel_t2": "",
-"tel_t4": ""
+"UVBeamGun": ""
 }
 
 [application]

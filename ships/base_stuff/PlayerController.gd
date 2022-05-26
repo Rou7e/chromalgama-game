@@ -7,6 +7,23 @@ const mark_cursor = preload("res://projectiles/mark_cursor.tscn")
 const cargo = preload("res://ships/selenite_ships/Cargo.tscn")
 const tel_t4 = preload("res://ships/tellurian_ships/tel_t4.tscn")
 const tel_t2 = preload("res://ships/tellurian_ships/tel_t2.tscn")
+const tel_t3 = preload("res://ships/tellurian_ships/tel_t3.tscn")
+const tel_t1 = preload("res://ships/tellurian_ships/tel_t1.tscn")
+const tel_t5 = preload("res://ships/tellurian_ships/tel_t5.tscn")
+const tel_t6 = preload("res://ships/tellurian_ships/tel_t6.tscn")
+const tel_t7 = preload("res://ships/tellurian_ships/tel_t7.tscn")
+const acl_t1 = preload("res://ships/tellurian_ships/acl_t1.tscn")
+
+const sel_t4 = preload("res://ships/selenite_ships/sel_t4.tscn")
+const sel_t2 = preload("res://ships/selenite_ships/sel_t2.tscn")
+const sel_t3 = preload("res://ships/selenite_ships/sel_t3.tscn")
+const sel_t1 = preload("res://ships/selenite_ships/sel_t1.tscn")
+const sel_t5 = preload("res://ships/selenite_ships/sel_t5.tscn")
+const sel_t6 = preload("res://ships/selenite_ships/sel_t6.tscn")
+const sel_t7 = preload("res://ships/selenite_ships/sel_t7.tscn")
+
+
+#const tel_t2 = preload("res://ships/tellurian_ships/tel_t2.tscn")
 
 var selected_ship
 
@@ -14,16 +31,47 @@ var selected_ship
 func _ready():
 	var mark = mark_friend.instance()
 	if selected_ship == 0:
-		add_child(cargo.instance())
-	if selected_ship == 1:
-		add_child(tel_t4.instance())
-	if selected_ship == 2:
-		add_child(tel_t2.instance())
+		add_child(acl_t1.instance())
 
-	$Camera2D.zoom.x = 0.5/get_child(1).get_child(0).scale.x
-	$Camera2D.zoom.y = 0.5/get_child(1).get_child(0).scale.y
-	$Camera2D.scale.x = 0.5/get_child(1).get_child(0).scale.x
-	$Camera2D.scale.y = 0.5/get_child(1).get_child(0).scale.y
+	elif selected_ship == 1:
+		add_child(tel_t1.instance())
+	elif selected_ship == 2:
+		add_child(tel_t2.instance())
+	elif selected_ship == 3:
+		add_child(tel_t3.instance())
+	elif selected_ship == 4:
+		add_child(tel_t4.instance())
+	elif selected_ship == 5:
+		add_child(tel_t5.instance())
+	elif selected_ship == 6:
+		add_child(tel_t6.instance())
+	elif selected_ship == 7:
+		add_child(tel_t7.instance())
+
+	elif selected_ship == 8:
+		add_child(sel_t1.instance())
+	elif selected_ship == 9:
+		add_child(sel_t2.instance())
+	elif selected_ship == 10:
+		add_child(sel_t3.instance())
+	elif selected_ship == 11:
+		add_child(sel_t4.instance())
+	elif selected_ship == 12:
+		add_child(sel_t5.instance())
+	elif selected_ship == 13:
+		add_child(sel_t6.instance())
+	elif selected_ship == 14:
+		add_child(sel_t7.instance())
+
+	else:
+		add_child(cargo.instance())
+	#if selected_ship == 2:
+	#	add_child(tel_t2.instance())
+
+	$Camera2D.zoom.x = 9*get_child(1).get_child(0).scale.x
+	$Camera2D.zoom.y = 9*get_child(1).get_child(0).scale.y
+	$Camera2D.scale.x = 9*get_child(1).get_child(0).scale.x
+	$Camera2D.scale.y = 9*get_child(1).get_child(0).scale.y
 	$Camera2D/Player_UI/HEAT.max_value = get_child(1).cooling
 	$Camera2D/Player_UI/PRIMARY.max_value = $BaseShip.charge_states["primary"].charge
 	$Camera2D/Player_UI/TURRET.max_value = $BaseShip.charge_states["secondary"].charge
@@ -77,10 +125,10 @@ func _process(delta):
 				
 				$Camera2D/ENEMY_UI/Label5.text = get_parent().get_child(i).get_child(1).desc
 				$Camera2D/ENEMY_UI/HEAT.value = get_parent().get_child(i).get_child(1).cooling
-				$Camera2D/ENEMY_UI/CREW.value = get_parent().get_child(i).get_child(1).crew
-				$Camera2D/ENEMY_UI/PRIMARY.value = get_parent().get_child(i).get_child(1).primary
-				$Camera2D/ENEMY_UI/SECONDARY.value = get_parent().get_child(i).get_child(1).secondary
-				$Camera2D/ENEMY_UI/TURRET.value = get_parent().get_child(i).get_child(1).turret
+				#$Camera2D/ENEMY_UI/CREW.value = get_parent().get_child(i).get_child(1).crew
+				$Camera2D/Player_UI/PRIMARY.value = $BaseShip.charge_states["primary"].charge
+				$Camera2D/Player_UI/TURRET.value = $BaseShip.charge_states["secondary"].charge
+				$Camera2D/Player_UI/SECONDARY.value = $BaseShip.charge_states["ability"].charge
 				$Camera2D/Sprite.add_child(mark)
 	#for i in range(get_parent().get_child_count()):
 	#	mark.global_position.x = (get_parent().get_child(i).get_child(1).global_position.x-2300)/9.11

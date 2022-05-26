@@ -8,7 +8,7 @@ export(float) var max_speed = 250
 
 var cooling = 100
 
-export var desc = 'HUMAN PROTECTORATE \nFRIGATE-CLASS\n CARGO SHIP'
+export var desc = 'FREE CONVENTION \nFIGHTER-CLASS\n DRONE T1'
 
 var is_active = {
 	"primary": false,
@@ -56,6 +56,13 @@ func _physics_process(delta):
 	else:
 		for i in $Engines.get_children():
 			i.animation="stopped"
+	
+	if input_vector.y < 0:
+		for i in $BackThrusters.get_children():
+			i.animation="running"
+	else:
+		for i in $BackThrusters.get_children():
+			i.animation="default"
 			
 	if input_vector.x < 0:
 		for i in $LeftThrusters.get_children():

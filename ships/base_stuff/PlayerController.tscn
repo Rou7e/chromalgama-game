@@ -70,34 +70,22 @@ margin_bottom = 173.0
 max_value = 4.0
 value = 4.0
 
-[node name="Label4" type="Label" parent="Camera2D/Player_UI"]
+[node name="Label6" type="Label" parent="Camera2D/Player_UI"]
 margin_top = 177.0
 margin_right = 160.0
 margin_bottom = 191.0
-text = "CREW AMOUNT"
-
-[node name="CREW" type="ProgressBar" parent="Camera2D/Player_UI"]
-margin_top = 195.0
-margin_right = 160.0
-margin_bottom = 209.0
-value = 100.0
-
-[node name="Label6" type="Label" parent="Camera2D/Player_UI"]
-margin_top = 213.0
-margin_right = 160.0
-margin_bottom = 227.0
 text = "TURRET CHARGE"
 
 [node name="Sprite" type="Sprite" parent="Camera2D/Player_UI"]
 show_behind_parent = true
-position = Vector2( 83.5091, 127.159 )
-scale = Vector2( 0.352282, 0.863788 )
+position = Vector2( 83.5091, 109.409 )
+scale = Vector2( 0.352282, 0.743857 )
 texture = ExtResource( 3 )
 
 [node name="TURRET" type="ProgressBar" parent="Camera2D/Player_UI"]
-margin_top = 231.0
+margin_top = 195.0
 margin_right = 160.0
-margin_bottom = 245.0
+margin_bottom = 209.0
 value = 100.0
 
 [node name="ENEMY_UI" type="VBoxContainer" parent="Camera2D"]
@@ -106,6 +94,9 @@ margin_top = -360.0
 margin_right = 640.0
 margin_bottom = -100.0
 theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label5" type="Label" parent="Camera2D/ENEMY_UI"]
 margin_right = 160.0
@@ -152,34 +143,22 @@ margin_bottom = 173.0
 max_value = 4.0
 value = 4.0
 
-[node name="Label4" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 177.0
-margin_right = 160.0
-margin_bottom = 191.0
-text = "CREW AMOUNT"
-
-[node name="CREW" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
-margin_top = 195.0
-margin_right = 160.0
-margin_bottom = 209.0
-value = 100.0
-
 [node name="Sprite" type="Sprite" parent="Camera2D/ENEMY_UI"]
 show_behind_parent = true
-position = Vector2( 76, 128.659 )
-scale = Vector2( 0.352282, 0.873923 )
+position = Vector2( 76, 109.409 )
+scale = Vector2( 0.352282, 0.743857 )
 texture = ExtResource( 3 )
 
 [node name="Label6" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 213.0
+margin_top = 177.0
 margin_right = 160.0
-margin_bottom = 227.0
+margin_bottom = 191.0
 text = "TURRET CHARGE"
 
 [node name="TURRET" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
-margin_top = 231.0
+margin_top = 195.0
 margin_right = 160.0
-margin_bottom = 245.0
+margin_bottom = 209.0
 min_value = 100.0
 value = 100.0
 
