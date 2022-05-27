@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ships/weapons/projectiles/ChargedBullet.gd"
 }, {
+"base": "BaseGun",
+"class": "DroneSpawner",
+"language": "GDScript",
+"path": "res://ships/weapons/DroneSpawner.gd"
+}, {
 "base": "Area2D",
 "class": "LightningBolt",
 "language": "GDScript",
@@ -78,6 +83,7 @@ _global_script_class_icons={
 "BaseGun": "",
 "BaseShip": "",
 "ChargedBullet": "",
+"DroneSpawner": "",
 "LightningBolt": "",
 "LightningSphere": "",
 "MRP": "",

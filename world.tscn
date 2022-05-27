@@ -88,3 +88,5 @@ position = Vector2( 3424, 1987 )
 position = Vector2( 3912, 1208 )
 
 [node name="Players" type="Node2D" parent="."]
+
+[node name="NPCs" type="Node2D" parent="."]
