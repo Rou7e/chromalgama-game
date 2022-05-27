@@ -28,16 +28,17 @@ func _physics_process(delta):
 	ship.set_target_position(target.global_position)
 	#var path_to_enemy = target.global_position - ship.global_position
 	
-	if ship.get_angle_to(target.global_position) < ship.global_rotation:
+	if ship.get_angle_to(target.global_position) < 0:
 		input_vector.x=-1
-	if ship.get_angle_to(target.global_position) > ship.global_rotation:
+	if ship.get_angle_to(target.global_position) > 0:
 		input_vector.x=1
 
-	#if global_rotation+0.1 > path_to_enemy.angle() and path_to_enemy.angle() > global_rotation-0.1:
-	#	if path_to_enemy.length() > 500:
-	#		input_vector.y=1
-	#	if path_to_enemy.length() < 500:
-	#		input_vector.y=-1
+	if ship.get_angle_to(target.global_position) < 0.1 and ship.get_angle_to(target.global_position) > -0.1:
+		if ship.global_position.distance_to(target.global_position) > 500:
+			input_vector.y=1
+		if ship.global_position.distance_to(target.global_position) < 500:
+			input_vector.y=-1
+			ship.set_primary(1)
 		
 
 	
