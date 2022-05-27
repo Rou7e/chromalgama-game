@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://resources/placeholder_ships/tel_t5.png" type="Texture" id=1]
 [ext_resource path="res://ships/base_stuff/BaseShip.gd" type="Script" id=2]
@@ -29,6 +29,8 @@
 [ext_resource path="res://resources/projectiles/turning_thruster/5.png" type="Texture" id=27]
 [ext_resource path="res://resources/projectiles/turning_thruster/1.png" type="Texture" id=28]
 [ext_resource path="res://ships/weapons/Microwave.gd" type="Script" id=29]
+[ext_resource path="res://ships/tellurian_ships/tel_t2.tscn" type="PackedScene" id=30]
+[ext_resource path="res://ships/weapons/DroneSpawner.gd" type="Script" id=31]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 33.9999
@@ -105,7 +107,7 @@ rotation = 1.5708
 scale = Vector2( 0.0323825, 0.0455275 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 5
+frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -172,5 +174,11 @@ rotation = 1.57079
 scale = Vector2( 0.46, 0.46 )
 frames = SubResource( 3 )
 playing = true
+
+[node name="DroneSpawner" type="Node2D" parent="."]
+script = ExtResource( 31 )
+gun_group = "ability"
+turnable = false
+launched_ship = ExtResource( 30 )
 
 [connection signal="area_entered" from="." to="." method="_on_BaseShip_area_entered"]

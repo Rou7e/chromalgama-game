@@ -102,7 +102,7 @@ func _process(delta):
 
 remotesync func receive_damage(amount):
 	cooling -= amount
-	#if cooling == 0:
+	#if cooling <= 0:
 	#	queue_free()
 	#queue_free()
 

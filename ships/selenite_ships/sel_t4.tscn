@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://resources/placeholder_ships/sel_t4.png" type="Texture" id=1]
 [ext_resource path="res://ships/base_stuff/BaseShip.gd" type="Script" id=2]
@@ -29,6 +29,8 @@
 [ext_resource path="res://resources/projectiles/turning_thruster/5.png" type="Texture" id=27]
 [ext_resource path="res://resources/projectiles/turning_thruster/1.png" type="Texture" id=28]
 [ext_resource path="res://ships/weapons/projectiles/MRP_shot.tscn" type="PackedScene" id=29]
+[ext_resource path="res://ships/selenite_ships/sel_t1.tscn" type="PackedScene" id=30]
+[ext_resource path="res://ships/weapons/DroneSpawner.gd" type="Script" id=31]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 34.9997
@@ -95,7 +97,6 @@ rotation = 1.5708
 scale = Vector2( 0.021435, 0.0149683 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -105,7 +106,6 @@ rotation = 1.5708
 scale = Vector2( 0.0217567, 0.0163211 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -115,7 +115,6 @@ rotation = 1.5708
 scale = Vector2( 0.0206476, 0.0148877 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -180,5 +179,19 @@ rotation = 1.5708
 scale = Vector2( 0.23, 0.23 )
 frames = SubResource( 3 )
 playing = true
+
+[node name="DroneSpawner" type="Node2D" parent="."]
+position = Vector2( -5, -24 )
+script = ExtResource( 31 )
+gun_group = "ability"
+turnable = false
+launched_ship = ExtResource( 30 )
+
+[node name="DroneSpawner2" type="Node2D" parent="."]
+position = Vector2( -5, 19 )
+script = ExtResource( 31 )
+gun_group = "ability"
+turnable = false
+launched_ship = ExtResource( 30 )
 
 [connection signal="area_entered" from="." to="." method="_on_BaseShip_area_entered"]

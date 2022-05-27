@@ -1,0 +1,40 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://ships/weapons/projectiles/MicrowaveCone.gd" type="Script" id=1]
+[ext_resource path="res://resources/projectiles/flamethrower/2.png" type="Texture" id=2]
+[ext_resource path="res://resources/projectiles/flamethrower/7.png" type="Texture" id=3]
+[ext_resource path="res://resources/projectiles/flamethrower/1.png" type="Texture" id=4]
+[ext_resource path="res://resources/projectiles/flamethrower/3.png" type="Texture" id=5]
+[ext_resource path="res://resources/projectiles/flamethrower/4.png" type="Texture" id=6]
+[ext_resource path="res://resources/projectiles/flamethrower/5.png" type="Texture" id=7]
+[ext_resource path="res://resources/projectiles/flamethrower/6.png" type="Texture" id=8]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, -400, -1500, 0, -1600, 400, -1500 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 30.0
+} ]
+
+[node name="Node2D" type="Area2D"]
+scale = Vector2( 0.2, 0.2 )
+input_pickable = false
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1035, -15 )
+rotation = 1.5708
+scale = Vector2( 4.24527, 4.23837 )
+frames = SubResource( 2 )
+frame = 7
+playing = true
+
+[connection signal="area_entered" from="." to="." method="_area_entered"]
