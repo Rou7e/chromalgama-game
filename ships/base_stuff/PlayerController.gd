@@ -103,7 +103,8 @@ func _process(delta):
 	$Camera2D/Player_UI/TURRET.value = $BaseShip.charge_states["secondary"].charge
 	$Camera2D/Player_UI/SECONDARY.value = $BaseShip.charge_states["ability"].charge
 	
-	
+	if self.is_network_master():
+		get_node("/root/world/bg").global_position = $BaseShip.global_position * (1 - 0.25)
 	
 	for i in range($Camera2D/Sprite.get_child_count()):
 		$Camera2D/Sprite.remove_child($Camera2D/Sprite.get_child(i))

@@ -4,7 +4,9 @@ class_name BaseShip
 export(float) var inertia_factor = 1.0
 export(float) var turn_speed = 90
 export(float) var acceleration = 200
-export(float) var max_speed = 250
+export(float) var max_speed = 750
+
+const LOCATION_SIZE = 10000
 
 var cooling = 100
 
@@ -82,6 +84,9 @@ func _physics_process(delta):
 	
 	global_rotation_degrees += input_vector.x*turn_speed*delta
 	speed_vector = speed_vector * inertia_factor + (Vector2(input_vector.y, 0)*acceleration*delta).rotated(global_rotation)
+	var radi = global_position.length()
+	if radi > LOCATION_SIZE:
+		speed_vector -= global_position.normalized() * (radi-LOCATION_SIZE)
 	global_position += speed_vector*delta
 	
 	if speed_vector.length() > max_speed:
@@ -94,10 +99,9 @@ func _physics_process(delta):
 	for key in is_active.keys():
 		charge_states[key].charge = min(100, charge_states[key].charge + delta * 10)
 	
-	
-func _process(delta):	
 	if self.is_network_master():
 		send_sync_info()
+	
 
 
 remotesync func receive_damage(amount):
@@ -107,6 +111,7 @@ remotesync func receive_damage(amount):
 	#queue_free()
 
 func _on_BaseShip_area_entered(area):
+	return
 	if area.name == "Area2D":
 		speed_vector.y=0
 		speed_vector.x=100

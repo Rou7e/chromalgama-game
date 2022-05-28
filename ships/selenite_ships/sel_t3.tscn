@@ -78,24 +78,28 @@ shape = SubResource( 1 )
 position = Vector2( 1, -27 )
 script = ExtResource( 4 )
 gun_group = "primary"
+cost = 3.0
 projectile = ExtResource( 20 )
 
 [node name="ProjectileGun3" type="Node2D" parent="."]
 position = Vector2( 2, -20 )
 script = ExtResource( 4 )
 gun_group = "primary"
+cost = 3.0
 projectile = ExtResource( 20 )
 
 [node name="ProjectileGun4" type="Node2D" parent="."]
 position = Vector2( 2, 20 )
 script = ExtResource( 4 )
 gun_group = "primary"
+cost = 3.0
 projectile = ExtResource( 20 )
 
 [node name="ProjectileGun5" type="Node2D" parent="."]
 position = Vector2( 0, 28 )
 script = ExtResource( 4 )
 gun_group = "primary"
+cost = 3.0
 projectile = ExtResource( 20 )
 
 [node name="Engines" type="Node2D" parent="."]
@@ -107,7 +111,7 @@ rotation = 1.5708
 scale = Vector2( 0.0188565, 0.0171699 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
