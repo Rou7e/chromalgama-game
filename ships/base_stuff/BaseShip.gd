@@ -92,7 +92,7 @@ func _physics_process(delta):
 			propagate_call("shoot", [key, charge_states[key], [id]])
 	
 	for key in is_active.keys():
-		charge_states[key].charge += delta * 10
+		charge_states[key].charge = min(100, charge_states[key].charge + delta * 10)
 	
 	
 func _process(delta):	
