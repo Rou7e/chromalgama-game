@@ -24,6 +24,8 @@ func _ready():
 				target = get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")
 
 func _physics_process(delta):
+	if get_parent().get_parent().get_node("Players").get_child_count() <= 1:
+		return
 	var ship = get_node("BaseShip")
 	ship.set_target_position(target.global_position)
 	#var path_to_enemy = target.global_position - ship.global_position

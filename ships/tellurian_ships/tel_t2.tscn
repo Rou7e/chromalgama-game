@@ -62,6 +62,9 @@ animations = [ {
 
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
+inertia_factor = 0.9
+acceleration = 4000.0
+cooling = 20.0
 desc = "FREE CONVENTION 
 INTERCEPTOR-CLASS
  DRONE T2"

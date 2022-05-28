@@ -8,7 +8,7 @@ export(float) var max_speed = 750
 
 const LOCATION_SIZE = 10000
 
-var cooling = 100
+export(float) var cooling = 100
 
 export var desc = 'FREE CONVENTION \nFIGHTER-CLASS\n DRONE T1'
 

@@ -93,7 +93,7 @@ rotation = 1.5708
 scale = Vector2( 0.00128707, 0.00351532 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
+frame = 1
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -103,7 +103,7 @@ rotation = 1.5708
 scale = Vector2( 0.00129681, 0.00199416 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 1
+frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -113,6 +113,7 @@ rotation = 1.5708
 scale = Vector2( 0.00129681, 0.00232192 )
 frames = SubResource( 2 )
 animation = "stopped"
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -122,6 +123,7 @@ rotation = 1.5708
 scale = Vector2( 0.00129681, 0.00222827 )
 frames = SubResource( 2 )
 animation = "stopped"
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 

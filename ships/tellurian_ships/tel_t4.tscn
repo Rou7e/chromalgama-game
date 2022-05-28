@@ -63,6 +63,9 @@ animations = [ {
 
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
+inertia_factor = 0.9
+acceleration = 4000.0
+cooling = 80.0
 desc = "FREE CONVENTION 
 CORVETTE-CLASS
  REVENANT"
@@ -112,7 +115,7 @@ rotation = 1.5708
 scale = Vector2( 0.00899329, 0.0132359 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 1
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -122,7 +125,7 @@ rotation = 1.5708
 scale = Vector2( 0.0389231, 0.0467167 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 1
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -132,7 +135,6 @@ rotation = 1.5708
 scale = Vector2( 0.00899329, 0.0132359 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 

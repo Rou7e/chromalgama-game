@@ -66,6 +66,9 @@ animations = [ {
 
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
+inertia_factor = 0.9
+acceleration = 4000.0
+cooling = 640.0
 desc = "FREE CONVENTION 
 DREADNOUGHT-CLASS
 BALOR"
@@ -146,7 +149,7 @@ rotation = 1.5708
 scale = Vector2( 0.186379, 0.116324 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 1
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -156,7 +159,6 @@ rotation = 1.5708
 scale = Vector2( 0.0949831, 0.234691 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 5
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -166,7 +168,7 @@ rotation = 1.5708
 scale = Vector2( 0.0825106, 0.227563 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 4
+frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -176,7 +178,7 @@ rotation = 1.5708
 scale = Vector2( 0.0592024, 0.227563 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 4
+frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -186,7 +188,7 @@ rotation = 1.5708
 scale = Vector2( 0.0867485, 0.225445 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -196,7 +198,7 @@ rotation = 1.5708
 scale = Vector2( 0.0570499, 0.221202 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -206,7 +208,6 @@ rotation = 1.5708
 scale = Vector2( 0.0432708, 0.282353 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 5
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 

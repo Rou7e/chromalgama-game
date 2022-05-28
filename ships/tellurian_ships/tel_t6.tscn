@@ -65,6 +65,9 @@ animations = [ {
 
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
+inertia_factor = 0.9
+acceleration = 4000.0
+cooling = 320.0
 desc = "FREE CONVENTION 
 CRUISER-CLASS
  DEQUISITOR"

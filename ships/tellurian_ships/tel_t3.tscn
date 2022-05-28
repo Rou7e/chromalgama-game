@@ -62,6 +62,9 @@ animations = [ {
 
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
+inertia_factor = 0.9
+acceleration = 4000.0
+cooling = 40.0
 desc = "FREE CONVENTION 
 BOMBER-CLASS
  DRONE T3"
@@ -95,6 +98,7 @@ rotation = 1.5708
 scale = Vector2( 0.00621455, 0.00705628 )
 frames = SubResource( 2 )
 animation = "stopped"
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -104,6 +108,7 @@ rotation = 1.5708
 scale = Vector2( 0.0144621, 0.0112556 )
 frames = SubResource( 2 )
 animation = "stopped"
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -113,7 +118,7 @@ rotation = 1.5708
 scale = Vector2( 0.00526128, 0.00714764 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -123,7 +128,7 @@ rotation = 1.5708
 scale = Vector2( 0.00530334, 0.00420458 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -133,7 +138,7 @@ rotation = 1.5708
 scale = Vector2( 0.00688969, 0.00615752 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 

@@ -65,7 +65,8 @@ animations = [ {
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
 inertia_factor = 0.9
-acceleration = 20000.0
+acceleration = 4000.0
+cooling = 160.0
 desc = "FREE CONVENTION 
 FRIGATE-CLASS
  CONSTRUCTOR"
@@ -109,7 +110,7 @@ rotation = 1.5708
 scale = Vector2( 0.0323825, 0.0455275 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 4
+frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
