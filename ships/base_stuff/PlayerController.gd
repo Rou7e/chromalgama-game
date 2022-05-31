@@ -119,8 +119,9 @@ func _process(delta):
 	if self.is_network_master():
 		get_node("/root/world/bg").global_position = $BaseShip.global_position * (1 - 0.25)
 	
-	for i in range($Camera2D/Sprite4.get_child_count()):
-		$Camera2D/Sprite4.remove_child($Camera2D/Sprite4.get_child(i))
+	
+	for child in $Camera2D/Sprite4.get_children():
+		$Camera2D/Sprite4.remove_child(child)
 	#mark.global_position.x = ($BaseShip.global_position.x-2300)/9.11
 	#mark.global_position.y = ($BaseShip.global_position.y-1200)/8.1
 	#$Camera2D/Sprite4.add_child(mark)

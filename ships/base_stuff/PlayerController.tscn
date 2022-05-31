@@ -155,9 +155,6 @@ rect_min_size = Vector2( 160, 220 )
 texture = SubResource( 3 )
 expand = true
 stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ENEMY_UI" type="VBoxContainer" parent="Camera2D"]
 margin_left = 480.0
@@ -251,9 +248,6 @@ rect_min_size = Vector2( 160, 180 )
 texture = SubResource( 3 )
 expand = true
 stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Chrome" type="Sprite" parent="Camera2D"]
 position = Vector2( -452.5, -152.447 )

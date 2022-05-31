@@ -117,7 +117,7 @@ rotation = 1.5708
 scale = Vector2( 0.0188565, 0.0171699 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
