@@ -42,14 +42,14 @@ height = 1048.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 19 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "running",
-"speed": 30.0
-}, {
 "frames": [ ExtResource( 10 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 18 ), ExtResource( 8 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "stopped",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "running",
 "speed": 30.0
 } ]
 
@@ -68,6 +68,7 @@ animations = [ {
 
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
+turn_speed = 10.58
 cooling = 640.0
 desc = "HUMAN PROTECTORATE  
 DREADNOUGHT-CLASS
@@ -101,7 +102,6 @@ rotation = 1.5708
 scale = Vector2( 0.371378, 0.271119 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 5
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 

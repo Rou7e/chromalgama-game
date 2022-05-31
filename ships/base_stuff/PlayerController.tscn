@@ -1,7 +1,51 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=20 format=2]
 
+[ext_resource path="res://resources/menu_hologram/6.png" type="Texture" id=1]
 [ext_resource path="res://ships/base_stuff/PlayerController.gd" type="Script" id=2]
-[ext_resource path="res://resources/metal2.jpg" type="Texture" id=3]
+[ext_resource path="res://resources/ui/metal_lining/corner.png" type="Texture" id=3]
+[ext_resource path="res://resources/menu_hologram/5.png" type="Texture" id=4]
+[ext_resource path="res://resources/menu_hologram/9.png" type="Texture" id=5]
+[ext_resource path="res://resources/menu_hologram/8.png" type="Texture" id=6]
+[ext_resource path="res://resources/menu_hologram/3.png" type="Texture" id=7]
+[ext_resource path="res://resources/menu_hologram/1.png" type="Texture" id=8]
+[ext_resource path="res://resources/menu_hologram/2.png" type="Texture" id=9]
+[ext_resource path="res://resources/menu_hologram/10.png" type="Texture" id=10]
+[ext_resource path="res://resources/menu_hologram/11.png" type="Texture" id=11]
+[ext_resource path="res://resources/menu_hologram/13.png" type="Texture" id=12]
+[ext_resource path="res://resources/menu_hologram/4.png" type="Texture" id=13]
+[ext_resource path="res://resources/menu_hologram/12.png" type="Texture" id=14]
+[ext_resource path="res://resources/menu_hologram/7.png" type="Texture" id=15]
+[ext_resource path="res://resources/ui/metal_lining/chrome.png" type="Texture" id=16]
+
+[sub_resource type="AnimatedTexture" id=3]
+flags = 4
+frames = 13
+fps = 15.0
+frame_0/texture = ExtResource( 8 )
+frame_1/texture = ExtResource( 9 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 7 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 13 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 4 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 1 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 15 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 6 )
+frame_7/delay_sec = 0.0
+frame_8/texture = ExtResource( 5 )
+frame_8/delay_sec = 0.0
+frame_9/texture = ExtResource( 10 )
+frame_9/delay_sec = 0.0
+frame_10/texture = ExtResource( 11 )
+frame_10/delay_sec = 0.0
+frame_11/texture = ExtResource( 14 )
+frame_11/delay_sec = 0.0
+frame_12/texture = ExtResource( 12 )
+frame_12/delay_sec = 0.0
 
 [sub_resource type="Theme" id=1]
 
@@ -13,6 +57,20 @@ script = ExtResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2( 2, 2 )
 zoom = Vector2( 2, 2 )
+
+[node name="Sprite2" type="TextureRect" parent="Camera2D"]
+show_behind_parent = true
+margin_left = -640.0
+margin_top = -360.0
+margin_right = -480.0
+margin_bottom = -140.0
+rect_min_size = Vector2( 160, 220 )
+texture = SubResource( 3 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Player_UI" type="VBoxContainer" parent="Camera2D"]
 margin_left = -640.0
@@ -33,60 +91,73 @@ text = "<UNDEFINED>
 <UNDEFINED>
 "
 
-[node name="Label" type="Label" parent="Camera2D/Player_UI"]
+[node name="Label4" type="Label" parent="Camera2D/Player_UI"]
 margin_top = 69.0
 margin_right = 160.0
 margin_bottom = 83.0
-text = "COOLING STATUS"
 
-[node name="HEAT" type="ProgressBar" parent="Camera2D/Player_UI"]
+[node name="Label" type="Label" parent="Camera2D/Player_UI"]
 margin_top = 87.0
 margin_right = 160.0
 margin_bottom = 101.0
+text = "COOLING STATUS"
+
+[node name="HEAT" type="TextureProgress" parent="Camera2D/Player_UI"]
+margin_top = 105.0
+margin_right = 160.0
+margin_bottom = 106.0
 value = 100.0
 
 [node name="Label2" type="Label" parent="Camera2D/Player_UI"]
-margin_top = 105.0
+margin_top = 110.0
 margin_right = 160.0
-margin_bottom = 119.0
+margin_bottom = 124.0
 text = "PRIMARY CHARGE"
 
 [node name="PRIMARY" type="ProgressBar" parent="Camera2D/Player_UI"]
-margin_top = 123.0
+margin_top = 128.0
 margin_right = 160.0
-margin_bottom = 137.0
+margin_bottom = 142.0
 value = 100.0
 
 [node name="Label3" type="Label" parent="Camera2D/Player_UI"]
-margin_top = 141.0
+margin_top = 146.0
 margin_right = 160.0
-margin_bottom = 155.0
+margin_bottom = 160.0
 text = "SECONDARY SUPPLIES"
 
 [node name="SECONDARY" type="ProgressBar" parent="Camera2D/Player_UI"]
-margin_top = 159.0
+margin_top = 164.0
 margin_right = 160.0
-margin_bottom = 173.0
+margin_bottom = 178.0
 max_value = 4.0
 value = 4.0
 
 [node name="Label6" type="Label" parent="Camera2D/Player_UI"]
-margin_top = 177.0
+margin_top = 182.0
 margin_right = 160.0
-margin_bottom = 191.0
+margin_bottom = 196.0
 text = "TURRET CHARGE"
 
-[node name="Sprite" type="Sprite" parent="Camera2D/Player_UI"]
-show_behind_parent = true
-position = Vector2( 83.5091, 109.409 )
-scale = Vector2( 0.352282, 0.743857 )
-texture = ExtResource( 3 )
-
 [node name="TURRET" type="ProgressBar" parent="Camera2D/Player_UI"]
-margin_top = 195.0
+margin_top = 200.0
 margin_right = 160.0
-margin_bottom = 209.0
+margin_bottom = 214.0
 value = 100.0
+
+[node name="Sprite3" type="TextureRect" parent="Camera2D"]
+show_behind_parent = true
+margin_left = 480.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = -140.0
+rect_min_size = Vector2( 160, 220 )
+texture = SubResource( 3 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ENEMY_UI" type="VBoxContainer" parent="Camera2D"]
 margin_left = 480.0
@@ -100,65 +171,63 @@ __meta__ = {
 
 [node name="Label5" type="Label" parent="Camera2D/ENEMY_UI"]
 margin_right = 160.0
-margin_bottom = 65.0
+margin_bottom = 48.0
 text = "<UNDEFINED>
 <UNDEFINED>
-<UNDEFINED>
-"
+<UNDEFINED>"
+
+[node name="Label4" type="Label" parent="Camera2D/ENEMY_UI"]
+margin_top = 52.0
+margin_right = 160.0
+margin_bottom = 66.0
 
 [node name="Label" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 69.0
+margin_top = 70.0
 margin_right = 160.0
-margin_bottom = 83.0
+margin_bottom = 84.0
 text = "COOLING STATUS"
 
 [node name="HEAT" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
-margin_top = 87.0
+margin_top = 88.0
 margin_right = 160.0
-margin_bottom = 101.0
+margin_bottom = 102.0
 value = 100.0
 
 [node name="Label2" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 105.0
+margin_top = 106.0
 margin_right = 160.0
-margin_bottom = 119.0
+margin_bottom = 120.0
 text = "PRIMARY CHARGE"
 
 [node name="PRIMARY" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
-margin_top = 123.0
+margin_top = 124.0
 margin_right = 160.0
-margin_bottom = 137.0
+margin_bottom = 138.0
 value = 100.0
 
 [node name="Label3" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 141.0
+margin_top = 142.0
 margin_right = 160.0
-margin_bottom = 155.0
+margin_bottom = 156.0
 text = "SECONDARY SUPPLIES"
 
 [node name="SECONDARY" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
-margin_top = 159.0
+margin_top = 160.0
 margin_right = 160.0
-margin_bottom = 173.0
+margin_bottom = 174.0
 max_value = 4.0
 value = 4.0
 
-[node name="Sprite" type="Sprite" parent="Camera2D/ENEMY_UI"]
-show_behind_parent = true
-position = Vector2( 76, 109.409 )
-scale = Vector2( 0.352282, 0.743857 )
-texture = ExtResource( 3 )
-
 [node name="Label6" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 177.0
+margin_top = 178.0
 margin_right = 160.0
-margin_bottom = 191.0
+margin_bottom = 192.0
 text = "TURRET CHARGE"
 
 [node name="TURRET" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
-margin_top = 195.0
+margin_top = 196.0
 margin_right = 160.0
-margin_bottom = 209.0
+margin_bottom = 210.0
 min_value = 100.0
 value = 100.0
 
@@ -172,7 +241,74 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="Camera2D"]
-position = Vector2( 505, 280 )
-scale = Vector2( 0.57, 0.54 )
+[node name="Sprite4" type="TextureRect" parent="Camera2D"]
+show_behind_parent = true
+margin_left = 341.0
+margin_top = 180.0
+margin_right = 642.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 160, 180 )
+texture = SubResource( 3 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chrome" type="Sprite" parent="Camera2D"]
+position = Vector2( -452.5, -152.447 )
+scale = Vector2( 0.1, 2.22556 )
+texture = ExtResource( 16 )
+offset = Vector2( -225, -44.4072 )
+
+[node name="Chrome2" type="Sprite" parent="Camera2D"]
+position = Vector2( -631.724, -112.5 )
+rotation = 1.5708
+scale = Vector2( 0.1, 1.60839 )
+texture = ExtResource( 16 )
+offset = Vector2( -225, -44.4072 )
+
+[node name="Corner" type="Sprite" parent="Camera2D"]
+position = Vector2( -475, -135 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+
+[node name="Chrome3" type="Sprite" parent="Camera2D"]
+position = Vector2( 452.5, -149.115 )
+rotation = 3.14159
+scale = Vector2( 0.1, -2.2461 )
+texture = ExtResource( 16 )
+offset = Vector2( -225, -44.4072 )
+
+[node name="Chrome4" type="Sprite" parent="Camera2D"]
+position = Vector2( 489, -112.5 )
+rotation = 1.5708
+scale = Vector2( 0.1, 1.60839 )
+texture = ExtResource( 16 )
+offset = Vector2( -225, -44.4072 )
+
+[node name="Corner2" type="Sprite" parent="Camera2D"]
+position = Vector2( 475, -135 )
+rotation = 3.14159
+scale = Vector2( 0.1, -0.1 )
+texture = ExtResource( 3 )
+
+[node name="Chrome5" type="Sprite" parent="Camera2D"]
+position = Vector2( 314, 392 )
+rotation = 3.14159
+scale = Vector2( 0.1, -2.2461 )
+texture = ExtResource( 16 )
+offset = Vector2( -225, -44.4072 )
+
+[node name="Chrome6" type="Sprite" parent="Camera2D"]
+position = Vector2( 358, 152.5 )
+rotation = -1.5708
+scale = Vector2( 0.1, -3.023 )
+texture = ExtResource( 16 )
+offset = Vector2( -225, -44.4072 )
+
+[node name="Corner3" type="Sprite" parent="Camera2D"]
+position = Vector2( 336.5, 175 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 3 )

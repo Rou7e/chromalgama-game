@@ -37,14 +37,14 @@ height = 28.0001
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 19 ), ExtResource( 6 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "running",
-"speed": 30.0
-}, {
 "frames": [ ExtResource( 10 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 5 ), ExtResource( 12 ), ExtResource( 18 ), ExtResource( 7 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "stopped",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 6 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "running",
 "speed": 30.0
 } ]
 
@@ -63,6 +63,7 @@ animations = [ {
 
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
+turn_speed = 63.0
 cooling = 20.0
 desc = "HUMAN PROTECTORATE 
 INTERCEPTOR-CLASS
@@ -111,7 +112,7 @@ rotation = 1.5708
 scale = Vector2( 0.00335473, 0.00402254 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 1
+frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -121,7 +122,7 @@ rotation = 1.5708
 scale = Vector2( 0.00308921, 0.00424043 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 1
+frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 

@@ -41,14 +41,14 @@ height = 300.001
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 19 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "running",
-"speed": 30.0
-}, {
 "frames": [ ExtResource( 10 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 18 ), ExtResource( 8 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "stopped",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "running",
 "speed": 30.0
 } ]
 
@@ -67,6 +67,7 @@ animations = [ {
 
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
+turn_speed = 15.1
 cooling = 320.0
 desc = "HUMAN PROTECTORATE  
 CRUISER-CLASS

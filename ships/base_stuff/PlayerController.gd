@@ -29,7 +29,7 @@ var selected_ship
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var mark = mark_friend.instance()
+	var markf = mark_friend.instance()
 	if selected_ship == 0:
 		add_child(acl_t1.instance())
 
@@ -72,19 +72,28 @@ func _ready():
 	$Camera2D.zoom.y = 9*get_child(1).get_child(0).scale.y
 	$Camera2D.scale.x = 9*get_child(1).get_child(0).scale.x
 	$Camera2D.scale.y = 9*get_child(1).get_child(0).scale.y
-	$Camera2D/Player_UI/HEAT.max_value = get_child(1).cooling
+	$Camera2D/Player_UI/HEAT.max_value = $BaseShip.cooling
 	$Camera2D/Player_UI/PRIMARY.max_value = $BaseShip.charge_states["primary"].charge
 	$Camera2D/Player_UI/TURRET.max_value = $BaseShip.charge_states["secondary"].charge
 	$Camera2D/Player_UI/SECONDARY.max_value = $BaseShip.charge_states["ability"].charge
-	
+
+	if get_parent().get_child_count() > 1:
+		for i in range(get_parent().get_child_count()):
+			if get_parent().get_child(i) != self:
+				$Camera2D/ENEMY_UI/Label5.text = get_parent().get_child(i).get_child(1).desc
+				$Camera2D/ENEMY_UI/HEAT.max_value = get_parent().get_child(i).get_child(1).cooling
+				$Camera2D/Player_UI/PRIMARY.max_value = get_parent().get_child(i).get_child(1).charge_states["primary"].charge
+				$Camera2D/Player_UI/TURRET.max_value = get_parent().get_child(i).get_child(1).charge_states["secondary"].charge
+				$Camera2D/Player_UI/SECONDARY.max_value = get_parent().get_child(i).get_child(1).charge_states["ability"].charge
+				markf.global_position = $Camera2D/Sprite4.rect_min_size/2
 	$Camera2D.current = is_network_master()
 	$Camera2D.visible = is_network_master()
 	
 
 	$BaseShip.id = "PC"+str(get_network_master())
-	mark.global_position.x = ($BaseShip.global_position.x-2300)/9.11
-	mark.global_position.y = ($BaseShip.global_position.y-1200)/8.1
-
+	#mark.global_position.x = ($BaseShip.global_position.x-2300)/9.11
+	#mark.global_position.y = ($BaseShip.global_position.y-1200)/8.1
+	
 	#for i in range(get_parent().get_child_count()):
 	#	mark.global_position.x = (get_parent().get_child(i).$BaseShip.global_position.x+1200)/9.11
 	#	mark.global_position.y = (get_parent().get_child(i).$BaseShip.global_position.y+2300)/8.1
@@ -93,7 +102,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var mark = mark_friend.instance()
+	if get_child_count() <= 1:
+		return
+
+	
+	
 	
 	$Camera2D.global_position = $BaseShip.global_position
 	$Camera2D/Player_UI/Label5.text = $BaseShip.desc
@@ -106,31 +119,33 @@ func _process(delta):
 	if self.is_network_master():
 		get_node("/root/world/bg").global_position = $BaseShip.global_position * (1 - 0.25)
 	
-	for i in range($Camera2D/Sprite.get_child_count()):
-		$Camera2D/Sprite.remove_child($Camera2D/Sprite.get_child(i))
-	mark.global_position.x = ($BaseShip.global_position.x-2300)/9.11
-	mark.global_position.y = ($BaseShip.global_position.y-1200)/8.1
-	$Camera2D/Sprite.add_child(mark)
-	
-	mark = mark_cursor.instance()
-	mark.global_position.x = (get_global_mouse_position().x-2300)/9.11
-	mark.global_position.y = (get_global_mouse_position().y-1200)/8.1
-	$Camera2D/Sprite.add_child(mark)
+	for i in range($Camera2D/Sprite4.get_child_count()):
+		$Camera2D/Sprite4.remove_child($Camera2D/Sprite4.get_child(i))
+	#mark.global_position.x = ($BaseShip.global_position.x-2300)/9.11
+	#mark.global_position.y = ($BaseShip.global_position.y-1200)/8.1
+	#$Camera2D/Sprite4.add_child(mark)
+
+	#$Camera2D/Sprite4.add_child(mark)	
+	var markf = mark_friend.instance()
+	markf.global_position = $Camera2D/Sprite4.rect_size/2
+	$Camera2D/Sprite4.add_child(markf)
+		
+	var markc = mark_cursor.instance()
+	markc.global_position = (get_global_mouse_position())
+	$Camera2D/Sprite4.add_child(markc)
 	
 	if get_parent().get_child_count() > 1:
 		for i in range(get_parent().get_child_count()):
 			if get_parent().get_child(i) != self:
-				mark = mark_enemy.instance()
-				mark.global_position.x = (get_parent().get_child(i).get_child(1).global_position.x-2300)/9.11
-				mark.global_position.y = (get_parent().get_child(i).get_child(1).global_position.y-1200)/8.1
-				
+				var marke = mark_enemy.instance()
+				marke.global_position = (get_parent().get_child(i).get_child(1).global_position-$BaseShip.global_position)/10+markf.global_position
+				$Camera2D/Sprite4.add_child(marke)
 				$Camera2D/ENEMY_UI/Label5.text = get_parent().get_child(i).get_child(1).desc
 				$Camera2D/ENEMY_UI/HEAT.value = get_parent().get_child(i).get_child(1).cooling
-				#$Camera2D/ENEMY_UI/CREW.value = get_parent().get_child(i).get_child(1).crew
-				$Camera2D/Player_UI/PRIMARY.value = $BaseShip.charge_states["primary"].charge
-				$Camera2D/Player_UI/TURRET.value = $BaseShip.charge_states["secondary"].charge
-				$Camera2D/Player_UI/SECONDARY.value = $BaseShip.charge_states["ability"].charge
-				$Camera2D/Sprite.add_child(mark)
+				$Camera2D/Player_UI/PRIMARY.value = get_parent().get_child(i).get_child(1).charge_states["primary"].charge
+				$Camera2D/Player_UI/TURRET.value = get_parent().get_child(i).get_child(1).charge_states["secondary"].charge
+				$Camera2D/Player_UI/SECONDARY.value = get_parent().get_child(i).get_child(1).charge_states["ability"].charge
+				#$Camera2D/Sprite4.add_child(mark)
 	#for i in range(get_parent().get_child_count()):
 	#	mark.global_position.x = (get_parent().get_child(i).get_child(1).global_position.x-2300)/9.11
 	#	mark.global_position.y = (get_parent().get_child(i).get_child(1).global_position.y-1200)/8.1

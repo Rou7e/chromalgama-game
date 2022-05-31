@@ -2,7 +2,7 @@ extends Area2D
 class_name UVBeam
 
 var velocity = Vector2.ZERO;
-var damage = 10;
+var damage = 0;
 var time_to_live = 1
 var excludes = [];
 

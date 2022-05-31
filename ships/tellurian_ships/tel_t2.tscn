@@ -36,14 +36,14 @@ height = 14.0001
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 7 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "stopped",
-"speed": 30.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 17 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "running",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 7 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "stopped",
 "speed": 30.0
 } ]
 
@@ -63,6 +63,7 @@ animations = [ {
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
 inertia_factor = 0.9
+turn_speed = 63.0
 acceleration = 4000.0
 cooling = 20.0
 desc = "FREE CONVENTION 
@@ -81,19 +82,25 @@ shape = SubResource( 1 )
 [node name="Plasmagun" type="Node2D" parent="."]
 position = Vector2( 16, 1 )
 script = ExtResource( 1 )
+fire_rate = 600.0
+bullet_damage = 0.1
 
 [node name="ProjectileGun2" type="Node2D" parent="."]
 position = Vector2( 12, -7 )
 script = ExtResource( 4 )
 gun_group = "primary"
+fire_rate = 60.0
 turnable = false
+bullet_damage = 1.0
 projectile = ExtResource( 29 )
 
 [node name="ProjectileGun3" type="Node2D" parent="."]
 position = Vector2( 12, 8 )
 script = ExtResource( 4 )
 gun_group = "primary"
+fire_rate = 60.0
 turnable = false
+bullet_damage = 1.0
 projectile = ExtResource( 29 )
 
 [node name="Engines" type="Node2D" parent="."]
@@ -105,7 +112,7 @@ rotation = 1.5708
 scale = Vector2( 0.00165456, 0.00277688 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 4
+frame = 5
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -115,7 +122,7 @@ rotation = 1.5708
 scale = Vector2( 0.00959256, 0.0111619 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 4
+frame = 5
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -125,7 +132,7 @@ rotation = 1.5708
 scale = Vector2( 0.0016988, 0.00283512 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -135,7 +142,7 @@ rotation = 1.5708
 scale = Vector2( 0.00286859, 0.00411093 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -145,7 +152,7 @@ rotation = 1.5708
 scale = Vector2( 0.00295663, 0.00428463 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 

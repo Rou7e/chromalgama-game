@@ -28,7 +28,7 @@
 [ext_resource path="res://resources/projectiles/turning_thruster/6.png" type="Texture" id=26]
 [ext_resource path="res://resources/projectiles/turning_thruster/5.png" type="Texture" id=27]
 [ext_resource path="res://resources/projectiles/turning_thruster/1.png" type="Texture" id=28]
-[ext_resource path="res://ships/weapons/projectiles/MoltenNail.tscn" type="PackedScene" id=29]
+[ext_resource path="res://ships/weapons/projectiles/PlasmaBullet.tscn" type="PackedScene" id=29]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 21.0
@@ -36,14 +36,14 @@ height = 58.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 7 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "stopped",
-"speed": 30.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 17 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "running",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 7 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "stopped",
 "speed": 30.0
 } ]
 
@@ -63,6 +63,7 @@ animations = [ {
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
 inertia_factor = 0.9
+turn_speed = 44.1
 acceleration = 4000.0
 cooling = 40.0
 desc = "FREE CONVENTION 
@@ -82,11 +83,17 @@ shape = SubResource( 1 )
 [node name="Plasmagun" type="Node2D" parent="."]
 position = Vector2( 44, 3 )
 script = ExtResource( 1 )
+fire_rate = 600.0
+bullet_damage = 0.1
 
 [node name="ProjectileGun2" type="Node2D" parent="."]
 position = Vector2( 13, 2 )
 script = ExtResource( 4 )
 gun_group = "primary"
+fire_rate = 15.0
+turn_speed = 100.0
+bullet_speed = 100.0
+bullet_damage = 16.0
 projectile = ExtResource( 29 )
 
 [node name="Engines" type="Node2D" parent="."]
@@ -98,7 +105,7 @@ rotation = 1.5708
 scale = Vector2( 0.00621455, 0.00705628 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 4
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -108,7 +115,7 @@ rotation = 1.5708
 scale = Vector2( 0.0144621, 0.0112556 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 4
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -118,7 +125,7 @@ rotation = 1.5708
 scale = Vector2( 0.00526128, 0.00714764 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
+frame = 5
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -128,7 +135,7 @@ rotation = 1.5708
 scale = Vector2( 0.00530334, 0.00420458 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
+frame = 5
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -138,7 +145,7 @@ rotation = 1.5708
 scale = Vector2( 0.00688969, 0.00615752 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
+frame = 5
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
