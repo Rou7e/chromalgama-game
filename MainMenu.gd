@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 # Declare member variables here. Examples:
@@ -18,4 +18,4 @@ func _ready():
 
 
 func _on_StartGame_pressed():
-	get_tree().change_scene("res://SelectShip.tscn");
+	get_tree().change_scene("res://lobby.tscn");

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://ships/weapons/LightningSphere.gd" type="Script" id=1]
 [ext_resource path="res://ships/base_stuff/BaseShip.gd" type="Script" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://resources/projectiles/tel_engine/1.png" type="Texture" id=5]
 [ext_resource path="res://resources/projectiles/tel_engine/3.png" type="Texture" id=6]
 [ext_resource path="res://resources/projectiles/tel_engine/stopped/5.png" type="Texture" id=7]
-[ext_resource path="res://resources/placeholder_ships/tel_t1.png" type="Texture" id=8]
+[ext_resource path="res://resources/true_ships/tel_t1.png" type="Texture" id=8]
 [ext_resource path="res://resources/projectiles/tel_engine/stopped/8.png" type="Texture" id=9]
 [ext_resource path="res://resources/projectiles/tel_engine/6.png" type="Texture" id=10]
 [ext_resource path="res://resources/projectiles/tel_engine/4.png" type="Texture" id=11]
@@ -32,19 +32,19 @@
 [ext_resource path="res://ships/weapons/projectiles/WeldingBeam.tscn" type="PackedScene" id=30]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 3.00001
-height = 14.0
+radius = 2.99997
+height = 12.0001
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 17 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "running",
-"speed": 30.0
-}, {
 "frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 3 ), ExtResource( 16 ), ExtResource( 7 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "stopped",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 17 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "running",
 "speed": 30.0
 } ]
 
@@ -61,6 +61,9 @@ animations = [ {
 "speed": 30.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4.5, 6 )
+
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
 inertia_factor = 0.9
@@ -70,15 +73,19 @@ cooling = 10.0
 [node name="ShipCargo" type="Sprite" parent="."]
 rotation = 1.5708
 scale = Vector2( 0.025, 0.025 )
+
+[node name="ShipCargo2" type="Sprite" parent="."]
+rotation = 1.5708
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 0 )
+position = Vector2( 3, -1 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Plasmagun" type="Node2D" parent="."]
-position = Vector2( -6, 3 )
+position = Vector2( 0, -3 )
 script = ExtResource( 1 )
 fire_rate = 1200.0
 turnable = false
@@ -87,7 +94,7 @@ bullet_damage = 0.1
 projectile = ExtResource( 30 )
 
 [node name="ProjectileGun2" type="Node2D" parent="."]
-position = Vector2( 9, -1 )
+position = Vector2( 11, 0 )
 script = ExtResource( 4 )
 gun_group = "primary"
 fire_rate = 60.0
@@ -99,50 +106,52 @@ projectile = ExtResource( 29 )
 show_behind_parent = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Engines"]
-position = Vector2( -12.7238, -3.83677 )
+position = Vector2( -12.9401, -3.60583 )
 rotation = 1.5708
-scale = Vector2( 0.00124793, 0.0020198 )
-frames = SubResource( 2 )
-animation = "stopped"
-playing = true
-offset = Vector2( -1788.93, -955.845 )
-
-[node name="AnimatedSprite3" type="AnimatedSprite" parent="Engines"]
-position = Vector2( -18.7156, 6.1116 )
-rotation = 1.5708
-scale = Vector2( 0.00335179, 0.00770377 )
-frames = SubResource( 2 )
-animation = "stopped"
-playing = true
-offset = Vector2( -1788.93, -955.845 )
-
-[node name="AnimatedSprite2" type="AnimatedSprite" parent="Engines"]
-position = Vector2( -12.0416, 7.4041 )
-rotation = 1.5708
-scale = Vector2( 0.000885302, 0.00159187 )
+scale = Vector2( 0.00124793, 0.00188841 )
 frames = SubResource( 2 )
 animation = "stopped"
 frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
-[node name="AnimatedSprite4" type="AnimatedSprite" parent="Engines"]
-position = Vector2( -10.074, 5.45156 )
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Engines"]
+position = Vector2( -21.917, 6.47678 )
 rotation = 1.5708
-scale = Vector2( 0.0010928, 0.00158577 )
+scale = Vector2( 0.00379875, 0.00752167 )
+frames = SubResource( 2 )
+animation = "stopped"
+frame = 7
+playing = true
+offset = Vector2( -1788.93, -955.845 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Engines"]
+position = Vector2( -12.5583, 7.71129 )
+rotation = 1.5708
+scale = Vector2( 0.00143714, 0.00177581 )
 frames = SubResource( 2 )
 animation = "stopped"
 frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
-[node name="AnimatedSprite5" type="AnimatedSprite" parent="Engines"]
-position = Vector2( -10.1283, -1.49344 )
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Engines"]
+position = Vector2( -13.8907, 5.4714 )
 rotation = 1.5708
-scale = Vector2( 0.00107358, 0.0014981 )
+scale = Vector2( 0.00117311, 0.00127606 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 5
+playing = true
+offset = Vector2( -1788.93, -955.845 )
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="Engines"]
+position = Vector2( -13.8816, -1.73358 )
+rotation = 1.5708
+scale = Vector2( 0.00129266, 0.00123827 )
+frames = SubResource( 2 )
+animation = "stopped"
+frame = 5
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -150,15 +159,19 @@ offset = Vector2( -1788.93, -955.845 )
 show_behind_parent = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="LeftThrusters"]
-position = Vector2( -8, -7 )
+position = Vector2( -9, -7 )
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
+animation = "running"
+frame = 6
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="LeftThrusters"]
 position = Vector2( -5, -5 )
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
+animation = "running"
+frame = 6
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="LeftThrusters"]
@@ -166,6 +179,8 @@ position = Vector2( 8, 3 )
 rotation = 3.14159
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
+animation = "running"
+frame = 6
 playing = true
 
 [node name="RightThrusters" type="Node2D" parent="."]
@@ -173,10 +188,12 @@ show_behind_parent = true
 rotation = 3.14159
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="RightThrusters"]
-position = Vector2( 8.00003, -6.99994 )
+position = Vector2( 9, -5.99997 )
 rotation = 2.6226e-06
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
+animation = "running"
+frame = 6
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="RightThrusters"]
@@ -184,30 +201,42 @@ position = Vector2( 5, -5 )
 rotation = 2.6226e-06
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
+animation = "running"
+frame = 6
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="RightThrusters"]
-position = Vector2( -8, 3.99997 )
+position = Vector2( -8, 2.99998 )
 rotation = -3.14159
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
+animation = "running"
+frame = 6
 playing = true
 
 [node name="BackThrusters" type="Node2D" parent="."]
 show_behind_parent = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="BackThrusters"]
-position = Vector2( 11.3898, -1.80512 )
+position = Vector2( -3, -2 )
 rotation = 1.5708
 scale = Vector2( 0.0327728, 0.0327728 )
 frames = SubResource( 3 )
+animation = "running"
+frame = 6
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="BackThrusters"]
-position = Vector2( 11.167, 0.0835214 )
+position = Vector2( -3, 2 )
 rotation = 1.5708
 scale = Vector2( 0.0361136, 0.0361136 )
 frames = SubResource( 3 )
+animation = "running"
+frame = 6
 playing = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -8.5, 0 )
+shape = SubResource( 4 )
 
 [connection signal="area_entered" from="." to="." method="_on_BaseShip_area_entered"]

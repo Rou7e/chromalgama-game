@@ -72,6 +72,7 @@ func _ready():
 	$Camera2D.zoom.y = 9*get_child(1).get_child(0).scale.y
 	$Camera2D.scale.x = 9*get_child(1).get_child(0).scale.x
 	$Camera2D.scale.y = 9*get_child(1).get_child(0).scale.y
+	$Camera2D/Player_UI/Label5.text = $BaseShip.desc
 	$Camera2D/Player_UI/HEAT.max_value = $BaseShip.cooling
 	$Camera2D/Player_UI/PRIMARY.max_value = $BaseShip.charge_states["primary"].charge
 	$Camera2D/Player_UI/TURRET.max_value = $BaseShip.charge_states["secondary"].charge
@@ -109,7 +110,7 @@ func _process(delta):
 	
 	
 	$Camera2D.global_position = $BaseShip.global_position
-	$Camera2D/Player_UI/Label5.text = $BaseShip.desc
+	
 	$Camera2D/Player_UI/HEAT.value = $BaseShip.cooling
 	#$Camera2D/Player_UI/CREW.value = $BaseShip.crew
 	$Camera2D/Player_UI/PRIMARY.value = $BaseShip.charge_states["primary"].charge
@@ -132,20 +133,29 @@ func _process(delta):
 	$Camera2D/Sprite4.add_child(markf)
 		
 	var markc = mark_cursor.instance()
-	markc.global_position = (get_global_mouse_position())
+	markc.global_position = $Camera2D/Sprite4.rect_size/2-($BaseShip.global_position-get_global_mouse_position())/($Camera2D.scale.x*10)
 	$Camera2D/Sprite4.add_child(markc)
 	
 	if get_parent().get_child_count() > 1:
 		for i in range(get_parent().get_child_count()):
 			if get_parent().get_child(i) != self:
 				var marke = mark_enemy.instance()
-				marke.global_position = (get_parent().get_child(i).get_child(1).global_position-$BaseShip.global_position)/10+markf.global_position
+				marke.global_position = $Camera2D/Sprite4.rect_size/2-($BaseShip.global_position-get_parent().get_child(i).get_child(1).global_position)/($Camera2D.scale.x*10)
+				if marke.global_position.x > $Camera2D/Sprite4.rect_size.x:
+					marke.global_position.x = $Camera2D/Sprite4.rect_size.x-2
+				if marke.global_position.y > $Camera2D/Sprite4.rect_size.y:
+					marke.global_position.y = $Camera2D/Sprite4.rect_size.y-2
+					
+				if marke.global_position.x < 0:
+					marke.global_position.x = 2
+				if marke.global_position.y < 0:
+					marke.global_position.y = 2
 				$Camera2D/Sprite4.add_child(marke)
 				$Camera2D/ENEMY_UI/Label5.text = get_parent().get_child(i).get_child(1).desc
 				$Camera2D/ENEMY_UI/HEAT.value = get_parent().get_child(i).get_child(1).cooling
-				$Camera2D/Player_UI/PRIMARY.value = get_parent().get_child(i).get_child(1).charge_states["primary"].charge
-				$Camera2D/Player_UI/TURRET.value = get_parent().get_child(i).get_child(1).charge_states["secondary"].charge
-				$Camera2D/Player_UI/SECONDARY.value = get_parent().get_child(i).get_child(1).charge_states["ability"].charge
+				$Camera2D/ENEMY_UI/PRIMARY.value = get_parent().get_child(i).get_child(1).charge_states["primary"].charge
+				$Camera2D/ENEMY_UI/TURRET.value = get_parent().get_child(i).get_child(1).charge_states["secondary"].charge
+				$Camera2D/ENEMY_UI/SECONDARY.value = get_parent().get_child(i).get_child(1).charge_states["ability"].charge
 				#$Camera2D/Sprite4.add_child(mark)
 	#for i in range(get_parent().get_child_count()):
 	#	mark.global_position.x = (get_parent().get_child(i).get_child(1).global_position.x-2300)/9.11

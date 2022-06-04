@@ -106,8 +106,8 @@ func _physics_process(delta):
 
 remotesync func receive_damage(amount):
 	cooling -= amount
-	#if cooling <= 0:
-	#	queue_free()
+	if cooling <= 0:
+		get_parent().queue_free()
 	#queue_free()
 
 func _on_BaseShip_area_entered(area):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://resources/menu_hologram/6.png" type="Texture" id=1]
 [ext_resource path="res://ships/base_stuff/PlayerController.gd" type="Script" id=2]
@@ -16,6 +16,12 @@
 [ext_resource path="res://resources/menu_hologram/12.png" type="Texture" id=14]
 [ext_resource path="res://resources/menu_hologram/7.png" type="Texture" id=15]
 [ext_resource path="res://resources/ui/metal_lining/chrome.png" type="Texture" id=16]
+[ext_resource path="res://resources/ui/hp_bars/heat.png" type="Texture" id=17]
+[ext_resource path="res://resources/ui/hp_bars/primary.png" type="Texture" id=18]
+[ext_resource path="res://resources/ui/hp_bars/bg.png" type="Texture" id=19]
+[ext_resource path="res://resources/ui/hp_bars/supplies.png" type="Texture" id=20]
+[ext_resource path="res://resources/ui/ui_theme.tres" type="Theme" id=21]
+[ext_resource path="res://resources/fonts/header.tres" type="DynamicFont" id=22]
 
 [sub_resource type="AnimatedTexture" id=3]
 flags = 4
@@ -84,66 +90,73 @@ __meta__ = {
 }
 
 [node name="Label5" type="Label" parent="Camera2D/Player_UI"]
-margin_right = 160.0
-margin_bottom = 65.0
+margin_right = 163.0
+margin_bottom = 48.0
 text = "<UNDEFINED>
 <UNDEFINED>
-<UNDEFINED>
-"
-
-[node name="Label4" type="Label" parent="Camera2D/Player_UI"]
-margin_top = 69.0
-margin_right = 160.0
-margin_bottom = 83.0
+<UNDEFINED>"
 
 [node name="Label" type="Label" parent="Camera2D/Player_UI"]
-margin_top = 87.0
-margin_right = 160.0
-margin_bottom = 101.0
+margin_top = 52.0
+margin_right = 163.0
+margin_bottom = 73.0
+theme = ExtResource( 21 )
+custom_fonts/font = ExtResource( 22 )
 text = "COOLING STATUS"
 
 [node name="HEAT" type="TextureProgress" parent="Camera2D/Player_UI"]
-margin_top = 105.0
-margin_right = 160.0
-margin_bottom = 106.0
+margin_top = 77.0
+margin_right = 163.0
+margin_bottom = 91.0
 value = 100.0
+texture_under = ExtResource( 19 )
+texture_progress = ExtResource( 17 )
 
 [node name="Label2" type="Label" parent="Camera2D/Player_UI"]
-margin_top = 110.0
-margin_right = 160.0
-margin_bottom = 124.0
+margin_top = 95.0
+margin_right = 163.0
+margin_bottom = 116.0
+custom_fonts/font = ExtResource( 22 )
 text = "PRIMARY CHARGE"
 
-[node name="PRIMARY" type="ProgressBar" parent="Camera2D/Player_UI"]
-margin_top = 128.0
-margin_right = 160.0
-margin_bottom = 142.0
+[node name="PRIMARY" type="TextureProgress" parent="Camera2D/Player_UI"]
+margin_top = 120.0
+margin_right = 163.0
+margin_bottom = 134.0
 value = 100.0
-
-[node name="Label3" type="Label" parent="Camera2D/Player_UI"]
-margin_top = 146.0
-margin_right = 160.0
-margin_bottom = 160.0
-text = "SECONDARY SUPPLIES"
-
-[node name="SECONDARY" type="ProgressBar" parent="Camera2D/Player_UI"]
-margin_top = 164.0
-margin_right = 160.0
-margin_bottom = 178.0
-max_value = 4.0
-value = 4.0
+texture_under = ExtResource( 19 )
+texture_progress = ExtResource( 18 )
 
 [node name="Label6" type="Label" parent="Camera2D/Player_UI"]
-margin_top = 182.0
-margin_right = 160.0
-margin_bottom = 196.0
+margin_top = 138.0
+margin_right = 163.0
+margin_bottom = 159.0
+custom_fonts/font = ExtResource( 22 )
 text = "TURRET CHARGE"
 
-[node name="TURRET" type="ProgressBar" parent="Camera2D/Player_UI"]
-margin_top = 200.0
-margin_right = 160.0
-margin_bottom = 214.0
+[node name="TURRET" type="TextureProgress" parent="Camera2D/Player_UI"]
+margin_top = 163.0
+margin_right = 163.0
+margin_bottom = 177.0
 value = 100.0
+texture_under = ExtResource( 19 )
+texture_progress = ExtResource( 18 )
+
+[node name="Label3" type="Label" parent="Camera2D/Player_UI"]
+margin_top = 181.0
+margin_right = 163.0
+margin_bottom = 202.0
+custom_fonts/font = ExtResource( 22 )
+text = "Ability Status"
+
+[node name="SECONDARY" type="TextureProgress" parent="Camera2D/Player_UI"]
+margin_top = 206.0
+margin_right = 163.0
+margin_bottom = 220.0
+max_value = 4.0
+value = 4.0
+texture_under = ExtResource( 19 )
+texture_progress = ExtResource( 20 )
 
 [node name="Sprite3" type="TextureRect" parent="Camera2D"]
 show_behind_parent = true
@@ -167,7 +180,7 @@ __meta__ = {
 }
 
 [node name="Label5" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_right = 160.0
+margin_right = 163.0
 margin_bottom = 48.0
 text = "<UNDEFINED>
 <UNDEFINED>
@@ -175,58 +188,65 @@ text = "<UNDEFINED>
 
 [node name="Label4" type="Label" parent="Camera2D/ENEMY_UI"]
 margin_top = 52.0
-margin_right = 160.0
-margin_bottom = 66.0
-
-[node name="Label" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 70.0
-margin_right = 160.0
-margin_bottom = 84.0
+margin_right = 163.0
+margin_bottom = 73.0
+theme = ExtResource( 21 )
+custom_fonts/font = ExtResource( 22 )
 text = "COOLING STATUS"
 
-[node name="HEAT" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
-margin_top = 88.0
-margin_right = 160.0
-margin_bottom = 102.0
+[node name="HEAT" type="TextureProgress" parent="Camera2D/ENEMY_UI"]
+margin_top = 77.0
+margin_right = 163.0
+margin_bottom = 91.0
 value = 100.0
+texture_under = ExtResource( 19 )
+texture_progress = ExtResource( 17 )
 
-[node name="Label2" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 106.0
-margin_right = 160.0
-margin_bottom = 120.0
+[node name="Label7" type="Label" parent="Camera2D/ENEMY_UI"]
+margin_top = 95.0
+margin_right = 163.0
+margin_bottom = 116.0
+custom_fonts/font = ExtResource( 22 )
 text = "PRIMARY CHARGE"
 
-[node name="PRIMARY" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
-margin_top = 124.0
-margin_right = 160.0
-margin_bottom = 138.0
+[node name="PRIMARY" type="TextureProgress" parent="Camera2D/ENEMY_UI"]
+margin_top = 120.0
+margin_right = 163.0
+margin_bottom = 134.0
 value = 100.0
+texture_under = ExtResource( 19 )
+texture_progress = ExtResource( 18 )
 
-[node name="Label3" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 142.0
-margin_right = 160.0
-margin_bottom = 156.0
-text = "SECONDARY SUPPLIES"
-
-[node name="SECONDARY" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
-margin_top = 160.0
-margin_right = 160.0
-margin_bottom = 174.0
-max_value = 4.0
-value = 4.0
-
-[node name="Label6" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 178.0
-margin_right = 160.0
-margin_bottom = 192.0
+[node name="Label8" type="Label" parent="Camera2D/ENEMY_UI"]
+margin_top = 138.0
+margin_right = 163.0
+margin_bottom = 159.0
+custom_fonts/font = ExtResource( 22 )
 text = "TURRET CHARGE"
 
-[node name="TURRET" type="ProgressBar" parent="Camera2D/ENEMY_UI"]
-margin_top = 196.0
-margin_right = 160.0
-margin_bottom = 210.0
-min_value = 100.0
+[node name="TURRET" type="TextureProgress" parent="Camera2D/ENEMY_UI"]
+margin_top = 163.0
+margin_right = 163.0
+margin_bottom = 177.0
 value = 100.0
+texture_under = ExtResource( 19 )
+texture_progress = ExtResource( 18 )
+
+[node name="Label9" type="Label" parent="Camera2D/ENEMY_UI"]
+margin_top = 181.0
+margin_right = 163.0
+margin_bottom = 202.0
+custom_fonts/font = ExtResource( 22 )
+text = "Ability Status"
+
+[node name="SECONDARY" type="TextureProgress" parent="Camera2D/ENEMY_UI"]
+margin_top = 206.0
+margin_right = 163.0
+margin_bottom = 220.0
+max_value = 4.0
+value = 4.0
+texture_under = ExtResource( 19 )
+texture_progress = ExtResource( 20 )
 
 [node name="label" type="Label" parent="Camera2D"]
 margin_left = -116.0
