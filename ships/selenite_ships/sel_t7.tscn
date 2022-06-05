@@ -112,6 +112,7 @@ rotation = 1.5708
 scale = Vector2( 0.114475, 0.230836 )
 frames = SubResource( 2 )
 animation = "stopped"
+frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -121,7 +122,7 @@ rotation = 1.5708
 scale = Vector2( 0.114475, 0.230836 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -131,7 +132,7 @@ rotation = 1.5708
 scale = Vector2( 0.114475, 0.230836 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -189,6 +190,8 @@ playing = true
 [node name="Plasmagun5" type="Node2D" parent="."]
 position = Vector2( 63, -177 )
 script = ExtResource( 3 )
+fire_rate = 60.0
+bullet_damage = 2.0
 projectile = ExtResource( 30 )
 
 [node name="FusionGuardianWeapon2" type="Sprite" parent="Plasmagun5"]
@@ -199,6 +202,8 @@ texture = ExtResource( 29 )
 [node name="Plasmagun7" type="Node2D" parent="."]
 position = Vector2( 137, -145 )
 script = ExtResource( 3 )
+fire_rate = 60.0
+bullet_damage = 2.0
 projectile = ExtResource( 30 )
 
 [node name="FusionGuardianWeapon2" type="Sprite" parent="Plasmagun7"]
@@ -209,6 +214,8 @@ texture = ExtResource( 29 )
 [node name="Plasmagun6" type="Node2D" parent="."]
 position = Vector2( -16, -210 )
 script = ExtResource( 3 )
+fire_rate = 60.0
+bullet_damage = 2.0
 projectile = ExtResource( 30 )
 
 [node name="FusionGuardianWeapon" type="Sprite" parent="Plasmagun6"]
@@ -219,6 +226,8 @@ texture = ExtResource( 29 )
 [node name="Plasmagun8" type="Node2D" parent="."]
 position = Vector2( 68, 187 )
 script = ExtResource( 3 )
+fire_rate = 60.0
+bullet_damage = 2.0
 projectile = ExtResource( 30 )
 
 [node name="FusionGuardianWeapon2" type="Sprite" parent="Plasmagun8"]
@@ -229,6 +238,8 @@ texture = ExtResource( 29 )
 [node name="Plasmagun9" type="Node2D" parent="."]
 position = Vector2( 144, 154 )
 script = ExtResource( 3 )
+fire_rate = 60.0
+bullet_damage = 2.0
 projectile = ExtResource( 30 )
 
 [node name="FusionGuardianWeapon2" type="Sprite" parent="Plasmagun9"]
@@ -239,6 +250,8 @@ texture = ExtResource( 29 )
 [node name="Plasmagun10" type="Node2D" parent="."]
 position = Vector2( -9, 219 )
 script = ExtResource( 3 )
+fire_rate = 60.0
+bullet_damage = 2.0
 projectile = ExtResource( 30 )
 
 [node name="FusionGuardianWeapon" type="Sprite" parent="Plasmagun10"]

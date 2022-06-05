@@ -23,5 +23,6 @@ remotesync func spawn_bullet(position, velocity, excludes, damage):
 	bullet.damage = damage
 	bullet.excludes = excludes
 	bullet.set("target_position", target_position)
+	bullet.parent=self
 	get_node("/root").add_child(bullet)
 	

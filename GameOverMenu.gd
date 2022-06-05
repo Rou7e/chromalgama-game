@@ -17,4 +17,12 @@ func _ready():
 
 
 func _on_BackToMenu_pressed():
+	self.visible=false
 	get_tree().change_scene("res://MainMenu.tscn")
+
+func make_score(winner):
+	for i in get_parent().get_node("Players").get_children():
+		if i.get_player_name() == winner:
+			$Stats.add_item(i.get_player_name() + " - wins!")
+		else:
+			$Stats.add_item(i.get_player_name())

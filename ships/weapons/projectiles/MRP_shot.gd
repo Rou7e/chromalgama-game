@@ -4,6 +4,7 @@ class_name MRPShot
 var target_position;
 var explosion = preload("res://ships/weapons/projectiles/ExplosionArea.tscn")
 
+
 func _physics_process(delta):
 	._physics_process(delta)
 	var explosion_mrp = explosion.instance()
@@ -21,3 +22,5 @@ func _physics_process(delta):
 
 func _ready():
 	time_to_live = (global_position - target_position).length() / velocity.length()
+	
+

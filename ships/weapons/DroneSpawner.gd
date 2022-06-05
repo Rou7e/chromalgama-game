@@ -12,9 +12,14 @@ func _ready():
 	pass
 
 func fire(excludes, subtick_time):
+	if get_parent().get_node("ShipCargo2") is AnimatedSprite:
+		if get_parent().get_node("ShipCargo2").frames.get_frame_count("default") != get_parent().get_node("ShipCargo2").frame:
+			get_parent().get_node("ShipCargo2").frame = get_parent().get_node("ShipCargo2").frame+1
 	var vel = Vector2(bullet_speed, 0).rotated(global_rotation)
 	var pos = global_position + subtick_time * vel
 	rpc("spawn_drone", pos, vel, excludes, bullet_damage)
+	
+
 
 remotesync func spawn_drone(position, velocity, excludes, damage):
 	var drone = projectile.instance()

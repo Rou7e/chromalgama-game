@@ -1,6 +1,7 @@
-[gd_scene load_steps=127 format=2]
+[gd_scene load_steps=143 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://resources/menu_hologram/11.png" type="Texture" id=2]
 [ext_resource path="res://resources/ui/menu_theme.tres" type="Theme" id=3]
 [ext_resource path="res://resources/ui/menu_bg.png" type="Texture" id=4]
 [ext_resource path="res://resources/ui/logo_menu.png" type="Texture" id=5]
@@ -125,6 +126,50 @@
 [ext_resource path="res://resources/ui/earth_anim/11zon_21.jpeg" type="Texture" id=124]
 [ext_resource path="res://resources/ui/earth_anim/11zon_11.jpeg" type="Texture" id=125]
 [ext_resource path="res://resources/fonts/header.tres" type="DynamicFont" id=126]
+[ext_resource path="res://resources/menu_hologram/8.png" type="Texture" id=127]
+[ext_resource path="res://resources/menu_hologram/13.png" type="Texture" id=128]
+[ext_resource path="res://resources/ui/metal_lining/chrome.png" type="Texture" id=129]
+[ext_resource path="res://resources/menu_hologram/6.png" type="Texture" id=130]
+[ext_resource path="res://resources/menu_hologram/4.png" type="Texture" id=131]
+[ext_resource path="res://resources/menu_hologram/7.png" type="Texture" id=132]
+[ext_resource path="res://resources/menu_hologram/2.png" type="Texture" id=133]
+[ext_resource path="res://resources/ui/metal_lining/corner.png" type="Texture" id=134]
+[ext_resource path="res://resources/menu_hologram/9.png" type="Texture" id=135]
+[ext_resource path="res://resources/menu_hologram/3.png" type="Texture" id=136]
+[ext_resource path="res://resources/menu_hologram/10.png" type="Texture" id=137]
+[ext_resource path="res://resources/menu_hologram/12.png" type="Texture" id=138]
+[ext_resource path="res://resources/menu_hologram/5.png" type="Texture" id=139]
+[ext_resource path="res://resources/menu_hologram/1.png" type="Texture" id=140]
+
+[sub_resource type="AnimatedTexture" id=2]
+flags = 4
+frames = 13
+fps = 15.0
+frame_0/texture = ExtResource( 140 )
+frame_1/texture = ExtResource( 133 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 136 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 131 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 139 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 130 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 132 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 127 )
+frame_7/delay_sec = 0.0
+frame_8/texture = ExtResource( 135 )
+frame_8/delay_sec = 0.0
+frame_9/texture = ExtResource( 137 )
+frame_9/delay_sec = 0.0
+frame_10/texture = ExtResource( 2 )
+frame_10/delay_sec = 0.0
+frame_11/texture = ExtResource( 138 )
+frame_11/delay_sec = 0.0
+frame_12/texture = ExtResource( 128 )
+frame_12/delay_sec = 0.0
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -142,6 +187,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Sprite3" type="TextureRect" parent="."]
+margin_left = 256.0
+margin_top = 406.0
+margin_right = 666.0
+margin_bottom = 626.0
+rect_min_size = Vector2( 160, 220 )
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 256.0
 margin_top = 406.0
@@ -153,34 +211,36 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="VBoxContainer"]
+visible = false
 margin_right = 410.0
 margin_bottom = 35.0
 text = "Campaign"
 
 [node name="StartGame" type="Button" parent="VBoxContainer"]
-margin_top = 39.0
 margin_right = 410.0
-margin_bottom = 74.0
+margin_bottom = 35.0
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 126 )
 text = "Space battle"
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
+visible = false
 margin_top = 78.0
 margin_right = 410.0
 margin_bottom = 113.0
 text = "Settings"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
-margin_top = 117.0
+visible = false
+margin_top = 78.0
 margin_right = 410.0
-margin_bottom = 152.0
+margin_bottom = 113.0
 text = "about"
 
 [node name="Button4" type="Button" parent="VBoxContainer"]
-margin_top = 156.0
+margin_top = 39.0
 margin_right = 410.0
-margin_bottom = 191.0
+margin_bottom = 74.0
 text = "quit"
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -194,7 +254,7 @@ show_behind_parent = true
 position = Vector2( 1950.33, 801 )
 scale = Vector2( 3.75996, 3.75996 )
 frames = SubResource( 1 )
-frame = 67
+frame = 42
 playing = true
 
 [node name="Sprite2" type="Sprite" parent="."]
@@ -206,4 +266,51 @@ position = Vector2( 960, 540 )
 current = true
 zoom = Vector2( 1.5, 1.5 )
 
+[node name="Corner" type="Sprite" parent="."]
+position = Vector2( 671, 631 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 134 )
+
+[node name="Corner2" type="Sprite" parent="."]
+position = Vector2( 671, 401 )
+rotation = -1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 134 )
+
+[node name="Chrome" type="Sprite" parent="."]
+position = Vector2( 671, 516 )
+scale = Vector2( 0.1, 2.2 )
+texture = ExtResource( 129 )
+
+[node name="Corner3" type="Sprite" parent="."]
+position = Vector2( 251, 631 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 134 )
+
+[node name="Corner4" type="Sprite" parent="."]
+position = Vector2( 251, 401 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 134 )
+
+[node name="Chrome2" type="Sprite" parent="."]
+position = Vector2( 251, 516 )
+rotation = 3.14159
+scale = Vector2( 0.1, 2.2 )
+texture = ExtResource( 129 )
+
+[node name="Chrome3" type="Sprite" parent="."]
+position = Vector2( 461.01, 631 )
+rotation = 1.5708
+scale = Vector2( 0.1, 4.10019 )
+texture = ExtResource( 129 )
+
+[node name="Chrome4" type="Sprite" parent="."]
+position = Vector2( 461, 401 )
+rotation = -1.5708
+scale = Vector2( 0.1, 4.10019 )
+texture = ExtResource( 129 )
+
 [connection signal="pressed" from="VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_Button4_pressed"]

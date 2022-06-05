@@ -107,7 +107,16 @@ func _physics_process(delta):
 remotesync func receive_damage(amount):
 	cooling -= amount
 	if cooling <= 0:
-		get_parent().queue_free()
+		if get_parent().get_parent().get_child_count() == 2:
+			gamestate.end_game()
+			get_parent().get_parent().get_parent().get_node("GameOverMenu").visible = true
+			var winner = ""
+			for i in range(2):
+				if get_parent().get_player_name() != get_parent().get_parent().get_child(i).get_player_name():
+					winner = get_parent().get_parent().get_child(i).get_player_name()
+			get_parent().get_parent().get_parent().get_node("GameOverMenu").make_score(winner)
+			for i in get_parent().get_parent().get_children():
+				i.queue_free()
 	#queue_free()
 
 func _on_BaseShip_area_entered(area):

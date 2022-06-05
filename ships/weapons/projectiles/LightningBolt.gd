@@ -5,12 +5,14 @@ var velocity = Vector2.ZERO;
 var damage = 1;
 var time_to_live = 0.5
 var excludes = [];
+var parent
 
 func _ready():
+	#$AnimatedSprite.z_index = 10
 	pass
 	
 func _physics_process(delta):
-	#global_position += get_parent().global_position
+	global_position = parent.global_position
 	time_to_live -= delta
 	if time_to_live < 0:
 		queue_free()

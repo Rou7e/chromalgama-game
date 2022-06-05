@@ -83,9 +83,9 @@ func _ready():
 			if get_parent().get_child(i) != self:
 				$Camera2D/ENEMY_UI/Label5.text = get_parent().get_child(i).get_child(1).desc
 				$Camera2D/ENEMY_UI/HEAT.max_value = get_parent().get_child(i).get_child(1).cooling
-				$Camera2D/Player_UI/PRIMARY.max_value = get_parent().get_child(i).get_child(1).charge_states["primary"].charge
-				$Camera2D/Player_UI/TURRET.max_value = get_parent().get_child(i).get_child(1).charge_states["secondary"].charge
-				$Camera2D/Player_UI/SECONDARY.max_value = get_parent().get_child(i).get_child(1).charge_states["ability"].charge
+				$Camera2D/ENEMY_UI/PRIMARY.max_value = get_parent().get_child(i).get_child(1).charge_states["primary"].charge
+				$Camera2D/ENEMY_UI/TURRET.max_value = get_parent().get_child(i).get_child(1).charge_states["secondary"].charge
+				$Camera2D/ENEMY_UI/SECONDARY.max_value = get_parent().get_child(i).get_child(1).charge_states["ability"].charge
 				markf.global_position = $Camera2D/Sprite4.rect_min_size/2
 	$Camera2D.current = is_network_master()
 	$Camera2D.visible = is_network_master()
@@ -186,6 +186,9 @@ func _input(event):
 
 func set_player_name(new_name):
 	$Camera2D.get_node("label").set_text(new_name)
+
+func get_player_name():
+	return $Camera2D.get_node("label").text
 
 func get_enemy():
 	get_parent().get_node("EnemyController").get_child(0)

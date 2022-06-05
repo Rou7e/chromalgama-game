@@ -224,3 +224,5 @@ playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 39 )
+
+[connection signal="area_entered" from="." to="." method="_on_ExplosionArea_area_entered"]

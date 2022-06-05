@@ -111,7 +111,7 @@ rotation = 1.5708
 scale = Vector2( 0.0352799, 0.0276477 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -121,7 +121,7 @@ rotation = 1.5708
 scale = Vector2( 0.0348022, 0.0264571 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -131,7 +131,7 @@ rotation = 1.5708
 scale = Vector2( 0.0342665, 0.0258713 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -141,7 +141,7 @@ rotation = 1.5708
 scale = Vector2( 0.0358752, 0.0262587 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -151,7 +151,7 @@ rotation = 1.5708
 scale = Vector2( 0.0341183, 0.0262071 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -222,6 +222,8 @@ playing = true
 [node name="Plasmagun" type="Node2D" parent="."]
 position = Vector2( -98, 52 )
 script = ExtResource( 3 )
+fire_rate = 60.0
+bullet_damage = 2.0
 projectile = ExtResource( 30 )
 
 [node name="FusionGuardianWeapon" type="Sprite" parent="Plasmagun"]
