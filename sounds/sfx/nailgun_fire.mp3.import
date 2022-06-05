@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/nailgun_fire.mp3-29adc4eac535a89fbf5171bc3f134bae.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/nailgun_fire.mp3"
+dest_files=[ "res://.import/nailgun_fire.mp3-29adc4eac535a89fbf5171bc3f134bae.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

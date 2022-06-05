@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/undock_fighter.mp3-a549e55085b826e41a89e97c0f85c1d2.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/undock_fighter.mp3"
+dest_files=[ "res://.import/undock_fighter.mp3-a549e55085b826e41a89e97c0f85c1d2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

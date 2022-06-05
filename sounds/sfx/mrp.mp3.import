@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mrp.mp3-403f5c1cc502f848992d1470cd92fdfd.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/mrp.mp3"
+dest_files=[ "res://.import/mrp.mp3-403f5c1cc502f848992d1470cd92fdfd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

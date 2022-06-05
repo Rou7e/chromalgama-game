@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/laser_fire.mp3-2a72707a977ec934a747c3cd5903fcfe.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/laser_fire.mp3"
+dest_files=[ "res://.import/laser_fire.mp3-2a72707a977ec934a747c3cd5903fcfe.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

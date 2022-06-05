@@ -17,6 +17,8 @@ func fire(excludes, subtick_time):
 			get_parent().get_node("ShipCargo2").frame = get_parent().get_node("ShipCargo2").frame+1
 	var vel = Vector2(bullet_speed, 0).rotated(global_rotation)
 	var pos = global_position + subtick_time * vel
+	$AudioStreamPlayer2D.play(0)
+	$AudioStreamPlayer2D.stream.loop = false
 	rpc("spawn_drone", pos, vel, excludes, bullet_damage)
 	
 

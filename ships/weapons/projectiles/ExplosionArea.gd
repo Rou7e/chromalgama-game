@@ -25,10 +25,10 @@ func _process(delta):
 #	pass
 
 func _on_ExplosionArea_area_entered(area):
-	print(area)
+	#print(area)
 	if excludes.has(area.get("id")):
 		return
 	if area.has_method("receive_damage"):
 		area.rpc("receive_damage", damage)
-		queue_free()
+
 		

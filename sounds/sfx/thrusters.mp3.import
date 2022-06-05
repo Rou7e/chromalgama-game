@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/thrusters.mp3-4f55ec18a72235d410c677fa75f805e9.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/thrusters.mp3"
+dest_files=[ "res://.import/thrusters.mp3-4f55ec18a72235d410c677fa75f805e9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

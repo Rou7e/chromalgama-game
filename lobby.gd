@@ -8,7 +8,7 @@ func _ready():
 	gamestate.connect("game_ended", self, "_on_game_ended")
 	gamestate.connect("game_error", self, "_on_game_error")
 	
-	$Connect/ItemList.add_item("TST T4 TEST SHIP")
+	$Connect/ItemList.add_item("ACL T1 Byte !!!NYP!!!")
 	
 	$Connect/ItemList.add_item("TEL T1 Drone")
 	$Connect/ItemList.add_item("TEL T2 Drone")

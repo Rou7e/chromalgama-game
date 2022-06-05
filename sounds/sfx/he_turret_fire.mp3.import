@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/he_turret_fire.mp3-f399b33fc830cf1856621121ea0d32b5.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/he_turret_fire.mp3"
+dest_files=[ "res://.import/he_turret_fire.mp3-f399b33fc830cf1856621121ea0d32b5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

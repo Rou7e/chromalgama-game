@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=2]
+[gd_scene load_steps=144 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://resources/menu_hologram/11.png" type="Texture" id=2]
@@ -140,6 +140,7 @@
 [ext_resource path="res://resources/menu_hologram/12.png" type="Texture" id=138]
 [ext_resource path="res://resources/menu_hologram/5.png" type="Texture" id=139]
 [ext_resource path="res://resources/menu_hologram/1.png" type="Texture" id=140]
+[ext_resource path="res://sounds/music/main_menu.mp3" type="AudioStream" id=141]
 
 [sub_resource type="AnimatedTexture" id=2]
 flags = 4
@@ -254,7 +255,7 @@ show_behind_parent = true
 position = Vector2( 1950.33, 801 )
 scale = Vector2( 3.75996, 3.75996 )
 frames = SubResource( 1 )
-frame = 42
+frame = 75
 playing = true
 
 [node name="Sprite2" type="Sprite" parent="."]
@@ -311,6 +312,10 @@ position = Vector2( 461, 401 )
 rotation = -1.5708
 scale = Vector2( 0.1, 4.10019 )
 texture = ExtResource( 129 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 141 )
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_Button4_pressed"]

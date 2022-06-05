@@ -14,7 +14,9 @@ func fire(excludes, subtick_time):
 	var vel = Vector2(bullet_speed, 0).rotated(global_rotation)
 	var pos = global_position + subtick_time * vel
 	rpc("spawn_bullet", pos, vel, excludes, bullet_damage)
-
+	$AudioStreamPlayer2D.play()
+	$AudioStreamPlayer2D.stream.loop = false
+	
 remotesync func spawn_bullet(position, velocity, excludes, damage):
 	var bullet = projectile.instance()
 	bullet.velocity = velocity

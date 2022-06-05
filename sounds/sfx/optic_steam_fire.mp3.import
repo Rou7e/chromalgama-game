@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/optic_steam_fire.mp3-0a3c11459dc3233e6281de33898aeb6f.mp3str"
+
+[deps]
+
+source_file="res://sounds/sfx/optic_steam_fire.mp3"
+dest_files=[ "res://.import/optic_steam_fire.mp3-0a3c11459dc3233e6281de33898aeb6f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

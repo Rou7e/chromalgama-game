@@ -40,7 +40,7 @@ func shoot(req_gun_group, charge_state, excludes):
 		return
 	var time_per_shot = 60/fire_rate
 	var times_fired_this_tick = 0
-	while recharge_time < 0 and charge_state.charge >= cost:
+	while recharge_time < 0 and charge_state.charge >= cost and charge_state.overheat == false:
 		var subtick_time = times_fired_this_tick * time_per_shot
 		fire(excludes, subtick_time)
 		
@@ -50,3 +50,5 @@ func shoot(req_gun_group, charge_state, excludes):
 		recharge_time += time_per_shot
 		times_fired_this_tick += 1
 		charge_state.charge -= cost
+		if charge_state.charge < cost:
+			charge_state.overheat = true

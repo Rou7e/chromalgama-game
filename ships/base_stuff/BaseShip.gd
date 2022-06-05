@@ -10,6 +10,7 @@ const LOCATION_SIZE = 10000
 
 export(float) var cooling = 100
 
+
 export var desc = 'FREE CONVENTION \nFIGHTER-CLASS\n DRONE T1'
 
 var is_active = {
@@ -18,9 +19,11 @@ var is_active = {
 	"ability": false,
 }
 
+var explosion = preload("res://ships/weapons/projectiles/ExplosionArea.tscn")
+
 class ChargeState:
 	var charge = 100
-	var overheat = 0
+	var overheat = false
 
 var charge_states = {}
 
@@ -53,30 +56,42 @@ func set_target_position(position):
 
 func _physics_process(delta):
 	if input_vector.y > 0:
+		if get_parent().get_child(0).get_node("EngineSound").playing == false:
+			get_parent().get_child(0).get_node("EngineSound").play()
 		for i in $Engines.get_children():
 			i.animation="running"
 	else:
+		get_parent().get_child(0).get_node("EngineSound").stop()
 		for i in $Engines.get_children():
 			i.animation="stopped"
 	
 	if input_vector.y < 0:
+		if get_parent().get_child(0).get_node("ThrusterSound").playing == false:
+			get_parent().get_child(0).get_node("ThrusterSound").play()
 		for i in $BackThrusters.get_children():
 			i.animation="running"
 	else:
+		get_parent().get_child(0).get_node("ThrusterSound").stop()
 		for i in $BackThrusters.get_children():
 			i.animation="default"
 			
 	if input_vector.x < 0:
+		if get_parent().get_child(0).get_node("ThrusterSound2").playing == false:
+			get_parent().get_child(0).get_node("ThrusterSound2").play()
 		for i in $LeftThrusters.get_children():
 			i.animation="running"
 	else:
+		get_parent().get_child(0).get_node("ThrusterSound2").stop()
 		for i in $LeftThrusters.get_children():
 			i.animation="default"
 			
 	if input_vector.x > 0:
+		if get_parent().get_child(0).get_node("ThrusterSound3").playing == false:
+			get_parent().get_child(0).get_node("ThrusterSound3").play()
 		for i in $RightThrusters.get_children():
 			i.animation="running"
 	else:
+		get_parent().get_child(0).get_node("ThrusterSound3").stop()
 		for i in $RightThrusters.get_children():
 			i.animation="default"
 			
@@ -97,7 +112,10 @@ func _physics_process(delta):
 			propagate_call("shoot", [key, charge_states[key], [id]])
 	
 	for key in is_active.keys():
-		charge_states[key].charge = min(100, charge_states[key].charge + delta * 10)
+		if key != "ability":
+			charge_states[key].charge = min(100, charge_states[key].charge + delta * 10)
+			if charge_states[key].charge >= 100:
+				charge_states[key].overheat = false
 	
 	if self.is_network_master():
 		send_sync_info()
@@ -107,6 +125,12 @@ func _physics_process(delta):
 remotesync func receive_damage(amount):
 	cooling -= amount
 	if cooling <= 0:
+		var explosion_mrp = explosion.instance()
+		explosion_mrp.get_node("AnimatedSprite").scale = $ShipCargo.scale*10
+		explosion_mrp.global_position=global_position
+		get_node("/root").add_child(explosion_mrp)
+		if get_parent().get_parent().name=="NPCs":
+			queue_free()
 		if get_parent().get_parent().get_child_count() == 2:
 			gamestate.end_game()
 			get_parent().get_parent().get_parent().get_node("GameOverMenu").visible = true

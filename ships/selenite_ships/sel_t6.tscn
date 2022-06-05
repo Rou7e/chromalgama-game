@@ -108,7 +108,7 @@ rotation = 1.5708
 scale = Vector2( 0.254898, 0.172672 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 5
+frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -120,7 +120,7 @@ position = Vector2( -314.5, -395 )
 scale = Vector2( 0.46, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
+frame = 5
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="LeftThrusters"]
@@ -128,7 +128,7 @@ position = Vector2( -168, -300 )
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
+frame = 5
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="LeftThrusters"]
@@ -137,7 +137,7 @@ rotation = -3.14159
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
+frame = 5
 playing = true
 
 [node name="RightThrusters" type="Node2D" parent="."]
@@ -150,7 +150,7 @@ rotation = -3.14159
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
+frame = 5
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="RightThrusters"]
@@ -159,7 +159,7 @@ rotation = 2.6226e-06
 scale = Vector2( 0.642817, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 4
+frame = 6
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="RightThrusters"]
@@ -168,7 +168,7 @@ rotation = 2.6226e-06
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
+frame = 5
 playing = true
 
 [node name="BackThrusters" type="Node2D" parent="."]
@@ -180,7 +180,7 @@ rotation = 1.57079
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
+frame = 5
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="BackThrusters"]
@@ -189,13 +189,14 @@ rotation = 1.57079
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
+frame = 5
 playing = true
 
 [node name="Plasmagun" type="Node2D" parent="."]
 position = Vector2( -276, 284 )
 script = ExtResource( 3 )
 fire_rate = 60.0
+cost = 9.0
 bullet_damage = 2.0
 projectile = ExtResource( 30 )
 
@@ -208,6 +209,7 @@ texture = ExtResource( 29 )
 position = Vector2( -276, -289 )
 script = ExtResource( 3 )
 fire_rate = 60.0
+cost = 9.0
 bullet_damage = 2.0
 projectile = ExtResource( 30 )
 
