@@ -1,6 +1,55 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://lobby.gd" type="Script" id=1]
+[ext_resource path="res://sounds/sfx/mouse_click.mp3" type="AudioStream" id=2]
+[ext_resource path="res://resources/ui/uncut_bg.png" type="Texture" id=3]
+[ext_resource path="res://resources/menu_hologram/11.png" type="Texture" id=4]
+[ext_resource path="res://resources/menu_hologram/1.png" type="Texture" id=5]
+[ext_resource path="res://resources/menu_hologram/6.png" type="Texture" id=6]
+[ext_resource path="res://resources/menu_hologram/4.png" type="Texture" id=7]
+[ext_resource path="res://resources/menu_hologram/7.png" type="Texture" id=8]
+[ext_resource path="res://resources/menu_hologram/2.png" type="Texture" id=9]
+[ext_resource path="res://resources/menu_hologram/3.png" type="Texture" id=10]
+[ext_resource path="res://resources/menu_hologram/8.png" type="Texture" id=11]
+[ext_resource path="res://resources/menu_hologram/13.png" type="Texture" id=12]
+[ext_resource path="res://resources/menu_hologram/9.png" type="Texture" id=13]
+[ext_resource path="res://resources/ui/metal_lining/chrome.png" type="Texture" id=14]
+[ext_resource path="res://resources/menu_hologram/5.png" type="Texture" id=15]
+[ext_resource path="res://resources/ui/metal_lining/corner.png" type="Texture" id=16]
+[ext_resource path="res://resources/menu_hologram/10.png" type="Texture" id=17]
+[ext_resource path="res://resources/menu_hologram/12.png" type="Texture" id=18]
+[ext_resource path="res://resources/ui/ui_theme.tres" type="Theme" id=19]
+[ext_resource path="res://sounds/sfx/mouse_hover.mp3" type="AudioStream" id=20]
+
+[sub_resource type="AnimatedTexture" id=1]
+flags = 4
+frames = 13
+fps = 15.0
+frame_0/texture = ExtResource( 5 )
+frame_1/texture = ExtResource( 9 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 10 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 7 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 15 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 6 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 8 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 11 )
+frame_7/delay_sec = 0.0
+frame_8/texture = ExtResource( 13 )
+frame_8/delay_sec = 0.0
+frame_9/texture = ExtResource( 17 )
+frame_9/delay_sec = 0.0
+frame_10/texture = ExtResource( 4 )
+frame_10/delay_sec = 0.0
+frame_11/texture = ExtResource( 18 )
+frame_11/delay_sec = 0.0
+frame_12/texture = ExtResource( 12 )
+frame_12/delay_sec = 0.0
 
 [node name="Lobby" type="Control"]
 anchor_right = 1.0
@@ -25,6 +74,20 @@ margin_bottom = 177.5
 size_flags_horizontal = 2
 size_flags_vertical = 2
 
+[node name="Sprite4" type="TextureRect" parent="Players"]
+margin_left = -3.0
+margin_top = -7.5
+margin_right = 254.0
+margin_bottom = 357.5
+rect_min_size = Vector2( 160, 220 )
+theme = ExtResource( 19 )
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="Players"]
 margin_left = 26.0
 margin_top = 18.0
@@ -32,6 +95,7 @@ margin_right = 142.0
 margin_bottom = 32.0
 size_flags_horizontal = 2
 size_flags_vertical = 0
+theme = ExtResource( 19 )
 text = "Awaiting Players..."
 
 [node name="Start" type="Button" parent="Players"]
@@ -41,6 +105,7 @@ margin_right = 193.0
 margin_bottom = 336.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
+theme = ExtResource( 19 )
 text = "START!"
 
 [node name="List" type="ItemList" parent="Players"]
@@ -52,22 +117,65 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 
 [node name="PortForward" type="Label" parent="Players"]
-margin_left = -124.0
+margin_left = -38.0
 margin_top = 375.0
-margin_right = 128.0
+margin_right = 285.0
 margin_bottom = 429.0
+theme = ExtResource( 19 )
 custom_constants/line_spacing = 6
-text = "If you want non-LAN clients to connect,
-make sure the port 10567 in UDP
-is forwarded on your router."
+text = "The connection is maintained on port 10567,
+please forward it in case you intend to connect
+outside of local network"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="FindPublicIP" type="LinkButton" parent="Players"]
-margin_left = 168.0
-margin_top = 393.5
-margin_right = 341.0
-margin_bottom = 407.5
-text = "Find your public IP address"
+[node name="Corner" type="Sprite" parent="Players"]
+position = Vector2( 257, 360.5 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 16 )
+
+[node name="Corner2" type="Sprite" parent="Players"]
+position = Vector2( 257, -4.5 )
+rotation = -1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 16 )
+
+[node name="Chrome" type="Sprite" parent="Players"]
+position = Vector2( 257, 178 )
+scale = Vector2( 0.1, 3.55 )
+texture = ExtResource( 14 )
+
+[node name="Corner3" type="Sprite" parent="Players"]
+position = Vector2( -5, 360.5 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 16 )
+
+[node name="Corner4" type="Sprite" parent="Players"]
+position = Vector2( -4.99973, -4.49974 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 16 )
+
+[node name="Chrome2" type="Sprite" parent="Players"]
+position = Vector2( -4.99954, 178.04 )
+rotation = 3.14159
+scale = Vector2( 0.1, 3.55079 )
+texture = ExtResource( 14 )
+
+[node name="Chrome3" type="Sprite" parent="Players"]
+position = Vector2( 125.996, 360.5 )
+rotation = 1.5708
+scale = Vector2( 0.1, 2.52097 )
+texture = ExtResource( 14 )
+
+[node name="Chrome4" type="Sprite" parent="Players"]
+position = Vector2( 126.159, -4.49947 )
+rotation = -1.5708
+scale = Vector2( 0.1, 2.52337 )
+texture = ExtResource( 14 )
 
 [node name="Connect" type="Panel" parent="."]
 anchor_left = 0.5
@@ -76,10 +184,23 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -138.0
 margin_top = -185.0
-margin_right = 139.0
-margin_bottom = 191.0
+margin_right = 143.0
+margin_bottom = 195.0
+rect_pivot_offset = Vector2( -112, -125 )
 size_flags_horizontal = 2
 size_flags_vertical = 2
+
+[node name="Sprite3" type="TextureRect" parent="Connect"]
+margin_right = 280.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 160, 220 )
+theme = ExtResource( 19 )
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="NameLabel" type="Label" parent="Connect"]
 margin_left = 14.0
@@ -88,7 +209,11 @@ margin_right = 56.0
 margin_bottom = 25.0
 size_flags_horizontal = 2
 size_flags_vertical = 0
+theme = ExtResource( 19 )
 text = "Name:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Name" type="LineEdit" parent="Connect"]
 margin_left = 17.0
@@ -97,6 +222,7 @@ margin_right = 173.0
 margin_bottom = 54.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
+theme = ExtResource( 19 )
 text = "Player"
 
 [node name="IPLabel" type="Label" parent="Connect"]
@@ -106,7 +232,11 @@ margin_right = 57.0
 margin_bottom = 80.0
 size_flags_horizontal = 2
 size_flags_vertical = 0
+theme = ExtResource( 19 )
 text = "IP:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="IPAddress" type="LineEdit" parent="Connect"]
 margin_left = 17.0
@@ -115,24 +245,30 @@ margin_right = 173.0
 margin_bottom = 109.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
+theme = ExtResource( 19 )
 text = "127.0.0.1"
 
 [node name="Host" type="Button" parent="Connect"]
 margin_left = 181.0
-margin_top = 31.0
+margin_top = 25.0
 margin_right = 246.0
-margin_bottom = 51.0
+margin_bottom = 53.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
+theme = ExtResource( 19 )
 text = "Host"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Join" type="Button" parent="Connect"]
 margin_left = 181.0
-margin_top = 87.0
+margin_top = 83.0
 margin_right = 246.0
-margin_bottom = 107.0
+margin_bottom = 111.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
+theme = ExtResource( 19 )
 text = "Join"
 
 [node name="ErrorLabel" type="Label" parent="Connect"]
@@ -142,17 +278,80 @@ margin_right = 257.0
 margin_bottom = 139.0
 size_flags_horizontal = 2
 size_flags_vertical = 0
+theme = ExtResource( 19 )
 custom_colors/font_color = Color( 0.820312, 0.291595, 0.291595, 1 )
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IPLabel2" type="Label" parent="Connect"]
+margin_left = 15.0
+margin_top = 144.0
+margin_right = 57.0
+margin_bottom = 158.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = ExtResource( 19 )
+text = "Select your ship:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ItemList" type="ItemList" parent="Connect"]
 margin_left = 21.0
-margin_top = 142.0
+margin_top = 161.0
 margin_right = 246.0
 margin_bottom = 361.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Corner" type="Sprite" parent="Connect"]
+position = Vector2( 285, 385 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 16 )
+
+[node name="Corner2" type="Sprite" parent="Connect"]
+position = Vector2( 285, -4.99924 )
+rotation = -1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 16 )
+
+[node name="Chrome" type="Sprite" parent="Connect"]
+position = Vector2( 285, 190 )
+scale = Vector2( 0.1, 3.79999 )
+texture = ExtResource( 14 )
+
+[node name="Corner3" type="Sprite" parent="Connect"]
+position = Vector2( -4.99973, 385.001 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 16 )
+
+[node name="Corner4" type="Sprite" parent="Connect"]
+position = Vector2( -4.99976, -4.99924 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 16 )
+
+[node name="Chrome2" type="Sprite" parent="Connect"]
+position = Vector2( -4.99954, 190.042 )
+rotation = 3.14159
+scale = Vector2( 0.1, 3.80082 )
+texture = ExtResource( 14 )
+
+[node name="Chrome3" type="Sprite" parent="Connect"]
+position = Vector2( 140.053, 385.001 )
+rotation = 1.5708
+scale = Vector2( 0.1, 2.80104 )
+texture = ExtResource( 14 )
+
+[node name="Chrome4" type="Sprite" parent="Connect"]
+position = Vector2( 140.003, -4.99902 )
+rotation = -1.5708
+scale = Vector2( 0.1, 2.80026 )
+texture = ExtResource( 14 )
 
 [node name="ErrorDialog" type="AcceptDialog" parent="."]
 margin_right = 55.0
@@ -161,7 +360,21 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 window_title = "Внимание!"
 
+[node name="UncutBg" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 640, 360 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 20 )
+
+[connection signal="mouse_entered" from="Players/Start" to="." method="_on_Start_mouse_entered"]
 [connection signal="pressed" from="Players/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Players/FindPublicIP" to="." method="_on_find_public_ip_pressed"]
+[connection signal="mouse_entered" from="Connect/Host" to="." method="_on_Host_mouse_entered"]
 [connection signal="pressed" from="Connect/Host" to="." method="_on_host_pressed"]
+[connection signal="mouse_entered" from="Connect/Join" to="." method="_on_Join_mouse_entered"]
 [connection signal="pressed" from="Connect/Join" to="." method="_on_join_pressed"]

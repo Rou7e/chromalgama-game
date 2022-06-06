@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://resources/menu_hologram/6.png" type="Texture" id=1]
 [ext_resource path="res://ships/base_stuff/PlayerController.gd" type="Script" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://sounds/sfx/battle_music.mp3" type="AudioStream" id=23]
 [ext_resource path="res://sounds/sfx/main_engine.mp3" type="AudioStream" id=24]
 [ext_resource path="res://sounds/sfx/thrusters.mp3" type="AudioStream" id=25]
+[ext_resource path="res://sounds/sfx/damage_dealt.mp3" type="AudioStream" id=26]
 
 [sub_resource type="AnimatedTexture" id=3]
 flags = 4
@@ -88,6 +89,9 @@ scale = Vector2( 0.5, 0.5 )
 stream = ExtResource( 23 )
 autoplay = true
 attenuation = 1e-05
+
+[node name="DamageDealt" type="AudioStreamPlayer2D" parent="Camera2D"]
+stream = ExtResource( 26 )
 
 [node name="Sprite2" type="TextureRect" parent="Camera2D"]
 show_behind_parent = true

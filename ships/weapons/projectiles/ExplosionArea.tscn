@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://ships/weapons/projectiles/ExplosionArea.gd" type="Script" id=1]
 [ext_resource path="res://resources/projectiles/MRP/6.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://resources/projectiles/MRP/2.png" type="Texture" id=8]
 [ext_resource path="res://resources/projectiles/MRP/3.png" type="Texture" id=9]
 [ext_resource path="res://resources/projectiles/MRP/1.png" type="Texture" id=10]
+[ext_resource path="res://sounds/sfx/explosion.mp3" type="AudioStream" id=11]
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -224,5 +225,9 @@ playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 39 )
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+autoplay = true
 
 [connection signal="area_entered" from="." to="." method="_on_ExplosionArea_area_entered"]

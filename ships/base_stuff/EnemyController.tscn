@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ships/base_stuff/EnemyController.gd" type="Script" id=1]
 [ext_resource path="res://sounds/sfx/main_engine.mp3" type="AudioStream" id=2]
 [ext_resource path="res://sounds/sfx/thrusters.mp3" type="AudioStream" id=3]
+[ext_resource path="res://sounds/sfx/damage_dealt.mp3" type="AudioStream" id=4]
 
 [node name="EnemyController" type="Node2D"]
 script = ExtResource( 1 )
@@ -24,3 +25,6 @@ volume_db = 6.0
 [node name="ThrusterSound3" type="AudioStreamPlayer2D" parent="Node2D"]
 stream = ExtResource( 3 )
 volume_db = 6.0
+
+[node name="DamageDealt" type="AudioStreamPlayer2D" parent="Node2D"]
+stream = ExtResource( 4 )

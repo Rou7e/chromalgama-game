@@ -22,7 +22,7 @@ animations = [ {
 } ]
 
 [node name="Node2D" type="Area2D"]
-scale = Vector2( 0.2, 0.2 )
+scale = Vector2( 0.4, 0.4 )
 input_pickable = false
 script = ExtResource( 1 )
 

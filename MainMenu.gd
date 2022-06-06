@@ -18,8 +18,20 @@ func _ready():
 
 
 func _on_StartGame_pressed():
+
 	get_tree().change_scene("res://lobby.tscn");
 
 
 func _on_Button4_pressed():
+
 	get_tree().quit()
+
+
+func _on_StartGame_mouse_entered():
+	$AudioStreamPlayer2D2.play(0.0)
+	$AudioStreamPlayer2D2.stream.loop = false
+
+
+func _on_Button4_mouse_entered():
+	$AudioStreamPlayer2D2.play(0.0)
+	$AudioStreamPlayer2D2.stream.loop = false

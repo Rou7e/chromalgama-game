@@ -2,11 +2,13 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-valid=false
+path="res://.import/mouse_click.mp3-12e701f1b07abecc0750b4d12c903313.mp3str"
 
 [deps]
 
 source_file="res://sounds/sfx/mouse_click.mp3"
+dest_files=[ "res://.import/mouse_click.mp3-12e701f1b07abecc0750b4d12c903313.mp3str" ]
+
 [params]
 
 loop=true

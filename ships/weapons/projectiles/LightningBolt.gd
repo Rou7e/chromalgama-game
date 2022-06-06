@@ -3,7 +3,7 @@ class_name LightningBolt
 
 var velocity = Vector2.ZERO;
 var damage = 1;
-var time_to_live = 0.5
+var time_to_live = 0.1
 var excludes = [];
 var parent
 

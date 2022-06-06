@@ -30,5 +30,3 @@ func _on_ExplosionArea_area_entered(area):
 		return
 	if area.has_method("receive_damage"):
 		area.rpc("receive_damage", damage)
-
-		

@@ -21,14 +21,14 @@ input_pickable = false
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 4359.42, 0 )
+position = Vector2( 4346.81, -0.0360107 )
 rotation = 1.5708
 scale = Vector2( 1.98856, 8.69481 )
 frames = SubResource( 2 )
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 4198.01, 0 )
+position = Vector2( 4185.4, -0.0361328 )
 rotation = 1.5708
 shape = SubResource( 3 )
 

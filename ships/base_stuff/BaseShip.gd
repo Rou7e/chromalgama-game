@@ -124,6 +124,9 @@ func _physics_process(delta):
 
 remotesync func receive_damage(amount):
 	cooling -= amount
+	if get_parent().get_child(0).get_node("DamageDealt").playing == false:
+		get_parent().get_child(0).get_node("DamageDealt").play()
+	get_parent().get_child(0).get_node("DamageDealt").stream.loop = false
 	if cooling <= 0:
 		var explosion_mrp = explosion.instance()
 		explosion_mrp.get_node("AnimatedSprite").scale = $ShipCargo.scale*10
@@ -131,7 +134,8 @@ remotesync func receive_damage(amount):
 		get_node("/root").add_child(explosion_mrp)
 		if get_parent().get_parent().name=="NPCs":
 			queue_free()
-		if get_parent().get_parent().get_child_count() == 2:
+			pass
+		if get_parent().get_parent().get_child_count() == 2 and get_parent().get_parent().name=="Players":
 			gamestate.end_game()
 			get_parent().get_parent().get_parent().get_node("GameOverMenu").visible = true
 			var winner = ""

@@ -2,17 +2,19 @@ extends Control
 
 func _ready():
 	# Called every time the node is added to the scene.
+	$AudioStreamPlayer2D3.play(0.0)
+	$AudioStreamPlayer2D3.stream.loop = false
 	gamestate.connect("connection_failed", self, "_on_connection_failed")
 	gamestate.connect("connection_succeeded", self, "_on_connection_success")
 	gamestate.connect("player_list_changed", self, "refresh_lobby")
 	gamestate.connect("game_ended", self, "_on_game_ended")
 	gamestate.connect("game_error", self, "_on_game_error")
 	
-	$Connect/ItemList.add_item("ACL T1 Byte !!!NYP!!!")
+	$Connect/ItemList.add_item("ACL T1 Byte !!!NYI!!!")
 	
-	$Connect/ItemList.add_item("TEL T1 Drone")
-	$Connect/ItemList.add_item("TEL T2 Drone")
-	$Connect/ItemList.add_item("TEL T3 Drone")
+	$Connect/ItemList.add_item("TEL T1 Builder USV")
+	$Connect/ItemList.add_item("TEL T2 Zapper USV")
+	$Connect/ItemList.add_item("TEL T3 Bomber USV")
 	$Connect/ItemList.add_item("TEL T4 Revenant")
 	$Connect/ItemList.add_item("TEL T5 Constructor")
 	$Connect/ItemList.add_item("TEL T6 Dequisitor")
@@ -26,7 +28,7 @@ func _ready():
 	$Connect/ItemList.add_item("SEL T6 Claymore")
 	$Connect/ItemList.add_item("SEL T7 Zweihander")
 	
-	$Connect/ItemList.add_item("REM T4 Lex Aeterna")
+	#$Connect/ItemList.add_item("REM T4 Lex Aeterna")
 	# Set the player name according to the system username. Fallback to the path.
 	if OS.has_environment("USERNAME"):
 		$Connect/Name.text = OS.get_environment("USERNAME")
@@ -36,6 +38,8 @@ func _ready():
 
 
 func _on_host_pressed():
+	$AudioStreamPlayer2D3.play()
+	$AudioStreamPlayer2D3.stream.loop = false
 	if $Connect/Name.text == "":
 		$Connect/ErrorLabel.text = "Invalid name!"
 		return
@@ -55,6 +59,8 @@ func _on_host_pressed():
 
 
 func _on_join_pressed():
+	$AudioStreamPlayer2D3.play()
+	$AudioStreamPlayer2D3.stream.loop = false
 	if $Connect/Name.text == "":
 		$Connect/ErrorLabel.text = "Invalid name!"
 		return
@@ -121,3 +127,18 @@ func _on_start_pressed():
 
 func _on_find_public_ip_pressed():
 	OS.shell_open("https://icanhazip.com/")
+
+
+func _on_Host_mouse_entered():
+	$AudioStreamPlayer2D2.play()
+	$AudioStreamPlayer2D2.stream.loop = false
+
+
+func _on_Join_mouse_entered():
+	$AudioStreamPlayer2D2.play()
+	$AudioStreamPlayer2D2.stream.loop = false
+
+
+func _on_Start_mouse_entered():
+	$AudioStreamPlayer2D2.play()
+	$AudioStreamPlayer2D2.stream.loop = false
