@@ -74,7 +74,7 @@ func _ready():
 	$Camera2D.scale.x = 9*get_child(1).get_child(0).scale.x
 	$Camera2D.scale.y = 9*get_child(1).get_child(0).scale.y
 	$Camera2D/Player_UI/Label5.text = $BaseShip.desc
-	$Camera2D/Player_UI/HEAT.max_value = $BaseShip.cooling
+	$Camera2D/Player_UI/HEAT.max_value = $BaseShip.max_cooling
 	$Camera2D/Player_UI/PRIMARY.max_value = $BaseShip.charge_states["primary"].charge
 	$Camera2D/Player_UI/TURRET.max_value = $BaseShip.charge_states["secondary"].charge
 	$Camera2D/Player_UI/SECONDARY.max_value = $BaseShip.charge_states["ability"].charge
@@ -83,7 +83,7 @@ func _ready():
 		for i in range(get_parent().get_child_count()):
 			if get_parent().get_child(i) != self:
 				$Camera2D/ENEMY_UI/Label5.text = get_parent().get_child(i).get_child(1).desc
-				$Camera2D/ENEMY_UI/HEAT.max_value = get_parent().get_child(i).get_child(1).cooling
+				$Camera2D/ENEMY_UI/HEAT.max_value = get_parent().get_child(i).get_child(1).max_cooling
 				$Camera2D/ENEMY_UI/PRIMARY.max_value = get_parent().get_child(i).get_child(1).charge_states["primary"].charge
 				$Camera2D/ENEMY_UI/TURRET.max_value = get_parent().get_child(i).get_child(1).charge_states["secondary"].charge
 				$Camera2D/ENEMY_UI/SECONDARY.max_value = get_parent().get_child(i).get_child(1).charge_states["ability"].charge
