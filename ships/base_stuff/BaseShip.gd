@@ -9,7 +9,7 @@ export(float) var max_speed = 750
 const LOCATION_SIZE = 10000
 
 export(float) var cooling = 100
-
+var max_cooling = cooling
 
 export var desc = 'FREE CONVENTION \nFIGHTER-CLASS\n DRONE T1'
 
@@ -34,6 +34,7 @@ var input_vector = Vector2.ZERO
 var id = "_no_id"
 
 func _ready():
+	var max_cooling = cooling
 	set_network_master(get_parent().get_network_master())
 	for key in is_active.keys():
 		charge_states[key] = ChargeState.new()
