@@ -119,8 +119,8 @@ func _process(delta):
 	$Camera2D/Player_UI/SECONDARY.value = $BaseShip.charge_states["ability"].charge
 	
 	if self.is_network_master():
-		get_node("/root/world/bg").scale = $BaseShip.get_child(0).scale*10
-		get_node("/root/world/bg").global_position = $BaseShip.global_position*0.999
+		get_parent().get_parent().get_node("bg").scale = $BaseShip.get_child(0).scale*10
+		get_parent().get_parent().get_node("bg").global_position = $BaseShip.global_position*0.999
 	
 	
 	for child in $Camera2D/Sprite4.get_children():

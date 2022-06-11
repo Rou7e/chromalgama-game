@@ -129,9 +129,7 @@ remotesync func receive_damage(amount):
 	get_parent().get_child(0).get_node("DamageDealt").stream.loop = false
 	if cooling <= 0:
 		var explosion_mrp = explosion.instance()
-		explosion_mrp.get_node("AnimatedSprite").scale = $ShipCargo.scale*10
-		explosion_mrp.global_position=global_position
-		get_node("/root").add_child(explosion_mrp)
+
 		if get_parent().get_parent().name=="NPCs":
 			queue_free()
 			pass
@@ -145,6 +143,11 @@ remotesync func receive_damage(amount):
 			get_parent().get_parent().get_parent().get_node("GameOverMenu").make_score(winner)
 			for i in get_parent().get_parent().get_children():
 				i.queue_free()
+			return
+		if self.is_network_master():
+			explosion_mrp.get_node("AnimatedSprite").scale = $ShipCargo.scale*10
+			explosion_mrp.global_position=global_position
+			get_node("/root").add_child(explosion_mrp)
 	#queue_free()
 
 func _on_BaseShip_area_entered(area):
