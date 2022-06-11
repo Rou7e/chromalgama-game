@@ -87,6 +87,7 @@ func _ready():
 				$Camera2D/ENEMY_UI/PRIMARY.max_value = get_parent().get_child(i).get_child(1).charge_states["primary"].charge
 				$Camera2D/ENEMY_UI/TURRET.max_value = get_parent().get_child(i).get_child(1).charge_states["secondary"].charge
 				$Camera2D/ENEMY_UI/SECONDARY.max_value = get_parent().get_child(i).get_child(1).charge_states["ability"].charge
+				
 				markf.global_position = $Camera2D/Sprite4.rect_min_size/2
 	$Camera2D.current = is_network_master()
 	$Camera2D.visible = is_network_master()
@@ -154,6 +155,7 @@ func _process(delta):
 					marke.global_position.y = 2
 				$Camera2D/Sprite4.add_child(marke)
 				$Camera2D/ENEMY_UI/Label5.text = get_parent().get_child(i).get_child(1).desc
+				$Camera2D/ENEMY_UI/HEAT.max_value = get_parent().get_child(i).get_child(1).max_cooling
 				$Camera2D/ENEMY_UI/HEAT.value = get_parent().get_child(i).get_child(1).cooling
 				$Camera2D/ENEMY_UI/PRIMARY.value = get_parent().get_child(i).get_child(1).charge_states["primary"].charge
 				$Camera2D/ENEMY_UI/TURRET.value = get_parent().get_child(i).get_child(1).charge_states["secondary"].charge
