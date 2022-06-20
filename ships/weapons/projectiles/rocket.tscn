@@ -1,0 +1,174 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://resources/projectiles/turning_thruster/8.png" type="Texture" id=2]
+[ext_resource path="res://resources/projectiles/turning_thruster/2.png" type="Texture" id=3]
+[ext_resource path="res://resources/projectiles/turning_thruster/7.png" type="Texture" id=4]
+[ext_resource path="res://resources/projectiles/turning_thruster/3.png" type="Texture" id=5]
+[ext_resource path="res://resources/projectiles/sel_engine/stopped/8.png" type="Texture" id=6]
+[ext_resource path="res://resources/projectiles/sel_engine/stopped/5.png" type="Texture" id=7]
+[ext_resource path="res://resources/projectiles/sel_engine/stopped/4.png" type="Texture" id=8]
+[ext_resource path="res://resources/projectiles/sel_engine/stopped/6.png" type="Texture" id=9]
+[ext_resource path="res://resources/projectiles/sel_engine/stopped/2.png" type="Texture" id=10]
+[ext_resource path="res://resources/projectiles/sel_engine/stopped/3.png" type="Texture" id=11]
+[ext_resource path="res://resources/projectiles/sel_engine/8.png" type="Texture" id=12]
+[ext_resource path="res://resources/projectiles/sel_engine/2.png" type="Texture" id=13]
+[ext_resource path="res://resources/projectiles/sel_engine/3.png" type="Texture" id=14]
+[ext_resource path="res://resources/projectiles/sel_engine/stopped/7.png" type="Texture" id=15]
+[ext_resource path="res://resources/projectiles/sel_engine/4.png" type="Texture" id=16]
+[ext_resource path="res://resources/projectiles/sel_engine/5.png" type="Texture" id=17]
+[ext_resource path="res://resources/projectiles/sel_engine/6.png" type="Texture" id=18]
+[ext_resource path="res://resources/projectiles/sel_engine/1.png" type="Texture" id=19]
+[ext_resource path="res://resources/projectiles/sel_engine/7.png" type="Texture" id=20]
+[ext_resource path="res://resources/projectiles/turning_thruster/4.png" type="Texture" id=21]
+[ext_resource path="res://resources/projectiles/sel_engine/stopped/1.png" type="Texture" id=22]
+[ext_resource path="res://resources/projectiles/turning_thruster/6.png" type="Texture" id=23]
+[ext_resource path="res://resources/projectiles/turning_thruster/5.png" type="Texture" id=24]
+[ext_resource path="res://resources/projectiles/turning_thruster/1.png" type="Texture" id=25]
+[ext_resource path="res://ships/base_stuff/BaseShip.gd" type="Script" id=27]
+[ext_resource path="res://resources/projectiles/rocket.png" type="Texture" id=29]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 15 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "stopped",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "running",
+"speed": 30.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "running",
+"speed": 30.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 8, 1 )
+
+[node name="BaseShip" type="Area2D"]
+script = ExtResource( 27 )
+acceleration = 50.0
+max_speed = 150.0
+cooling = 2.0
+desc = "HUMAN PROTECTORATE 
+FIGHTER-CLASS
+ KUNAI"
+
+[node name="ShipCargo" type="Sprite" parent="."]
+rotation = 1.5708
+scale = Vector2( 0.025, 0.025 )
+
+[node name="ShipCargo2" type="Sprite" parent="."]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 29 )
+
+[node name="Engines" type="Node2D" parent="."]
+show_behind_parent = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Engines"]
+position = Vector2( -6.8489, -0.999999 )
+rotation = 1.5708
+scale = Vector2( 0.000716148, 0.00185879 )
+frames = SubResource( 2 )
+animation = "stopped"
+playing = true
+offset = Vector2( -1788.93, -955.845 )
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Engines"]
+position = Vector2( -16.1209, 2.34816 )
+rotation = 1.5708
+scale = Vector2( 0.00131182, 0.00712581 )
+frames = SubResource( 2 )
+animation = "stopped"
+playing = true
+offset = Vector2( -1788.93, -955.845 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Engines"]
+position = Vector2( -6.55072, 3.72846 )
+rotation = 1.5708
+scale = Vector2( 0.000683017, 0.00160235 )
+frames = SubResource( 2 )
+animation = "stopped"
+playing = true
+offset = Vector2( -1788.93, -955.845 )
+
+[node name="LeftThrusters" type="Node2D" parent="."]
+show_behind_parent = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="LeftThrusters"]
+position = Vector2( -3, -3 )
+scale = Vector2( 0.035, 0.035 )
+frames = SubResource( 3 )
+animation = "running"
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="LeftThrusters"]
+position = Vector2( -1, -2 )
+scale = Vector2( 0.035, 0.035 )
+frames = SubResource( 3 )
+animation = "running"
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="LeftThrusters"]
+position = Vector2( 7, 2 )
+rotation = 3.14159
+scale = Vector2( 0.035, 0.035 )
+frames = SubResource( 3 )
+animation = "running"
+playing = true
+
+[node name="RightThrusters" type="Node2D" parent="."]
+show_behind_parent = true
+rotation = 3.14159
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="RightThrusters"]
+position = Vector2( 1, -2 )
+rotation = 2.6226e-06
+scale = Vector2( 0.035, 0.035 )
+frames = SubResource( 3 )
+animation = "running"
+playing = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="RightThrusters"]
+position = Vector2( 3, -3 )
+rotation = 2.6226e-06
+scale = Vector2( 0.035, 0.035 )
+frames = SubResource( 3 )
+animation = "running"
+playing = true
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="RightThrusters"]
+position = Vector2( -7, 1.99998 )
+rotation = -3.14159
+scale = Vector2( 0.035, 0.035 )
+frames = SubResource( 3 )
+animation = "running"
+playing = true
+
+[node name="BackThrusters" type="Node2D" parent="."]
+show_behind_parent = true
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="BackThrusters"]
+position = Vector2( 10, -2.38419e-07 )
+rotation = 1.5708
+scale = Vector2( 0.0361136, 0.0361136 )
+frames = SubResource( 3 )
+animation = "running"
+playing = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 2, 0 )
+shape = SubResource( 5 )
+
+[connection signal="area_entered" from="." to="." method="_on_BaseShip_area_entered"]

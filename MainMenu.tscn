@@ -256,7 +256,7 @@ show_behind_parent = true
 position = Vector2( 1950.33, 801 )
 scale = Vector2( 3.75996, 3.75996 )
 frames = SubResource( 1 )
-frame = 2
+frame = 48
 playing = true
 
 [node name="Sprite2" type="Sprite" parent="."]
@@ -317,9 +317,11 @@ texture = ExtResource( 129 )
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 141 )
 autoplay = true
+attenuation = 1e-05
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 143 )
+attenuation = 1.1564e-05
 
 [connection signal="mouse_entered" from="VBoxContainer/StartGame" to="." method="_on_StartGame_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]

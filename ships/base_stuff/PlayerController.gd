@@ -178,6 +178,8 @@ func _physics_process(delta):
 		if self.is_network_master():
 			var ship = get_node("BaseShip")
 			ship.set_target_position(get_global_mouse_position())
+			
+
 
 func _input(event):
 	if is_instance_valid(get_node("BaseShip"))==false:
@@ -191,6 +193,22 @@ func _input(event):
 	
 	ship.set_input_vector(input_vector)
 	
+	
+	
+
+	if $Camera2D.scale.x < 16*get_child(1).get_child(0).scale.x:
+		$Camera2D.zoom.x += Input.get_action_strength("scroll_up")*get_child(1).get_child(0).scale.x
+		$Camera2D.zoom.y += Input.get_action_strength("scroll_up")*get_child(1).get_child(0).scale.x
+		$Camera2D.scale.x += Input.get_action_strength("scroll_up")*get_child(1).get_child(0).scale.x
+		$Camera2D.scale.y += Input.get_action_strength("scroll_up")*get_child(1).get_child(0).scale.x
+	if $Camera2D.zoom.x > 4*get_child(1).get_child(0).scale.x:
+		$Camera2D.zoom.x -= Input.get_action_strength("scroll_down")*get_child(1).get_child(0).scale.x
+		$Camera2D.zoom.y -= Input.get_action_strength("scroll_down")*get_child(1).get_child(0).scale.x
+		$Camera2D.scale.x -= Input.get_action_strength("scroll_down")*get_child(1).get_child(0).scale.x
+		$Camera2D.scale.y -= Input.get_action_strength("scroll_down")*get_child(1).get_child(0).scale.x
+
+
+
 	ship.set_shooting(Input.get_action_strength("shoot"))
 	ship.set_ability(Input.get_action_strength("ability"))
 	ship.set_primary(Input.get_action_strength("primary_shoot"))
