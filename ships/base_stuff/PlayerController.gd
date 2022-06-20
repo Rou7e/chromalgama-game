@@ -22,13 +22,13 @@ const sel_t5 = preload("res://ships/selenite_ships/sel_t5.tscn")
 const sel_t6 = preload("res://ships/selenite_ships/sel_t6.tscn")
 const sel_t7 = preload("res://ships/selenite_ships/sel_t7.tscn")
 
-
 #const tel_t2 = preload("res://ships/tellurian_ships/tel_t2.tscn")
 
 var selected_ship
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Camera2D/GameOverMenu.visible = false
 	var markf = mark_friend.instance()
 	if selected_ship == 0:
 		#add_child(acl_t1.instance())
@@ -105,6 +105,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#if is_instance_valid(get_node("BaseShip"))==false:
+	#	return
 	if get_child_count() <= 1:
 		return
 
@@ -143,6 +145,8 @@ func _process(delta):
 		for i in range(get_parent().get_child_count()):
 			if get_parent().get_child(i) != self:
 				var marke = mark_enemy.instance()
+				if is_instance_valid(get_parent().get_child(i).get_child(1))==false:
+					return
 				marke.global_position = $Camera2D/Sprite4.rect_size/2-($BaseShip.global_position-get_parent().get_child(i).get_child(1).global_position)/($Camera2D.scale.x*10)
 				if marke.global_position.x > $Camera2D/Sprite4.rect_size.x:
 					marke.global_position.x = $Camera2D/Sprite4.rect_size.x-2
@@ -167,11 +171,14 @@ func _process(delta):
 	#	$Camera2D/Sprite.add_child(mark)
 
 func _physics_process(delta):
-	if self.is_network_master():
-		var ship = get_node("BaseShip")
-		ship.set_target_position(get_global_mouse_position())
+	if is_instance_valid(get_node("BaseShip")):
+		if self.is_network_master():
+			var ship = get_node("BaseShip")
+			ship.set_target_position(get_global_mouse_position())
 
 func _input(event):
+	if is_instance_valid(get_node("BaseShip"))==false:
+		return
 	if not self.is_network_master():
 		return
 	
@@ -196,3 +203,16 @@ func get_player_name():
 
 func get_enemy():
 	get_parent().get_node("EnemyController").get_child(0)
+
+remotesync func game_over(winner):
+	
+	get_node("Camera2D").get_node("ThrusterSound").stop()
+	get_node("Camera2D").get_node("ThrusterSound2").stop()
+	get_node("Camera2D").get_node("ThrusterSound3").stop()
+	get_node("Camera2D").get_node("EngineSound").stop()
+	get_node("Camera2D").get_node("DamageDealt").stop()
+	get_node("Camera2D").get_node("AudioStreamPlayer2D").stop()
+	#gamestate.end_game()
+	$Camera2D/GameOverMenu.visible = true
+	$Camera2D/GameOverMenu.make_score(winner)
+	#$BaseShip.queue_free()

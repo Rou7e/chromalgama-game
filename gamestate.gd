@@ -176,13 +176,18 @@ func begin_game():
 
 
 func end_game():
-	if has_node("/root/World"): # Game is in progress.
+	if has_node("/root/world"): # Game is in progress.
 		# End it
-		get_node("/root/World").queue_free()
+		for i in get_node("/root/world/Players").get_children():
+			i.queue_free()
+		get_node("/root/world").queue_free()
 
 	emit_signal("game_ended")
 	players.clear()
-
+	selected_ships.clear()
+	players_ready.clear()
+	selected_ship = 0
+	
 
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")

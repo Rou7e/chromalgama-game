@@ -131,25 +131,35 @@ remotesync func receive_damage(amount):
 	get_parent().get_child(0).get_node("DamageDealt").stream.loop = false
 	if cooling <= 0:
 		var explosion_mrp = explosion.instance()
-
-		if get_parent().get_parent().name=="NPCs":
-			queue_free()
-			pass
-		if get_parent().get_parent().get_child_count() == 2 and get_parent().get_parent().name=="Players":
-			gamestate.end_game()
-			get_parent().get_parent().get_parent().get_node("GameOverMenu").visible = true
-			var winner = ""
-			for i in range(2):
-				if get_parent().get_player_name() != get_parent().get_parent().get_child(i).get_player_name():
-					winner = get_parent().get_parent().get_child(i).get_player_name()
-			get_parent().get_parent().get_parent().get_node("GameOverMenu").make_score(winner)
-			for i in get_parent().get_parent().get_children():
-				i.queue_free()
-			return
 		if self.is_network_master():
 			explosion_mrp.get_node("AnimatedSprite").scale = $ShipCargo.scale*10
 			explosion_mrp.global_position=global_position
 			get_node("/root").add_child(explosion_mrp)
+			
+		if get_parent().get_parent().name=="NPCs":
+			queue_free()
+			pass
+		if get_parent().get_parent().get_child_count() == 2 and get_parent().get_parent().name=="Players":
+			
+			#get_parent().get_parent().get_parent().get_node("GameOverMenu").visible = true
+			var winner = ""
+			for i in range(2):
+				if get_parent().get_player_name() != get_parent().get_parent().get_child(i).get_player_name():
+					winner = get_parent().get_parent().get_child(i).get_player_name()
+			#get_parent().get_parent().get_parent().get_node("GameOverMenu").make_score(winner)
+			for i in get_parent().get_parent().get_children():
+				if self.is_network_master():
+					i.rpc("game_over", winner)
+				queue_free()
+				#i.get_node("Camera2D").get_node("ThrusterSound").stop()
+				#i.get_node("Camera2D").get_node("ThrusterSound2").stop()
+				#i.get_node("Camera2D").get_node("ThrusterSound3").stop()
+				#i.get_node("Camera2D").get_node("EngineSound").stop()
+				#i.get_node("Camera2D").get_node("DamageDealt").stop()
+				#i.queue_free()
+		
+
+			
 	#queue_free()
 
 func _on_BaseShip_area_entered(area):

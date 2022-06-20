@@ -8,7 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	#get_tree().reload_current_scene()
 	pass # Replace with function body.
 
 
@@ -24,7 +24,6 @@ func _on_StartGame_pressed():
 
 
 func _on_Button4_pressed():
-
 	get_tree().quit()
 
 

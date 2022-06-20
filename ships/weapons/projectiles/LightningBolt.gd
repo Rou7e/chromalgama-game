@@ -12,7 +12,8 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
-	global_position = parent.global_position
+	if is_instance_valid(parent):
+		global_position = parent.global_position
 	time_to_live -= delta
 	if time_to_live < 0:
 		queue_free()

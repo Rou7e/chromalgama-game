@@ -1,5 +1,6 @@
 extends Control
-
+const PORT = 10567
+const MAX_PLAYERS = 10
 func _ready():
 	# Called every time the node is added to the scene.
 	$AudioStreamPlayer2D3.play(0.0)
@@ -9,6 +10,8 @@ func _ready():
 	gamestate.connect("player_list_changed", self, "refresh_lobby")
 	gamestate.connect("game_ended", self, "_on_game_ended")
 	gamestate.connect("game_error", self, "_on_game_error")
+	
+	
 	
 	$Connect/ItemList.add_item("ACL T1 Byte !!!NYI!!!")
 	
@@ -35,15 +38,6 @@ func _ready():
 	else:
 		var desktop_path = OS.get_system_dir(0).replace("\\", "/").split("/")
 		$Connect/Name.text = desktop_path[desktop_path.size() - 2]
-
-
-# Connect all functions
-func _ready():
-	get_tree().connect("network_peer_connected", self, "_player_connected")
-	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
-	get_tree().connect("connected_to_server", self, "_connected_ok")
-	get_tree().connect("connection_failed", self, "_connected_fail")
-	get_tree().connect("server_disconnected", self, "_server_disconnected")
 
 # Player info, associate ID to data
 var player_info = {}
@@ -188,3 +182,8 @@ func _on_Join_mouse_entered():
 func _on_Start_mouse_entered():
 	$AudioStreamPlayer2D2.play()
 	$AudioStreamPlayer2D2.stream.loop = false
+
+func _process(delta):
+	if Input.is_action_pressed("key_escape"):
+		gamestate.end_game()
+		get_tree().change_scene("res://MainMenu.tscn")
