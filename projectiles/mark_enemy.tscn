@@ -3,4 +3,5 @@
 [ext_resource path="res://resources/projectiles/ship_enemy.png" type="Texture" id=1]
 
 [node name="Sprite" type="Sprite"]
+rotation = 1.5708
 texture = ExtResource( 1 )

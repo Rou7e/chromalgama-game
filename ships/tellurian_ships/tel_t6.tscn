@@ -76,7 +76,8 @@ extents = Vector2( 59.5, 50.5 )
 script = ExtResource( 2 )
 inertia_factor = 0.9
 turn_speed = 15.1
-acceleration = 4000.0
+acceleration = 1000.0
+max_speed = 150.0
 cooling = 320.0
 desc = "FREE CONVENTION 
 CRUISER-CLASS
@@ -149,7 +150,7 @@ rotation = 1.5708
 scale = Vector2( 0.142169, 0.0816487 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 5
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -161,7 +162,7 @@ position = Vector2( -254, -212 )
 scale = Vector2( 0.92, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 4
+frame = 3
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="LeftThrusters"]
@@ -169,7 +170,7 @@ position = Vector2( -93, -133 )
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 4
+frame = 3
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="LeftThrusters"]
@@ -178,7 +179,7 @@ rotation = -3.14159
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 4
+frame = 3
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="LeftThrusters"]
@@ -187,7 +188,7 @@ rotation = -3.14159
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 4
+frame = 3
 playing = true
 
 [node name="RightThrusters" type="Node2D" parent="."]
@@ -200,7 +201,7 @@ rotation = -3.14159
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 4
+frame = 3
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="RightThrusters"]
@@ -209,7 +210,7 @@ rotation = -3.14159
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 4
+frame = 3
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="RightThrusters"]
@@ -218,7 +219,7 @@ rotation = 2.6226e-06
 scale = Vector2( 0.92, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 4
+frame = 3
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="RightThrusters"]
@@ -227,7 +228,7 @@ rotation = 2.6226e-06
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 4
+frame = 3
 playing = true
 
 [node name="BackThrusters" type="Node2D" parent="."]
@@ -239,7 +240,7 @@ rotation = 1.57079
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 4
+frame = 3
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="BackThrusters"]
@@ -248,7 +249,7 @@ rotation = 1.57079
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 4
+frame = 3
 playing = true
 
 [node name="DroneSpawner" type="Node2D" parent="."]

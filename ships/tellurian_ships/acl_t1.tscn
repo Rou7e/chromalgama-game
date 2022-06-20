@@ -62,6 +62,8 @@ animations = [ {
 
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
+acceleration = 50.0
+max_speed = 150.0
 cooling = 10.0
 desc = "COORDINATOR 
 FIGHTER-CLASS
@@ -101,7 +103,7 @@ rotation = 1.5708
 scale = Vector2( 0.000778452, 0.00298917 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -111,7 +113,7 @@ rotation = 1.5708
 scale = Vector2( 0.000718039, 0.0022397 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 4
+frame = 1
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -121,7 +123,6 @@ rotation = 1.5708
 scale = Vector2( 0.000700501, 0.00219916 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -131,7 +132,6 @@ rotation = 1.5708
 scale = Vector2( 0.000700502, 0.00229843 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -143,7 +143,7 @@ position = Vector2( -4, -7 )
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 5
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="LeftThrusters"]
@@ -151,7 +151,7 @@ position = Vector2( -2, -6 )
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 5
+frame = 2
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="LeftThrusters"]
@@ -160,7 +160,7 @@ rotation = 3.14159
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 5
+frame = 2
 playing = true
 
 [node name="RightThrusters" type="Node2D" parent="."]
@@ -173,7 +173,7 @@ rotation = 2.6226e-06
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 5
+frame = 2
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="RightThrusters"]
@@ -182,7 +182,7 @@ rotation = 2.6226e-06
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 5
+frame = 2
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="RightThrusters"]
@@ -191,7 +191,7 @@ rotation = -3.14159
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 5
+frame = 2
 playing = true
 
 [node name="BackThrusters" type="Node2D" parent="."]
@@ -203,7 +203,7 @@ rotation = 1.5708
 scale = Vector2( 0.0361136, 0.0361136 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 5
+frame = 2
 playing = true
 
 [connection signal="area_entered" from="." to="." method="_on_BaseShip_area_entered"]

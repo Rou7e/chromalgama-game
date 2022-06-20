@@ -72,7 +72,8 @@ extents = Vector2( 58.5, 10 )
 script = ExtResource( 2 )
 inertia_factor = 0.9
 turn_speed = 21.6
-acceleration = 4000.0
+acceleration = 1000.0
+max_speed = 150.0
 cooling = 160.0
 desc = "FREE CONVENTION 
 FRIGATE-CLASS
@@ -128,7 +129,7 @@ rotation = 1.5708
 scale = Vector2( 0.0158825, 0.0265274 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 5
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -140,7 +141,6 @@ position = Vector2( -151, -48 )
 scale = Vector2( 0.46, 0.46 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 7
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="LeftThrusters"]
@@ -148,7 +148,6 @@ position = Vector2( -108, -46 )
 scale = Vector2( 0.46, 0.46 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 7
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="LeftThrusters"]
@@ -157,7 +156,6 @@ rotation = 3.14159
 scale = Vector2( 0.46, 0.46 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 7
 playing = true
 
 [node name="RightThrusters" type="Node2D" parent="."]
@@ -170,7 +168,6 @@ rotation = -3.14159
 scale = Vector2( 0.46, 0.46 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 7
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="RightThrusters"]
@@ -179,7 +176,6 @@ rotation = 2.6226e-06
 scale = Vector2( 0.46, 0.46 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 7
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="RightThrusters"]
@@ -188,7 +184,6 @@ rotation = 2.6226e-06
 scale = Vector2( 0.46, 0.46 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 7
 playing = true
 
 [node name="BackThrusters" type="Node2D" parent="."]
@@ -200,7 +195,6 @@ rotation = 1.57079
 scale = Vector2( 0.46, 0.46 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 7
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="BackThrusters"]
@@ -209,7 +203,6 @@ rotation = 1.57079
 scale = Vector2( 0.46, 0.46 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 7
 playing = true
 
 [node name="DroneSpawner" type="Node2D" parent="."]

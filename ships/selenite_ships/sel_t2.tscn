@@ -72,6 +72,8 @@ extents = Vector2( 8.5, 3 )
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
 turn_speed = 63.0
+acceleration = 50.0
+max_speed = 150.0
 cooling = 20.0
 desc = "HUMAN PROTECTORATE 
 INTERCEPTOR-CLASS
@@ -138,7 +140,7 @@ rotation = 1.5708
 scale = Vector2( 0.00361751, 0.00412765 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 5
+frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -148,7 +150,7 @@ rotation = 1.5708
 scale = Vector2( 0.00338651, 0.00412894 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 5
+frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 

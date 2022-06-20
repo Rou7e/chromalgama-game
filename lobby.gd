@@ -121,6 +121,9 @@ func _on_join_pressed():
 	var player_name = $Connect/Name.text
 	gamestate.join_game(ip, player_name, $Connect/ItemList.get_selected_items()[0])
 
+	$Connect/Host.disabled = false
+	$Connect/Join.disabled = false
+	$Connect/ErrorLabel.text = "Host doesn't respond!"
 
 func _on_connection_success():
 	$Connect.hide()

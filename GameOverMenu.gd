@@ -19,6 +19,7 @@ func _ready():
 func _on_BackToMenu_pressed():
 	self.visible=false
 	#get_tree().change_scene("res://MainMenu.tscn")
+	$Stats.clear()
 	gamestate.end_game()
 
 func make_score(winner):

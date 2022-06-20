@@ -72,7 +72,8 @@ animations = [ {
 script = ExtResource( 2 )
 inertia_factor = 0.9
 turn_speed = 10.58
-acceleration = 4000.0
+acceleration = 1000.0
+max_speed = 150.0
 cooling = 640.0
 desc = "FREE CONVENTION 
 DREADNOUGHT-CLASS

@@ -33,7 +33,6 @@ func _ready():
 	if selected_ship == 0:
 		#add_child(acl_t1.instance())
 		add_child(tel_t1.instance())
-
 	elif selected_ship == 1:
 		add_child(tel_t1.instance())
 	elif selected_ship == 2:
@@ -135,6 +134,8 @@ func _process(delta):
 	#$Camera2D/Sprite4.add_child(mark)	
 	var markf = mark_friend.instance()
 	markf.global_position = $Camera2D/Sprite4.rect_size/2
+	markf.global_rotation = $BaseShip.global_rotation
+	markf.scale = get_node("BaseShip").get_node("ShipCargo").scale/2+Vector2(0.2,0.2)
 	$Camera2D/Sprite4.add_child(markf)
 		
 	var markc = mark_cursor.instance()
@@ -148,6 +149,8 @@ func _process(delta):
 				if is_instance_valid(get_parent().get_child(i).get_child(1))==false:
 					return
 				marke.global_position = $Camera2D/Sprite4.rect_size/2-($BaseShip.global_position-get_parent().get_child(i).get_child(1).global_position)/($Camera2D.scale.x*10)
+				marke.global_rotation = get_parent().get_child(i).get_child(1).global_rotation
+				marke.scale = get_parent().get_child(i).get_child(1).get_node("ShipCargo").scale/2+Vector2(0.2,0.2)
 				if marke.global_position.x > $Camera2D/Sprite4.rect_size.x:
 					marke.global_position.x = $Camera2D/Sprite4.rect_size.x-2
 				if marke.global_position.y > $Camera2D/Sprite4.rect_size.y:
@@ -215,4 +218,9 @@ remotesync func game_over(winner):
 	#gamestate.end_game()
 	$Camera2D/GameOverMenu.visible = true
 	$Camera2D/GameOverMenu.make_score(winner)
+	$Camera2D/ENEMY_UI/HEAT.value = 0
+	$Camera2D/ENEMY_UI/PRIMARY.value = 0
+	$Camera2D/ENEMY_UI/TURRET.value = 0
+	$Camera2D/ENEMY_UI/SECONDARY.value = 0
+				
 	#$BaseShip.queue_free()

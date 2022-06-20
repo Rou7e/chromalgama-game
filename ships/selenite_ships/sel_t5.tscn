@@ -77,6 +77,8 @@ extents = Vector2( 10, 24 )
 [node name="BaseShip" type="Area2D"]
 script = ExtResource( 2 )
 turn_speed = 21.6
+acceleration = 50.0
+max_speed = 150.0
 cooling = 160.0
 desc = "HUMAN PROTECTORATE  
 FRIGATE-CLASS
@@ -118,7 +120,7 @@ rotation = 1.5708
 scale = Vector2( 0.0352799, 0.0276477 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -128,7 +130,7 @@ rotation = 1.5708
 scale = Vector2( 0.0348022, 0.0264571 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -138,7 +140,7 @@ rotation = 1.5708
 scale = Vector2( 0.0342665, 0.0258713 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -148,7 +150,7 @@ rotation = 1.5708
 scale = Vector2( 0.0358752, 0.0262587 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -158,7 +160,7 @@ rotation = 1.5708
 scale = Vector2( 0.0341183, 0.0262071 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 4
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
