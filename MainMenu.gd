@@ -29,9 +29,6 @@ func _on_Button4_pressed():
 
 func _on_StartGame_mouse_entered():
 	$AudioStreamPlayer2D2.play(0.0)
-	$AudioStreamPlayer2D2.stream.loop = false
-
 
 func _on_Button4_mouse_entered():
 	$AudioStreamPlayer2D2.play(0.0)
-	$AudioStreamPlayer2D2.stream.loop = false
