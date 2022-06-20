@@ -208,9 +208,6 @@ margin_top = 406.0
 margin_right = 666.0
 margin_bottom = 866.0
 theme = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 visible = false
@@ -227,16 +224,16 @@ text = "Space battle"
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
 visible = false
-margin_top = 78.0
+margin_top = 39.0
 margin_right = 410.0
-margin_bottom = 113.0
+margin_bottom = 74.0
 text = "Settings"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 visible = false
-margin_top = 78.0
+margin_top = 39.0
 margin_right = 410.0
-margin_bottom = 113.0
+margin_bottom = 74.0
 text = "about"
 
 [node name="Button4" type="Button" parent="VBoxContainer"]
@@ -256,7 +253,7 @@ show_behind_parent = true
 position = Vector2( 1950.33, 801 )
 scale = Vector2( 3.75996, 3.75996 )
 frames = SubResource( 1 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="Sprite2" type="Sprite" parent="."]
@@ -314,11 +311,11 @@ rotation = -1.5708
 scale = Vector2( 0.1, 4.10019 )
 texture = ExtResource( 129 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 141 )
 autoplay = true
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 143 )
 
 [connection signal="mouse_entered" from="VBoxContainer/StartGame" to="." method="_on_StartGame_mouse_entered"]
