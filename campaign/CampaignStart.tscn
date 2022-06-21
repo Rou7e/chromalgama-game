@@ -1,0 +1,93 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://resources/ui/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://resources/menu_hologram/11.png" type="Texture" id=2]
+[ext_resource path="res://campaign/placeholder_portraits/republic_start.png" type="Texture" id=3]
+[ext_resource path="res://campaign/placeholder_portraits/tellurian_start.png" type="Texture" id=4]
+[ext_resource path="res://campaign/placeholder_portraits/selenite_start.png" type="Texture" id=5]
+[ext_resource path="res://resources/menu_hologram/8.png" type="Texture" id=6]
+[ext_resource path="res://resources/menu_hologram/3.png" type="Texture" id=7]
+[ext_resource path="res://resources/menu_hologram/12.png" type="Texture" id=8]
+[ext_resource path="res://resources/menu_hologram/1.png" type="Texture" id=9]
+[ext_resource path="res://resources/menu_hologram/6.png" type="Texture" id=10]
+[ext_resource path="res://resources/menu_hologram/10.png" type="Texture" id=11]
+[ext_resource path="res://resources/menu_hologram/5.png" type="Texture" id=12]
+[ext_resource path="res://resources/menu_hologram/7.png" type="Texture" id=13]
+[ext_resource path="res://campaign/placeholder_portraits/acolyte_start.png" type="Texture" id=14]
+[ext_resource path="res://resources/menu_hologram/2.png" type="Texture" id=15]
+[ext_resource path="res://resources/menu_hologram/9.png" type="Texture" id=16]
+[ext_resource path="res://resources/menu_hologram/4.png" type="Texture" id=17]
+[ext_resource path="res://resources/menu_hologram/13.png" type="Texture" id=18]
+[ext_resource path="res://resources/ui/uncut_bg.png" type="Texture" id=19]
+
+[sub_resource type="AnimatedTexture" id=1]
+flags = 4
+frames = 13
+fps = 15.0
+frame_0/texture = ExtResource( 9 )
+frame_1/texture = ExtResource( 15 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 7 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 17 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 12 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 10 )
+frame_5/delay_sec = 0.0
+frame_6/texture = ExtResource( 13 )
+frame_6/delay_sec = 0.0
+frame_7/texture = ExtResource( 6 )
+frame_7/delay_sec = 0.0
+frame_8/texture = ExtResource( 16 )
+frame_8/delay_sec = 0.0
+frame_9/texture = ExtResource( 11 )
+frame_9/delay_sec = 0.0
+frame_10/texture = ExtResource( 2 )
+frame_10/delay_sec = 0.0
+frame_11/texture = ExtResource( 8 )
+frame_11/delay_sec = 0.0
+frame_12/texture = ExtResource( 18 )
+frame_12/delay_sec = 0.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AcolyteStart" type="Sprite" parent="."]
+position = Vector2( 1112, 545 )
+scale = Vector2( 0.342, 0.342 )
+texture = ExtResource( 14 )
+
+[node name="RepublicStart" type="Sprite" parent="."]
+position = Vector2( 177.75, 172.75 )
+scale = Vector2( 0.3625, 0.3625 )
+texture = ExtResource( 3 )
+
+[node name="SeleniteStart" type="Sprite" parent="."]
+position = Vector2( 191.75, 527.25 )
+scale = Vector2( 0.4025, 0.4025 )
+texture = ExtResource( 5 )
+
+[node name="TellurianStart" type="Sprite" parent="."]
+position = Vector2( 1091, 186 )
+scale = Vector2( 0.39375, 0.39375 )
+texture = ExtResource( 4 )
+
+[node name="Sprite4" type="TextureRect" parent="."]
+margin_left = 447.0
+margin_top = 85.0
+margin_right = 899.0
+margin_bottom = 643.0
+rect_min_size = Vector2( 160, 220 )
+theme = ExtResource( 1 )
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UncutBg" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 640, 360 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 19 )
