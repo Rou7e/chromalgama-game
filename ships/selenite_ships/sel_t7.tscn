@@ -81,9 +81,7 @@ turn_speed = 10.58
 acceleration = 50.0
 max_speed = 150.0
 cooling = 640.0
-desc = "HUMAN PROTECTORATE  
-DREADNOUGHT-CLASS
-ZWEIHANDER"
+desc = "SEL7DESC"
 
 [node name="ShipCargo" type="Sprite" parent="."]
 rotation = 1.5708
@@ -123,7 +121,7 @@ rotation = 1.5708
 scale = Vector2( 0.114475, 0.230836 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 7
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -133,7 +131,7 @@ rotation = 1.5708
 scale = Vector2( 0.114475, 0.230836 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 1
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -143,7 +141,7 @@ rotation = 1.5708
 scale = Vector2( 0.114475, 0.230836 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 1
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 

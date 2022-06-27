@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://resources/menu_hologram/6.png" type="Texture" id=1]
 [ext_resource path="res://ships/base_stuff/PlayerController.gd" type="Script" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://sounds/sfx/thrusters.mp3" type="AudioStream" id=25]
 [ext_resource path="res://sounds/sfx/damage_dealt.mp3" type="AudioStream" id=26]
 [ext_resource path="res://GameOverMenu.gd" type="Script" id=27]
+[ext_resource path="res://resources/ui/menu_theme.tres" type="Theme" id=28]
 
 [sub_resource type="AnimatedTexture" id=3]
 flags = 4
@@ -67,23 +68,28 @@ script = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2( 2, 2 )
+z_index = 10
 zoom = Vector2( 2, 2 )
 
 [node name="EngineSound" type="AudioStreamPlayer2D" parent="Camera2D"]
 stream = ExtResource( 24 )
 volume_db = 6.0
+bus = "SFX"
 
 [node name="ThrusterSound" type="AudioStreamPlayer2D" parent="Camera2D"]
 stream = ExtResource( 25 )
 volume_db = 6.0
+bus = "SFX"
 
 [node name="ThrusterSound2" type="AudioStreamPlayer2D" parent="Camera2D"]
 stream = ExtResource( 25 )
 volume_db = 6.0
+bus = "SFX"
 
 [node name="ThrusterSound3" type="AudioStreamPlayer2D" parent="Camera2D"]
 stream = ExtResource( 25 )
 volume_db = 6.0
+bus = "SFX"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D"]
 scale = Vector2( 0.5, 0.5 )
@@ -91,9 +97,11 @@ stream = ExtResource( 23 )
 volume_db = -10.37
 autoplay = true
 attenuation = 1e-05
+bus = "Music"
 
 [node name="DamageDealt" type="AudioStreamPlayer2D" parent="Camera2D"]
 stream = ExtResource( 26 )
+bus = "SFX"
 
 [node name="Sprite2" type="TextureRect" parent="Camera2D"]
 show_behind_parent = true
@@ -121,69 +129,67 @@ __meta__ = {
 }
 
 [node name="Label5" type="Label" parent="Camera2D/Player_UI"]
-margin_right = 163.0
-margin_bottom = 48.0
-text = "<UNDEFINED>
-<UNDEFINED>
-<UNDEFINED>"
+margin_right = 160.0
+margin_bottom = 14.0
+text = "PLA1"
 
 [node name="Label" type="Label" parent="Camera2D/Player_UI"]
-margin_top = 52.0
-margin_right = 163.0
-margin_bottom = 73.0
+margin_top = 18.0
+margin_right = 160.0
+margin_bottom = 39.0
 theme = ExtResource( 21 )
 custom_fonts/font = ExtResource( 22 )
-text = "COOLING STATUS"
+text = "PLA2"
 
 [node name="HEAT" type="TextureProgress" parent="Camera2D/Player_UI"]
-margin_top = 77.0
-margin_right = 163.0
-margin_bottom = 91.0
+margin_top = 43.0
+margin_right = 160.0
+margin_bottom = 57.0
 value = 100.0
 texture_under = ExtResource( 19 )
 texture_progress = ExtResource( 17 )
 
 [node name="Label2" type="Label" parent="Camera2D/Player_UI"]
-margin_top = 95.0
-margin_right = 163.0
-margin_bottom = 116.0
+margin_top = 61.0
+margin_right = 160.0
+margin_bottom = 82.0
 custom_fonts/font = ExtResource( 22 )
-text = "PRIMARY CHARGE"
+text = "PLA3"
 
 [node name="PRIMARY" type="TextureProgress" parent="Camera2D/Player_UI"]
-margin_top = 120.0
-margin_right = 163.0
-margin_bottom = 134.0
+margin_top = 86.0
+margin_right = 160.0
+margin_bottom = 100.0
 value = 100.0
 texture_under = ExtResource( 19 )
 texture_progress = ExtResource( 18 )
 
 [node name="Label6" type="Label" parent="Camera2D/Player_UI"]
-margin_top = 138.0
-margin_right = 163.0
-margin_bottom = 159.0
+margin_top = 104.0
+margin_right = 160.0
+margin_bottom = 125.0
 custom_fonts/font = ExtResource( 22 )
-text = "TURRET CHARGE"
+text = "PLA4"
 
 [node name="TURRET" type="TextureProgress" parent="Camera2D/Player_UI"]
-margin_top = 163.0
-margin_right = 163.0
-margin_bottom = 177.0
+margin_top = 129.0
+margin_right = 160.0
+margin_bottom = 143.0
 value = 100.0
 texture_under = ExtResource( 19 )
 texture_progress = ExtResource( 18 )
 
 [node name="Label3" type="Label" parent="Camera2D/Player_UI"]
-margin_top = 181.0
-margin_right = 163.0
-margin_bottom = 202.0
+margin_top = 147.0
+margin_right = 160.0
+margin_bottom = 168.0
 custom_fonts/font = ExtResource( 22 )
-text = "Ability Status"
+text = "PLA5"
 
 [node name="SECONDARY" type="TextureProgress" parent="Camera2D/Player_UI"]
-margin_top = 206.0
-margin_right = 163.0
-margin_bottom = 220.0
+margin_top = 172.0
+margin_right = 160.0
+margin_bottom = 186.0
 max_value = 4.0
 value = 4.0
 texture_under = ExtResource( 19 )
@@ -211,79 +217,79 @@ __meta__ = {
 }
 
 [node name="Label5" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_right = 163.0
-margin_bottom = 48.0
-text = "<UNDEFINED>
-<UNDEFINED>
-<UNDEFINED>"
+margin_right = 160.0
+margin_bottom = 14.0
+text = "PLA1"
 
 [node name="Label4" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 52.0
-margin_right = 163.0
-margin_bottom = 73.0
+margin_top = 18.0
+margin_right = 160.0
+margin_bottom = 39.0
 theme = ExtResource( 21 )
 custom_fonts/font = ExtResource( 22 )
-text = "COOLING STATUS"
+text = "PLA2"
 
 [node name="HEAT" type="TextureProgress" parent="Camera2D/ENEMY_UI"]
-margin_top = 77.0
-margin_right = 163.0
-margin_bottom = 91.0
+margin_top = 43.0
+margin_right = 160.0
+margin_bottom = 57.0
 value = 100.0
 texture_under = ExtResource( 19 )
 texture_progress = ExtResource( 17 )
 
 [node name="Label7" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 95.0
-margin_right = 163.0
-margin_bottom = 116.0
+margin_top = 61.0
+margin_right = 160.0
+margin_bottom = 82.0
 custom_fonts/font = ExtResource( 22 )
-text = "PRIMARY CHARGE"
+text = "PLA3"
 
 [node name="PRIMARY" type="TextureProgress" parent="Camera2D/ENEMY_UI"]
-margin_top = 120.0
-margin_right = 163.0
-margin_bottom = 134.0
+margin_top = 86.0
+margin_right = 160.0
+margin_bottom = 100.0
 value = 100.0
 texture_under = ExtResource( 19 )
 texture_progress = ExtResource( 18 )
 
 [node name="Label8" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 138.0
-margin_right = 163.0
-margin_bottom = 159.0
+margin_top = 104.0
+margin_right = 160.0
+margin_bottom = 125.0
 custom_fonts/font = ExtResource( 22 )
-text = "TURRET CHARGE"
+text = "PLA4"
 
 [node name="TURRET" type="TextureProgress" parent="Camera2D/ENEMY_UI"]
-margin_top = 163.0
-margin_right = 163.0
-margin_bottom = 177.0
+margin_top = 129.0
+margin_right = 160.0
+margin_bottom = 143.0
 value = 100.0
 texture_under = ExtResource( 19 )
 texture_progress = ExtResource( 18 )
 
 [node name="Label9" type="Label" parent="Camera2D/ENEMY_UI"]
-margin_top = 181.0
-margin_right = 163.0
-margin_bottom = 202.0
+margin_top = 147.0
+margin_right = 160.0
+margin_bottom = 168.0
 custom_fonts/font = ExtResource( 22 )
-text = "Ability Status"
+text = "PLA5"
 
 [node name="SECONDARY" type="TextureProgress" parent="Camera2D/ENEMY_UI"]
-margin_top = 206.0
-margin_right = 163.0
-margin_bottom = 220.0
+margin_top = 172.0
+margin_right = 160.0
+margin_bottom = 186.0
 max_value = 4.0
 value = 4.0
 texture_under = ExtResource( 19 )
 texture_progress = ExtResource( 20 )
 
 [node name="label" type="Label" parent="Camera2D"]
-margin_left = -116.0
+visible = false
+margin_left = -10.0
 margin_top = -64.0
-margin_right = -76.0
+margin_right = 30.0
 margin_bottom = -50.0
+theme = ExtResource( 21 )
 text = "You"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -296,6 +302,7 @@ margin_top = 180.0
 margin_right = 642.0
 margin_bottom = 360.0
 rect_min_size = Vector2( 160, 180 )
+rect_pivot_offset = Vector2( -559, -180 )
 texture = SubResource( 3 )
 expand = true
 stretch_mode = 2
@@ -361,14 +368,78 @@ texture = ExtResource( 3 )
 [node name="GameOverMenu" type="Panel" parent="Camera2D"]
 margin_left = -426.0
 margin_top = -187.0
-margin_right = -198.0
-margin_bottom = 189.0
+margin_right = -202.0
+margin_bottom = -187.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 script = ExtResource( 27 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Chrome7" type="Sprite" parent="Camera2D/GameOverMenu"]
+position = Vector2( -26.5, 352.5 )
+scale = Vector2( -0.1, 3.721 )
+texture = ExtResource( 16 )
+offset = Vector2( -225, -44.4072 )
+
+[node name="Chrome8" type="Sprite" parent="Camera2D/GameOverMenu"]
+position = Vector2( 254.5, 352.5 )
+scale = Vector2( 0.1, 3.72109 )
+texture = ExtResource( 16 )
+offset = Vector2( -225, -44.4072 )
+
+[node name="Chrome9" type="Sprite" parent="Camera2D/GameOverMenu"]
+position = Vector2( 13.654, 400.5 )
+rotation = 1.5708
+scale = Vector2( 0.1, 2.26172 )
+texture = ExtResource( 16 )
+offset = Vector2( -225, -44.4072 )
+
+[node name="Chrome10" type="Sprite" parent="Camera2D/GameOverMenu"]
+position = Vector2( 13.521, -26 )
+rotation = 1.5708
+scale = Vector2( -0.1, 2.26375 )
+texture = ExtResource( 16 )
+offset = Vector2( -225, -44.4072 )
+
+[node name="Corner4" type="Sprite" parent="Camera2D/GameOverMenu"]
+position = Vector2( 232, 378 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+
+[node name="Corner5" type="Sprite" parent="Camera2D/GameOverMenu"]
+position = Vector2( -4, 378 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+
+[node name="Sprite5" type="TextureRect" parent="Camera2D/GameOverMenu"]
+show_behind_parent = true
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 227.0
+margin_bottom = 373.0
+rect_min_size = Vector2( 160, 180 )
+rect_pivot_offset = Vector2( -559, -180 )
+texture = SubResource( 3 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Corner6" type="Sprite" parent="Camera2D/GameOverMenu"]
+position = Vector2( -4, -3.5 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+
+[node name="Corner7" type="Sprite" parent="Camera2D/GameOverMenu"]
+position = Vector2( 232, -3.5 )
+rotation = 4.71239
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
 
 [node name="GameOver" type="Label" parent="Camera2D/GameOverMenu"]
 margin_left = 14.0
@@ -377,7 +448,9 @@ margin_right = 56.0
 margin_bottom = 25.0
 size_flags_horizontal = 2
 size_flags_vertical = 0
-text = "Game over!"
+theme = ExtResource( 28 )
+custom_fonts/font = ExtResource( 22 )
+text = "PLA6"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -386,19 +459,21 @@ __meta__ = {
 margin_left = 21.0
 margin_top = 36.0
 margin_right = 208.0
-margin_bottom = 343.0
+margin_bottom = 329.0
+theme = ExtResource( 28 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BackToMenu" type="Button" parent="Camera2D/GameOverMenu"]
-margin_left = 85.0
-margin_top = 351.0
-margin_right = 185.0
-margin_bottom = 371.0
+margin_left = 37.5
+margin_top = 334.0
+margin_right = 188.5
+margin_bottom = 369.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-text = "Back to menu"
+theme = ExtResource( 28 )
+text = "PLA7"
 __meta__ = {
 "_edit_use_anchors_": false
 }

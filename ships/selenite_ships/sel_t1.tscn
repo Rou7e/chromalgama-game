@@ -70,9 +70,7 @@ script = ExtResource( 2 )
 acceleration = 50.0
 max_speed = 150.0
 cooling = 10.0
-desc = "HUMAN PROTECTORATE 
-FIGHTER-CLASS
- KUNAI"
+desc = "SEL1DESC"
 
 [node name="ShipCargo" type="Sprite" parent="."]
 rotation = 1.5708
@@ -110,7 +108,7 @@ rotation = 1.5708
 scale = Vector2( 0.000716148, 0.00219025 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 5
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -120,7 +118,7 @@ rotation = 1.5708
 scale = Vector2( 0.00102456, 0.00686065 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 5
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -130,7 +128,7 @@ rotation = 1.5708
 scale = Vector2( 0.000705111, 0.00230946 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 5
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 

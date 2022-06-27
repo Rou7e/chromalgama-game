@@ -13,18 +13,23 @@ script = ExtResource( 1 )
 [node name="EngineSound" type="AudioStreamPlayer2D" parent="Node2D"]
 stream = ExtResource( 2 )
 volume_db = 6.0
+bus = "SFX"
 
 [node name="ThrusterSound" type="AudioStreamPlayer2D" parent="Node2D"]
 stream = ExtResource( 3 )
 volume_db = 6.0
+bus = "SFX"
 
 [node name="ThrusterSound2" type="AudioStreamPlayer2D" parent="Node2D"]
 stream = ExtResource( 3 )
 volume_db = 6.0
+bus = "SFX"
 
 [node name="ThrusterSound3" type="AudioStreamPlayer2D" parent="Node2D"]
 stream = ExtResource( 3 )
 volume_db = 6.0
+bus = "SFX"
 
 [node name="DamageDealt" type="AudioStreamPlayer2D" parent="Node2D"]
 stream = ExtResource( 4 )
+bus = "SFX"

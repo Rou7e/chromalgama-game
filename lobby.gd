@@ -15,21 +15,21 @@ func _ready():
 	
 	$Connect/ItemList.add_item("ACL T1 Byte !!!NYI!!!")
 	
-	$Connect/ItemList.add_item("TEL T1 Builder USV")
-	$Connect/ItemList.add_item("TEL T2 Zapper USV")
-	$Connect/ItemList.add_item("TEL T3 Bomber USV")
-	$Connect/ItemList.add_item("TEL T4 Revenant")
-	$Connect/ItemList.add_item("TEL T5 Constructor")
-	$Connect/ItemList.add_item("TEL T6 Dequisitor")
-	$Connect/ItemList.add_item("TEL T7 Balor")
+	$Connect/ItemList.add_item(TranslationServer.translate("TEL1"))
+	$Connect/ItemList.add_item(TranslationServer.translate("TEL2"))
+	$Connect/ItemList.add_item(TranslationServer.translate("TEL3"))
+	$Connect/ItemList.add_item(TranslationServer.translate("TEL4"))
+	$Connect/ItemList.add_item(TranslationServer.translate("TEL5"))
+	$Connect/ItemList.add_item(TranslationServer.translate("TEL6"))
+	$Connect/ItemList.add_item(TranslationServer.translate("TEL7"))
 	
-	$Connect/ItemList.add_item("SEL T1 Kunai")
-	$Connect/ItemList.add_item("SEL T2 Navaja")
-	$Connect/ItemList.add_item("SEL T3 Cutlass")
-	$Connect/ItemList.add_item("SEL T4 Machete")
-	$Connect/ItemList.add_item("SEL T5 Tanto")
-	$Connect/ItemList.add_item("SEL T6 Claymore")
-	$Connect/ItemList.add_item("SEL T7 Zweihander")
+	$Connect/ItemList.add_item(TranslationServer.translate("SEL1"))
+	$Connect/ItemList.add_item(TranslationServer.translate("SEL2"))
+	$Connect/ItemList.add_item(TranslationServer.translate("SEL3"))
+	$Connect/ItemList.add_item(TranslationServer.translate("SEL4"))
+	$Connect/ItemList.add_item(TranslationServer.translate("SEL5"))
+	$Connect/ItemList.add_item(TranslationServer.translate("SEL6"))
+	$Connect/ItemList.add_item(TranslationServer.translate("SEL7"))
 	
 	#$Connect/ItemList.add_item("REM T4 Lex Aeterna")
 	# Set the player name according to the system username. Fallback to the path.
@@ -81,11 +81,11 @@ func _on_host_pressed():
 	$AudioStreamPlayer2D3.play()
 	$AudioStreamPlayer2D3.stream.loop = false
 	if $Connect/Name.text == "":
-		$Connect/ErrorLabel.text = "Invalid name!"
+		$Connect/ErrorLabel.text = "LOB6"
 		return
 	
 	if len($Connect/ItemList.get_selected_items())==0:
-		$Connect/ErrorLabel.text = "Select a ship!"
+		$Connect/ErrorLabel.text = "LOB7"
 		return
 	
 	$Connect.hide()
@@ -102,16 +102,16 @@ func _on_join_pressed():
 	$AudioStreamPlayer2D3.play()
 	$AudioStreamPlayer2D3.stream.loop = false
 	if $Connect/Name.text == "":
-		$Connect/ErrorLabel.text = "Invalid name!"
+		$Connect/ErrorLabel.text = "LOB6"
 		return
 
 	if len($Connect/ItemList.get_selected_items())==0:
-		$Connect/ErrorLabel.text = "Select a ship!"
+		$Connect/ErrorLabel.text = "LOB7"
 		return
 
 	var ip = $Connect/IPAddress.text
 	if not ip.is_valid_ip_address():
-		$Connect/ErrorLabel.text = "Invalid IP address!"
+		$Connect/ErrorLabel.text = "LOB8"
 		return
 
 	$Connect/ErrorLabel.text = ""
@@ -123,7 +123,7 @@ func _on_join_pressed():
 
 	$Connect/Host.disabled = false
 	$Connect/Join.disabled = false
-	$Connect/ErrorLabel.text = "Host doesn't respond!"
+	$Connect/ErrorLabel.text = "LOB9"
 
 func _on_connection_success():
 	$Connect.hide()
@@ -134,7 +134,7 @@ func _on_connection_success():
 func _on_connection_failed():
 	$Connect/Host.disabled = false
 	$Connect/Join.disabled = false
-	$Connect/ErrorLabel.set_text("Connection failed.")
+	$Connect/ErrorLabel.set_text("LOB10")
 
 
 func _on_game_ended():

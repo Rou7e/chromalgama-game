@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://ships/weapons/LightningSphere.gd" type="Script" id=1]
 [ext_resource path="res://ships/base_stuff/BaseShip.gd" type="Script" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://ships/weapons/projectiles/MoltenNail.tscn" type="PackedScene" id=29]
 [ext_resource path="res://sounds/sfx/nailgun_fire.mp3" type="AudioStream" id=30]
 [ext_resource path="res://sounds/sfx/discharger_fire.mp3" type="AudioStream" id=31]
+[ext_resource path="res://projectiles/tellurian_exhaust.tscn" type="PackedScene" id=32]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 13.0
@@ -72,9 +73,8 @@ turn_speed = 63.0
 acceleration = 1000.0
 max_speed = 150.0
 cooling = 20.0
-desc = "FREE CONVENTION 
-INTERCEPTOR-CLASS
- DRONE T2"
+desc = "TEL2DESC"
+exhaust = ExtResource( 32 )
 
 [node name="ShipCargo" type="Sprite" parent="."]
 rotation = 1.5708
@@ -133,7 +133,7 @@ rotation = 1.5708
 scale = Vector2( 0.0019699, 0.00246154 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
+frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -143,7 +143,7 @@ rotation = 1.5708
 scale = Vector2( 0.00980302, 0.0115127 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
+frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -153,7 +153,7 @@ rotation = 1.5708
 scale = Vector2( 0.00222436, 0.00257234 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 2
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -163,7 +163,7 @@ rotation = 1.5708
 scale = Vector2( 0.00266002, 0.00386065 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 2
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -173,7 +173,7 @@ rotation = 1.5708
 scale = Vector2( 0.00244159, 0.00372276 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 2
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -185,6 +185,7 @@ position = Vector2( -13, -19 )
 scale = Vector2( 0.06, 0.06 )
 frames = SubResource( 3 )
 animation = "running"
+frame = 4
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="LeftThrusters"]
@@ -192,6 +193,7 @@ position = Vector2( -10, -19 )
 scale = Vector2( 0.06, 0.06 )
 frames = SubResource( 3 )
 animation = "running"
+frame = 4
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="LeftThrusters"]
@@ -200,6 +202,7 @@ rotation = 3.14159
 scale = Vector2( 0.06, 0.06 )
 frames = SubResource( 3 )
 animation = "running"
+frame = 4
 playing = true
 
 [node name="RightThrusters" type="Node2D" parent="."]
@@ -211,6 +214,7 @@ position = Vector2( 13.0001, -18.9999 )
 scale = Vector2( 0.06, 0.06 )
 frames = SubResource( 3 )
 animation = "running"
+frame = 4
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="RightThrusters"]
@@ -218,6 +222,7 @@ position = Vector2( 10, -19 )
 scale = Vector2( 0.06, 0.06 )
 frames = SubResource( 3 )
 animation = "running"
+frame = 4
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="RightThrusters"]
@@ -226,6 +231,7 @@ rotation = 3.14159
 scale = Vector2( 0.06, 0.06 )
 frames = SubResource( 3 )
 animation = "running"
+frame = 4
 playing = true
 
 [node name="BackThrusters" type="Node2D" parent="."]
@@ -237,6 +243,7 @@ rotation = 1.5708
 scale = Vector2( 0.06, 0.06 )
 frames = SubResource( 3 )
 animation = "running"
+frame = 4
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="BackThrusters"]
@@ -245,6 +252,7 @@ rotation = 1.5708
 scale = Vector2( 0.06, 0.06 )
 frames = SubResource( 3 )
 animation = "running"
+frame = 4
 playing = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]

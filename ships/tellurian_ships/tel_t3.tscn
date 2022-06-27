@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://ships/weapons/LightningSphere.gd" type="Script" id=1]
 [ext_resource path="res://ships/base_stuff/BaseShip.gd" type="Script" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://ships/weapons/projectiles/PlasmaBullet.tscn" type="PackedScene" id=29]
 [ext_resource path="res://sounds/sfx/discharger_fire.mp3" type="AudioStream" id=30]
 [ext_resource path="res://sounds/sfx/plasma_bomb.mp3" type="AudioStream" id=31]
+[ext_resource path="res://projectiles/tellurian_exhaust.tscn" type="PackedScene" id=32]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.9999
@@ -72,9 +73,8 @@ turn_speed = 44.1
 acceleration = 1000.0
 max_speed = 150.0
 cooling = 40.0
-desc = "FREE CONVENTION 
-BOMBER-CLASS
- DRONE T3"
+desc = "TEL3DESC"
+exhaust = ExtResource( 32 )
 
 [node name="ShipCargo" type="Sprite" parent="."]
 rotation = 1.5708

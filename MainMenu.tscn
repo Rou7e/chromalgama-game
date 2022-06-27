@@ -208,39 +208,92 @@ margin_top = 406.0
 margin_right = 666.0
 margin_bottom = 866.0
 theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Button" type="Button" parent="VBoxContainer"]
-visible = false
+[node name="Button5" type="Button" parent="VBoxContainer"]
 margin_right = 410.0
 margin_bottom = 35.0
-text = "Campaign"
+text = "MMONE"
 
 [node name="StartGame" type="Button" parent="VBoxContainer"]
+margin_top = 39.0
 margin_right = 410.0
-margin_bottom = 35.0
+margin_bottom = 74.0
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 126 )
-text = "Space battle"
+text = "MMTWO"
 
 [node name="Button2" type="Button" parent="VBoxContainer"]
-visible = false
-margin_top = 39.0
+margin_top = 78.0
 margin_right = 410.0
-margin_bottom = 74.0
-text = "Settings"
+margin_bottom = 113.0
+text = "MMTHREE"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
-visible = false
-margin_top = 39.0
+margin_top = 117.0
 margin_right = 410.0
-margin_bottom = 74.0
-text = "about"
+margin_bottom = 152.0
+text = "MMFOUR"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_top = 156.0
+margin_right = 410.0
+margin_bottom = 191.0
+text = "MMFIVE"
 
 [node name="Button4" type="Button" parent="VBoxContainer"]
-margin_top = 39.0
+margin_top = 195.0
 margin_right = 410.0
-margin_bottom = 74.0
-text = "quit"
+margin_bottom = 230.0
+text = "MMSIX"
+
+[node name="Corner" type="Sprite" parent="VBoxContainer"]
+position = Vector2( 415, 225 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 134 )
+
+[node name="Corner2" type="Sprite" parent="VBoxContainer"]
+position = Vector2( 415, -5 )
+rotation = -1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 134 )
+
+[node name="Chrome" type="Sprite" parent="VBoxContainer"]
+position = Vector2( 415, 110 )
+scale = Vector2( 0.1, 2.2 )
+texture = ExtResource( 129 )
+
+[node name="Corner3" type="Sprite" parent="VBoxContainer"]
+position = Vector2( -5, 225 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 134 )
+
+[node name="Corner4" type="Sprite" parent="VBoxContainer"]
+position = Vector2( -5, -5 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 134 )
+
+[node name="Chrome2" type="Sprite" parent="VBoxContainer"]
+position = Vector2( -5, 110 )
+rotation = 3.14159
+scale = Vector2( 0.1, 2.2 )
+texture = ExtResource( 129 )
+
+[node name="Chrome3" type="Sprite" parent="VBoxContainer"]
+position = Vector2( 205.01, 225 )
+rotation = 1.5708
+scale = Vector2( 0.1, 4.10019 )
+texture = ExtResource( 129 )
+
+[node name="Chrome4" type="Sprite" parent="VBoxContainer"]
+position = Vector2( 205, -5 )
+rotation = -1.5708
+scale = Vector2( 0.1, 4.10019 )
+texture = ExtResource( 129 )
 
 [node name="Sprite" type="Sprite" parent="."]
 show_behind_parent = true
@@ -253,7 +306,7 @@ show_behind_parent = true
 position = Vector2( 1950.33, 801 )
 scale = Vector2( 3.75996, 3.75996 )
 frames = SubResource( 1 )
-frame = 4
+frame = 19
 playing = true
 
 [node name="Sprite2" type="Sprite" parent="."]
@@ -265,60 +318,22 @@ position = Vector2( 960, 540 )
 current = true
 zoom = Vector2( 1.5, 1.5 )
 
-[node name="Corner" type="Sprite" parent="."]
-position = Vector2( 671, 631 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 134 )
-
-[node name="Corner2" type="Sprite" parent="."]
-position = Vector2( 671, 401 )
-rotation = -1.5708
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 134 )
-
-[node name="Chrome" type="Sprite" parent="."]
-position = Vector2( 671, 516 )
-scale = Vector2( 0.1, 2.2 )
-texture = ExtResource( 129 )
-
-[node name="Corner3" type="Sprite" parent="."]
-position = Vector2( 251, 631 )
-rotation = 1.5708
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 134 )
-
-[node name="Corner4" type="Sprite" parent="."]
-position = Vector2( 251, 401 )
-rotation = 3.14159
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 134 )
-
-[node name="Chrome2" type="Sprite" parent="."]
-position = Vector2( 251, 516 )
-rotation = 3.14159
-scale = Vector2( 0.1, 2.2 )
-texture = ExtResource( 129 )
-
-[node name="Chrome3" type="Sprite" parent="."]
-position = Vector2( 461.01, 631 )
-rotation = 1.5708
-scale = Vector2( 0.1, 4.10019 )
-texture = ExtResource( 129 )
-
-[node name="Chrome4" type="Sprite" parent="."]
-position = Vector2( 461, 401 )
-rotation = -1.5708
-scale = Vector2( 0.1, 4.10019 )
-texture = ExtResource( 129 )
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 141 )
 autoplay = true
+attenuation = 1e-05
+bus = "Music"
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 143 )
+attenuation = 1e-05
+bus = "SFX"
 
 [connection signal="mouse_entered" from="VBoxContainer/StartGame" to="." method="_on_StartGame_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Button2" to="." method="_on_Button2_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Button3" to="." method="_on_Button3_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/Button4" to="." method="_on_Button4_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_Button4_pressed"]

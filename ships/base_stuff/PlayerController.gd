@@ -186,7 +186,7 @@ func _input(event):
 		return
 	if not self.is_network_master():
 		return
-	
+			
 	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	input_vector.y = Input.get_action_strength("move_up") - Input.get_action_strength("move_down") 
 	var ship = get_node("BaseShip")
