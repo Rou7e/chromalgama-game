@@ -306,7 +306,7 @@ show_behind_parent = true
 position = Vector2( 1950.33, 801 )
 scale = Vector2( 3.75996, 3.75996 )
 frames = SubResource( 1 )
-frame = 19
+frame = 108
 playing = true
 
 [node name="Sprite2" type="Sprite" parent="."]
@@ -319,12 +319,14 @@ current = true
 zoom = Vector2( 1.5, 1.5 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 960, 540 )
 stream = ExtResource( 141 )
 autoplay = true
 attenuation = 1e-05
 bus = "Music"
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 960, 540 )
 stream = ExtResource( 143 )
 attenuation = 1e-05
 bus = "SFX"

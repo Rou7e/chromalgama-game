@@ -100,6 +100,7 @@ projectile = ExtResource( 20 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ProjectileGun2"]
 stream = ExtResource( 29 )
+bus = "SFX"
 
 [node name="ProjectileGun3" type="Node2D" parent="."]
 position = Vector2( 8, -23 )
@@ -113,6 +114,7 @@ projectile = ExtResource( 20 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ProjectileGun3"]
 stream = ExtResource( 29 )
+bus = "SFX"
 
 [node name="ProjectileGun4" type="Node2D" parent="."]
 position = Vector2( 8, 23 )
@@ -126,6 +128,7 @@ projectile = ExtResource( 20 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ProjectileGun4"]
 stream = ExtResource( 29 )
+bus = "SFX"
 
 [node name="ProjectileGun5" type="Node2D" parent="."]
 position = Vector2( 6, 35 )
@@ -139,6 +142,7 @@ projectile = ExtResource( 20 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ProjectileGun5"]
 stream = ExtResource( 29 )
+bus = "SFX"
 
 [node name="Engines" type="Node2D" parent="."]
 show_behind_parent = true
@@ -149,7 +153,6 @@ rotation = 1.5708
 scale = Vector2( 0.00904554, 0.0170212 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 1
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 

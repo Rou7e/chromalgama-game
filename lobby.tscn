@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://lobby.gd" type="Script" id=1]
 [ext_resource path="res://sounds/sfx/mouse_click.mp3" type="AudioStream" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://resources/ui/ui_theme.tres" type="Theme" id=19]
 [ext_resource path="res://sounds/sfx/mouse_hover.mp3" type="AudioStream" id=20]
 [ext_resource path="res://resources/fonts/header.tres" type="DynamicFont" id=21]
+[ext_resource path="res://resources/fonts/plain_text.tres" type="DynamicFont" id=22]
 
 [sub_resource type="AnimatedTexture" id=1]
 flags = 4
@@ -97,6 +98,7 @@ margin_bottom = 32.0
 size_flags_horizontal = 2
 size_flags_vertical = 0
 theme = ExtResource( 19 )
+custom_fonts/font = ExtResource( 22 )
 text = "LOB11"
 
 [node name="Start" type="Button" parent="Players"]
@@ -107,6 +109,7 @@ margin_bottom = 336.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 theme = ExtResource( 19 )
+custom_fonts/font = ExtResource( 22 )
 text = "START!"
 
 [node name="List" type="ItemList" parent="Players"]
@@ -125,6 +128,7 @@ margin_right = 285.0
 margin_bottom = 429.0
 theme = ExtResource( 19 )
 custom_constants/line_spacing = 6
+custom_fonts/font = ExtResource( 22 )
 text = "LOB12"
 align = 1
 __meta__ = {
@@ -210,6 +214,7 @@ margin_bottom = 25.0
 size_flags_horizontal = 2
 size_flags_vertical = 0
 theme = ExtResource( 19 )
+custom_fonts/font = ExtResource( 22 )
 text = "LOB1"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -233,6 +238,7 @@ margin_bottom = 80.0
 size_flags_horizontal = 2
 size_flags_vertical = 0
 theme = ExtResource( 19 )
+custom_fonts/font = ExtResource( 22 )
 text = "LOB2"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -256,6 +262,7 @@ margin_bottom = 53.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 theme = ExtResource( 19 )
+custom_fonts/font = ExtResource( 22 )
 text = "LOB3"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -269,7 +276,11 @@ margin_bottom = 111.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 theme = ExtResource( 19 )
+custom_fonts/font = ExtResource( 22 )
 text = "LOB4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ErrorLabel" type="Label" parent="Connect"]
 margin_left = 15.0
@@ -280,6 +291,7 @@ size_flags_horizontal = 2
 size_flags_vertical = 0
 theme = ExtResource( 19 )
 custom_colors/font_color = Color( 0.820312, 0.291595, 0.291595, 1 )
+custom_fonts/font = ExtResource( 22 )
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -293,6 +305,7 @@ margin_bottom = 158.0
 size_flags_horizontal = 2
 size_flags_vertical = 0
 theme = ExtResource( 19 )
+custom_fonts/font = ExtResource( 22 )
 text = "LOB5"
 __meta__ = {
 "_edit_use_anchors_": false

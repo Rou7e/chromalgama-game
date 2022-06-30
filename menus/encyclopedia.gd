@@ -4,6 +4,22 @@ onready var menuTheme = load("res://resources/ui/menu_theme.tres")
 onready var butScript = load("res://menus/encyclopediaButton.gd")
 onready var imgUnknown = load("res://resources/encyclopedia/unknown.png")
 onready var selScript = load("res://menus/enc_select_button.gd")
+
+onready var imgTEL1 = load("res://resources/encyclopedia/tel1.png")
+onready var imgTEL2 = load("res://resources/encyclopedia/tel2.png")
+onready var imgTEL3 = load("res://resources/encyclopedia/tel3.png")
+onready var imgTEL4 = load("res://resources/encyclopedia/tel4.png")
+onready var imgTEL5 = load("res://resources/encyclopedia/tel5.png")
+onready var imgTEL6 = load("res://resources/encyclopedia/tel6.png")
+onready var imgTEL7 = load("res://resources/encyclopedia/tel7.png")
+
+onready var imgSEL1 = load("res://resources/encyclopedia/sel11.png")
+onready var imgSEL2 = load("res://resources/encyclopedia/sel22.png")
+onready var imgSEL3 = load("res://resources/encyclopedia/sel33.png")
+onready var imgSEL4 = load("res://resources/encyclopedia/sel44.png")
+onready var imgSEL5 = load("res://resources/encyclopedia/sel55.png")
+onready var imgSEL6 = load("res://resources/encyclopedia/sel66.png")
+onready var imgSEL7 = load("res://resources/encyclopedia/sel77.png")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -70,7 +86,7 @@ func showShips():
 	button.title = TranslationServer.translate("TEL1")
 	button.quote = TranslationServer.translate('TEL1QUOTE')
 	button.paragraph = TranslationServer.translate("TEL1TEXT")
-	button.image = imgUnknown
+	button.image = imgTEL1
 	$EntriesListing.add_child(button)
 	button = Button.new()
 	button.set_script(butScript)
@@ -79,7 +95,7 @@ func showShips():
 	button.title = TranslationServer.translate("TEL2")
 	button.quote = TranslationServer.translate('TEL2QUOTE')
 	button.paragraph = TranslationServer.translate("TEL2TEXT")
-	button.image = imgUnknown
+	button.image = imgTEL2
 	$EntriesListing.add_child(button)
 	button = Button.new()
 	button.set_script(butScript)
@@ -88,7 +104,7 @@ func showShips():
 	button.title = TranslationServer.translate("TEL3")
 	button.quote = TranslationServer.translate('TEL3QUOTE')
 	button.paragraph = TranslationServer.translate("TEL3TEXT")
-	button.image = imgUnknown
+	button.image = imgTEL3
 	$EntriesListing.add_child(button)
 	button = Button.new()
 	button.set_script(butScript)
@@ -97,7 +113,7 @@ func showShips():
 	button.title = TranslationServer.translate("TEL4")
 	button.quote = TranslationServer.translate('TEL4QUOTE')
 	button.paragraph = TranslationServer.translate("TEL4TEXT")
-	button.image = imgUnknown
+	button.image = imgTEL4
 	$EntriesListing.add_child(button)
 	button = Button.new()
 	button.set_script(butScript)
@@ -106,7 +122,7 @@ func showShips():
 	button.title = TranslationServer.translate("TEL5")
 	button.quote = TranslationServer.translate('TEL5QUOTE')
 	button.paragraph = TranslationServer.translate("TEL5TEXT")
-	button.image = imgUnknown
+	button.image = imgTEL5
 	$EntriesListing.add_child(button)
 	button = Button.new()
 	button.set_script(butScript)
@@ -115,7 +131,7 @@ func showShips():
 	button.title = TranslationServer.translate("TEL6")
 	button.quote = TranslationServer.translate('TEL6QUOTE')
 	button.paragraph = TranslationServer.translate("TEL6TEXT")
-	button.image = imgUnknown
+	button.image = imgTEL6
 	$EntriesListing.add_child(button)
 	button = Button.new()
 	button.set_script(butScript)
@@ -124,7 +140,7 @@ func showShips():
 	button.title = TranslationServer.translate("TEL7")
 	button.quote = TranslationServer.translate('TEL7QUOTE')
 	button.paragraph = TranslationServer.translate("TEL7TEXT")
-	button.image = imgUnknown
+	button.image = imgTEL7
 	$EntriesListing.add_child(button)
 	button = Button.new()
 	button.set_script(butScript)
@@ -133,7 +149,7 @@ func showShips():
 	button.title = TranslationServer.translate("SEL1")
 	button.quote = TranslationServer.translate('SEL1QUOTE')
 	button.paragraph = TranslationServer.translate("SEL1TEXT")
-	button.image = imgUnknown
+	button.image = imgSEL1
 	$EntriesListing.add_child(button)
 	button = Button.new()
 	button.set_script(butScript)
@@ -142,7 +158,7 @@ func showShips():
 	button.title = TranslationServer.translate("SEL2")
 	button.quote = TranslationServer.translate('SEL2QUOTE')
 	button.paragraph = TranslationServer.translate("SEL2TEXT")
-	button.image = imgUnknown
+	button.image = imgSEL2
 	$EntriesListing.add_child(button)
 	button = Button.new()
 	button.set_script(butScript)
@@ -151,7 +167,7 @@ func showShips():
 	button.title = TranslationServer.translate("SEL3")
 	button.quote = TranslationServer.translate('SEL3QUOTE')
 	button.paragraph = TranslationServer.translate("SEL3TEXT")
-	button.image = imgUnknown
+	button.image = imgSEL3
 	$EntriesListing.add_child(button)
 	button = Button.new()
 	button.set_script(butScript)
@@ -160,7 +176,7 @@ func showShips():
 	button.title = TranslationServer.translate("SEL4")
 	button.quote = TranslationServer.translate('SEL4QUOTE')
 	button.paragraph = TranslationServer.translate("SEL4TEXT")
-	button.image = imgUnknown
+	button.image = imgSEL4
 	$EntriesListing.add_child(button)
 	button = Button.new()
 	button.set_script(butScript)
@@ -169,7 +185,7 @@ func showShips():
 	button.title = TranslationServer.translate("SEL5")
 	button.quote = TranslationServer.translate('SEL5QUOTE')
 	button.paragraph = TranslationServer.translate("SEL5TEXT")
-	button.image = imgUnknown
+	button.image = imgSEL5
 	$EntriesListing.add_child(button)
 	button = Button.new()
 	button.set_script(butScript)
@@ -178,7 +194,7 @@ func showShips():
 	button.title = TranslationServer.translate("SEL6")
 	button.quote = TranslationServer.translate('SEL6QUOTE')
 	button.paragraph = TranslationServer.translate("SEL6TEXT")
-	button.image = imgUnknown
+	button.image = imgSEL6
 	$EntriesListing.add_child(button)
 	button = Button.new()
 	button.set_script(butScript)
@@ -187,7 +203,7 @@ func showShips():
 	button.title = TranslationServer.translate("SEL7")
 	button.quote = TranslationServer.translate('SEL7QUOTE')
 	button.paragraph = TranslationServer.translate("SEL7TEXT")
-	button.image = imgUnknown
+	button.image = imgSEL7
 	$EntriesListing.add_child(button)
 	
 

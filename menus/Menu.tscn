@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://menus/Menu.gd" type="Script" id=1]
 [ext_resource path="res://resources/menu_hologram/11.png" type="Texture" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://resources/menu_hologram/12.png" type="Texture" id=17]
 [ext_resource path="res://resources/menu_hologram/6.png" type="Texture" id=18]
 [ext_resource path="res://resources/menu_hologram/5.png" type="Texture" id=19]
+[ext_resource path="res://resources/ui/stylebox/outline_active.tres" type="StyleBox" id=20]
+[ext_resource path="res://resources/fonts/plain_text.tres" type="DynamicFont" id=21]
 
 [sub_resource type="AnimatedTexture" id=1]
 flags = 4
@@ -129,12 +131,240 @@ rotation = -1.5708
 scale = Vector2( 0.1, 5.00415 )
 texture = ExtResource( 6 )
 
+[node name="Sprite4" type="TextureRect" parent="Panel"]
+margin_left = -358.0
+margin_right = -61.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 160, 220 )
+theme = ExtResource( 4 )
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Corner5" type="Sprite" parent="Panel"]
+position = Vector2( -57.968, 505 )
+scale = Vector2( 0.101699, 0.1 )
+texture = ExtResource( 11 )
+
+[node name="Corner6" type="Sprite" parent="Panel"]
+position = Vector2( -57.962, -5 )
+rotation = -1.5708
+scale = Vector2( 0.1, 0.100849 )
+texture = ExtResource( 11 )
+
+[node name="Chrome5" type="Sprite" parent="Panel"]
+position = Vector2( -57.9688, 250 )
+scale = Vector2( 0.1, 4.99999 )
+texture = ExtResource( 6 )
+
+[node name="Corner7" type="Sprite" parent="Panel"]
+position = Vector2( -363, 505.006 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 11 )
+
+[node name="Corner8" type="Sprite" parent="Panel"]
+position = Vector2( -362.983, -4.99927 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 11 )
+
+[node name="Chrome6" type="Sprite" parent="Panel"]
+position = Vector2( -362.983, 250.117 )
+rotation = 3.14159
+scale = Vector2( 0.1, 5.00232 )
+texture = ExtResource( 6 )
+
+[node name="Chrome7" type="Sprite" parent="Panel"]
+position = Vector2( -210.467, 505.007 )
+rotation = 1.5708
+scale = Vector2( 0.1, 2.95065 )
+texture = ExtResource( 6 )
+
+[node name="Chrome8" type="Sprite" parent="Panel"]
+position = Vector2( -210.507, -4.99905 )
+rotation = -1.5708
+scale = Vector2( 0.1, 2.95005 )
+texture = ExtResource( 6 )
+
+[node name="Sprite5" type="TextureRect" parent="Panel"]
+margin_left = 561.367
+margin_right = 858.367
+margin_bottom = 500.0
+rect_min_size = Vector2( 160, 220 )
+theme = ExtResource( 4 )
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Corner9" type="Sprite" parent="Panel"]
+position = Vector2( 861.399, 505 )
+scale = Vector2( 0.101699, 0.1 )
+texture = ExtResource( 11 )
+
+[node name="Corner10" type="Sprite" parent="Panel"]
+position = Vector2( 861.409, -5 )
+rotation = -1.5708
+scale = Vector2( 0.1, 0.100849 )
+texture = ExtResource( 11 )
+
+[node name="Chrome9" type="Sprite" parent="Panel"]
+position = Vector2( 861.398, 250 )
+scale = Vector2( 0.1, 4.99999 )
+texture = ExtResource( 6 )
+
+[node name="Corner11" type="Sprite" parent="Panel"]
+position = Vector2( 556.31, 505 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 11 )
+
+[node name="Corner12" type="Sprite" parent="Panel"]
+position = Vector2( 556.385, -4.99927 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 11 )
+
+[node name="Chrome10" type="Sprite" parent="Panel"]
+position = Vector2( 556.383, 250.117 )
+rotation = 3.14159
+scale = Vector2( 0.1, 5.00232 )
+texture = ExtResource( 6 )
+
+[node name="Chrome11" type="Sprite" parent="Panel"]
+position = Vector2( 708.533, 505.006 )
+rotation = 1.5708
+scale = Vector2( 0.1, 2.95065 )
+texture = ExtResource( 6 )
+
+[node name="Chrome12" type="Sprite" parent="Panel"]
+position = Vector2( 708.678, -4.99905 )
+rotation = -1.5708
+scale = Vector2( 0.1, 2.95377 )
+texture = ExtResource( 6 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 margin_left = 9.0
 margin_right = 498.0
 margin_bottom = 396.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel"]
+margin_left = 576.0
+margin_top = 12.0
+margin_right = 844.0
+margin_bottom = 408.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer3"]
+margin_right = 268.0
+margin_bottom = 32.0
+text = "English"
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer3"]
+margin_top = 36.0
+margin_right = 268.0
+margin_bottom = 68.0
+text = "Russian/Русский"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
+margin_left = -348.0
+margin_top = 12.0
+margin_right = -74.0
+margin_bottom = 481.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="Panel/VBoxContainer2"]
+margin_right = 44.0
+margin_bottom = 18.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 21 )
+text = "SET13"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HScrollBar" type="HScrollBar" parent="Panel/VBoxContainer2"]
+margin_top = 22.0
+margin_right = 274.0
+margin_bottom = 54.0
+theme = ExtResource( 3 )
+custom_styles/grabber = ExtResource( 20 )
+custom_styles/scroll_focus = ExtResource( 20 )
+custom_styles/scroll = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel2" type="Label" parent="Panel/VBoxContainer2"]
+margin_top = 58.0
+margin_right = 44.0
+margin_bottom = 76.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 21 )
+text = "SET14"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HScrollBar2" type="HScrollBar" parent="Panel/VBoxContainer2"]
+margin_top = 80.0
+margin_right = 274.0
+margin_bottom = 112.0
+theme = ExtResource( 3 )
+custom_styles/grabber = ExtResource( 20 )
+custom_styles/scroll_focus = ExtResource( 20 )
+custom_styles/scroll = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel3" type="Label" parent="Panel/VBoxContainer2"]
+margin_top = 116.0
+margin_right = 44.0
+margin_bottom = 134.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 21 )
+text = "SET15"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HScrollBar3" type="HScrollBar" parent="Panel/VBoxContainer2"]
+margin_top = 138.0
+margin_right = 274.0
+margin_bottom = 170.0
+theme = ExtResource( 3 )
+custom_styles/grabber = ExtResource( 20 )
+custom_styles/scroll_focus = ExtResource( 20 )
+custom_styles/scroll = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -145,7 +375,7 @@ margin_top = 413.149
 margin_right = 223.566
 margin_bottom = 480.149
 theme = ExtResource( 3 )
-text = "Back"
+text = "SET11"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -156,10 +386,15 @@ margin_top = 414.007
 margin_right = 434.48
 margin_bottom = 481.007
 theme = ExtResource( 3 )
-text = "Save"
+text = "SET12"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="pressed" from="Panel/VBoxContainer3/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer3/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="value_changed" from="Panel/VBoxContainer2/HScrollBar" to="." method="_on_HScrollBar_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer2/HScrollBar2" to="." method="_on_HScrollBar2_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer2/HScrollBar3" to="." method="_on_HScrollBar3_value_changed"]
 [connection signal="pressed" from="Panel/back" to="." method="back"]
 [connection signal="pressed" from="Panel/save" to="." method="save"]

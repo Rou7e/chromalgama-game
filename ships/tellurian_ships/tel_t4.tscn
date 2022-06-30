@@ -112,6 +112,7 @@ turnable = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DroneSpawner"]
 stream = ExtResource( 35 )
+bus = "SFX"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 4 )
@@ -132,6 +133,7 @@ texture = ExtResource( 1 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Plasmagun"]
 stream = ExtResource( 33 )
+bus = "SFX"
 
 [node name="ProjectileGun" type="Node2D" parent="."]
 position = Vector2( 70, 39 )
@@ -144,6 +146,7 @@ bullet_damage = 0.8
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ProjectileGun"]
 stream = ExtResource( 34 )
+bus = "SFX"
 
 [node name="Engines" type="Node2D" parent="."]
 show_behind_parent = true
@@ -154,7 +157,7 @@ rotation = 1.5708
 scale = Vector2( 0.00899329, 0.0132359 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 2
+frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -164,7 +167,7 @@ rotation = 1.5708
 scale = Vector2( 0.0394231, 0.0469667 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 2
+frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -174,7 +177,7 @@ rotation = 1.5708
 scale = Vector2( 0.00899329, 0.0132359 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 1
+frame = 6
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -186,7 +189,7 @@ position = Vector2( -24, -34 )
 scale = Vector2( 0.23, 0.23 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="LeftThrusters"]
@@ -194,7 +197,7 @@ position = Vector2( -48, -63 )
 scale = Vector2( 0.23, 0.23 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="LeftThrusters"]
@@ -203,7 +206,7 @@ rotation = 3.14159
 scale = Vector2( 0.23, 0.23 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="RightThrusters" type="Node2D" parent="."]
@@ -215,7 +218,7 @@ position = Vector2( 37.0001, -41.9999 )
 scale = Vector2( 0.23, 0.23 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="RightThrusters"]
@@ -223,7 +226,7 @@ position = Vector2( 51.0001, -41.9999 )
 scale = Vector2( 0.23, 0.23 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="RightThrusters"]
@@ -232,7 +235,7 @@ rotation = 3.14159
 scale = Vector2( 0.23, 0.23 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="BackThrusters" type="Node2D" parent="."]
@@ -244,7 +247,7 @@ rotation = 1.5708
 scale = Vector2( 0.23, 0.23 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="BackThrusters"]
@@ -253,7 +256,7 @@ rotation = 1.5708
 scale = Vector2( 0.23, 0.23 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]

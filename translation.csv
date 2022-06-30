@@ -17,6 +17,7 @@ LOB9;Хост не отвечает!;Host doesn't respond!
 LOB10;Соединение провалилось!;Connection failed!
 LOB11;Ожидание игроков...;Waiting for players...
 LOB12;Соединение поддерживается на порту 10567 -\n пожалуйста пробросьте его если собираетесь\n подключиться за пределы LAN.;The connection is maintained on port 10567,\n please forward it in case you intend\n to connect outside of local network
+LOB13;(Вы);(You)
 TEL1;TEL T1 Строительный БКК;TEL T1 Builder USV
 TEL2;TEL Т2 Электрошоковый БКК;TEL T2 Zapper USV
 TEL3;TEL Т3 Бомбардировочный БКК;TEL T3 Bomber USV
@@ -86,3 +87,18 @@ ENC2;ОРУЖИЕ;WEAPONS
 ENC3;ТЕХНОЛОГИИ;TECHNOLOGY
 ENC4;МЕСТА;PLACES
 ENC5;ЛЮДИ;PEOPLE
+SET1;Стрельба турелью;Shoot turret
+SET2;Использовать умение;Use ability
+SET3;Выстрел первичным орудием;Shoot primary
+SET4;Возврат в пред. меню;Return to prev. menu
+SET5;Движение вперед;Move forward
+SET6;Движение назад;Move backward
+SET7;Поворот вправо;Turn right
+SET8;Поворот влево;Turn left
+SET9;Прокрутка вверх;Scroll up
+SET10;Прокрутка вниз;Scroll down
+SET11;Назад;Back
+SET12;Сохранить;Save
+SET13;Общая громкость;Master volume
+SET14;Громкость музыки;Music volume
+SET15;Громкость эффектов;SFX volume

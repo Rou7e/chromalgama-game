@@ -111,6 +111,7 @@ projectile = ExtResource( 31 )
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ProjectileGun"]
 position = Vector2( 103, -3 )
 stream = ExtResource( 38 )
+bus = "SFX"
 
 [node name="Engines" type="Node2D" parent="."]
 show_behind_parent = true
@@ -121,7 +122,7 @@ rotation = 1.5708
 scale = Vector2( 0.114475, 0.230836 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -131,7 +132,7 @@ rotation = 1.5708
 scale = Vector2( 0.114475, 0.230836 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 1
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -141,7 +142,7 @@ rotation = 1.5708
 scale = Vector2( 0.114475, 0.230836 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 1
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -211,6 +212,7 @@ texture = ExtResource( 29 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Plasmagun5"]
 stream = ExtResource( 36 )
+bus = "SFX"
 
 [node name="Plasmagun7" type="Node2D" parent="."]
 position = Vector2( 137, -145 )
@@ -227,6 +229,7 @@ texture = ExtResource( 29 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Plasmagun7"]
 stream = ExtResource( 36 )
+bus = "SFX"
 
 [node name="Plasmagun6" type="Node2D" parent="."]
 position = Vector2( -16, -210 )
@@ -243,6 +246,7 @@ texture = ExtResource( 29 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Plasmagun6"]
 stream = ExtResource( 36 )
+bus = "SFX"
 
 [node name="Plasmagun8" type="Node2D" parent="."]
 position = Vector2( 68, 187 )
@@ -259,6 +263,7 @@ texture = ExtResource( 29 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Plasmagun8"]
 stream = ExtResource( 36 )
+bus = "SFX"
 
 [node name="Plasmagun9" type="Node2D" parent="."]
 position = Vector2( 144, 154 )
@@ -275,6 +280,7 @@ texture = ExtResource( 29 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Plasmagun9"]
 stream = ExtResource( 36 )
+bus = "SFX"
 
 [node name="Plasmagun10" type="Node2D" parent="."]
 position = Vector2( -9, 219 )
@@ -291,6 +297,7 @@ texture = ExtResource( 29 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Plasmagun10"]
 stream = ExtResource( 36 )
+bus = "SFX"
 
 [node name="DroneSpawner" type="Node2D" parent="."]
 position = Vector2( -258, -342 )
@@ -302,6 +309,7 @@ launched_ship = ExtResource( 34 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DroneSpawner"]
 stream = ExtResource( 37 )
+bus = "SFX"
 
 [node name="DroneSpawner4" type="Node2D" parent="."]
 position = Vector2( -138, 353 )
@@ -314,6 +322,7 @@ launched_ship = ExtResource( 34 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DroneSpawner4"]
 stream = ExtResource( 37 )
+bus = "SFX"
 
 [node name="DroneSpawner2" type="Node2D" parent="."]
 position = Vector2( -161, -342 )
@@ -326,6 +335,7 @@ launched_ship = ExtResource( 32 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DroneSpawner2"]
 stream = ExtResource( 37 )
+bus = "SFX"
 
 [node name="DroneSpawner3" type="Node2D" parent="."]
 position = Vector2( -245, 353 )
@@ -338,6 +348,7 @@ launched_ship = ExtResource( 33 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DroneSpawner3"]
 stream = ExtResource( 37 )
+bus = "SFX"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 visible = false

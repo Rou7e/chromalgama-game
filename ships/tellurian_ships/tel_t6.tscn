@@ -112,6 +112,7 @@ texture = ExtResource( 3 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Plasmagun"]
 stream = ExtResource( 34 )
+bus = "SFX"
 
 [node name="Plasmagun2" type="Node2D" parent="."]
 position = Vector2( -255, -91 )
@@ -127,6 +128,7 @@ texture = ExtResource( 3 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Plasmagun2"]
 stream = ExtResource( 34 )
+bus = "SFX"
 
 [node name="ProjectileGun" type="Node2D" parent="."]
 position = Vector2( 384, -8 )
@@ -140,6 +142,7 @@ projectile = ExtResource( 30 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ProjectileGun"]
 stream = ExtResource( 35 )
+bus = "SFX"
 
 [node name="Engines" type="Node2D" parent="."]
 show_behind_parent = true
@@ -150,7 +153,7 @@ rotation = 1.5708
 scale = Vector2( 0.142169, 0.0816487 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 2
+frame = 7
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -162,7 +165,7 @@ position = Vector2( -254, -212 )
 scale = Vector2( 0.92, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="LeftThrusters"]
@@ -170,7 +173,7 @@ position = Vector2( -93, -133 )
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="LeftThrusters"]
@@ -179,7 +182,7 @@ rotation = -3.14159
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="LeftThrusters"]
@@ -188,7 +191,7 @@ rotation = -3.14159
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="RightThrusters" type="Node2D" parent="."]
@@ -201,7 +204,7 @@ rotation = -3.14159
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="RightThrusters"]
@@ -210,7 +213,7 @@ rotation = -3.14159
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="RightThrusters"]
@@ -219,7 +222,7 @@ rotation = 2.6226e-06
 scale = Vector2( 0.92, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="RightThrusters"]
@@ -228,7 +231,7 @@ rotation = 2.6226e-06
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="BackThrusters" type="Node2D" parent="."]
@@ -240,7 +243,7 @@ rotation = 1.57079
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="BackThrusters"]
@@ -249,7 +252,7 @@ rotation = 1.57079
 scale = Vector2( 0.64, 0.92 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 1
+frame = 6
 playing = true
 
 [node name="DroneSpawner" type="Node2D" parent="."]
@@ -264,6 +267,7 @@ launched_ship = ExtResource( 31 )
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DroneSpawner"]
 position = Vector2( 176, 10 )
 stream = ExtResource( 33 )
+bus = "SFX"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( -248, -97 )

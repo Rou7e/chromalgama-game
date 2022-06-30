@@ -156,7 +156,7 @@ func refresh_lobby():
 	var players = gamestate.get_player_list()
 	players.sort()
 	$Players/List.clear()
-	$Players/List.add_item(gamestate.get_player_name() + " (You)")
+	$Players/List.add_item(gamestate.get_player_name() + TranslationServer.translate("LOB13"))
 	for p in players:
 		$Players/List.add_item(p)
 
