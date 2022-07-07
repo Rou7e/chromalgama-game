@@ -31,6 +31,8 @@ func _ready():
 	$Connect/ItemList.add_item(TranslationServer.translate("SEL6"))
 	$Connect/ItemList.add_item(TranslationServer.translate("SEL7"))
 	
+	$add_npcs/ItemList.items = $Connect/ItemList.items
+	
 	#$Connect/ItemList.add_item("REM T4 Lex Aeterna")
 	# Set the player name according to the system username. Fallback to the path.
 	if OS.has_environment("USERNAME"):
@@ -89,6 +91,7 @@ func _on_host_pressed():
 		return
 	
 	$Connect.hide()
+	$add_npcs.show()
 	$Players.show()
 	$Connect/ErrorLabel.text = ""
 
@@ -115,6 +118,7 @@ func _on_join_pressed():
 		return
 
 	$Connect/ErrorLabel.text = ""
+	
 	$Connect/Host.disabled = true
 	$Connect/Join.disabled = true
 
@@ -128,6 +132,7 @@ func _on_join_pressed():
 func _on_connection_success():
 	$Connect.hide()
 	$Players.show()
+	$add_npcs.show()
 	#gamestate.selected_ships.append($Connect/ItemList.get_selected_items()[0])
 
 
@@ -154,23 +159,21 @@ func _on_game_error(errtxt):
 
 func refresh_lobby():
 	var players = gamestate.get_player_list()
+	var enemies = gamestate.get_npc_list()
 	players.sort()
+	enemies.sort()
 	$Players/List.clear()
 	$Players/List.add_item(gamestate.get_player_name() + TranslationServer.translate("LOB13"))
 	for p in players:
 		$Players/List.add_item(p)
-
+	for e in enemies:
+		$Players/List.add_item(e)
 	$Players/Start.disabled = not get_tree().is_network_server()
 
 
 func _on_start_pressed():
 	
 	gamestate.begin_game()
-
-
-func _on_find_public_ip_pressed():
-	OS.shell_open("https://icanhazip.com/")
-
 
 func _on_Host_mouse_entered():
 	$AudioStreamPlayer2D2.play()
@@ -190,3 +193,9 @@ func _process(delta):
 	if Input.is_action_pressed("key_escape"):
 		gamestate.end_game()
 		get_tree().change_scene("res://MainMenu.tscn")
+
+
+func _on_add_npc_pressed():
+	if len($add_npcs/ItemList.get_selected_items())==0:
+		return
+	gamestate.register_NPC($add_npcs/ItemList.get_selected_items()[0])

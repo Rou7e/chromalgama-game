@@ -6,6 +6,10 @@ var velocity
 var pos
 var rot
 var target
+var selected_ship
+
+
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -13,21 +17,62 @@ var target
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var vessel=ship.instance()
-	vessel.global_position = pos
-	vessel.global_rotation = rot
-	vessel.speed_vector = velocity
-	add_child(vessel)
-	if get_parent().get_parent().get_node("Players").get_child_count() > 1:
+	if ship == null:
+		if selected_ship == 0:
+			#add_child(acl_t1.instance())
+			add_child(gamestate.tel_t1.instance())
+		elif selected_ship == 1:
+			add_child(gamestate.tel_t1.instance())
+		elif selected_ship == 2:
+			add_child(gamestate.tel_t2.instance())
+		elif selected_ship == 3:
+			add_child(gamestate.tel_t3.instance())
+		elif selected_ship == 4:
+			add_child(gamestate.tel_t4.instance())
+		elif selected_ship == 5:
+			add_child(gamestate.tel_t5.instance())
+		elif selected_ship == 6:
+			add_child(gamestate.tel_t6.instance())
+		elif selected_ship == 7:
+			add_child(gamestate.tel_t7.instance())
+
+		elif selected_ship == 8:
+			add_child(gamestate.sel_t1.instance())
+		elif selected_ship == 9:
+			add_child(gamestate.sel_t2.instance())
+		elif selected_ship == 10:
+			add_child(gamestate.sel_t3.instance())
+		elif selected_ship == 11:
+			add_child(gamestate.sel_t4.instance())
+		elif selected_ship == 12:
+			add_child(gamestate.sel_t5.instance())
+		elif selected_ship == 13:
+			add_child(gamestate.sel_t6.instance())
+		elif selected_ship == 14:
+			add_child(gamestate.sel_t7.instance())
+	
+		else:
+			add_child(gamestate.tel_t1.instance())
+	else:
+		var vessel=ship.instance()
+		vessel.global_position = pos
+		vessel.global_rotation = rot
+		vessel.speed_vector = velocity
+		add_child(vessel)
+	if get_parent().get_parent().get_node("Players").get_child_count() >= 1:
 		for i in range(get_parent().get_parent().get_node("Players").get_child_count()):
 			if get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip").id != parent_id:
 				target = get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")
 
 func _physics_process(delta):
-	if get_parent().get_parent().get_node("Players").get_child_count() <= 1:
+	if get_parent().get_parent().get_node("Players").get_child_count() < 1:
 		return
 	var ship = get_node("BaseShip")
 	if is_instance_valid(target)==false:
+		if get_parent().get_parent().get_node("Players").get_child_count() > 1:
+			for i in range(get_parent().get_parent().get_node("Players").get_child_count()):
+				if get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip").id != parent_id:
+					target = get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")
 		return
 	ship.set_target_position(target.global_position)
 	#var path_to_enemy = target.global_position - ship.global_position

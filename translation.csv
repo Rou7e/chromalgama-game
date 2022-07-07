@@ -18,6 +18,8 @@ LOB10;Соединение провалилось!;Connection failed!
 LOB11;Ожидание игроков...;Waiting for players...
 LOB12;Соединение поддерживается на порту 10567 -\n пожалуйста пробросьте его если собираетесь\n подключиться за пределы LAN.;The connection is maintained on port 10567,\n please forward it in case you intend\n to connect outside of local network
 LOB13;(Вы);(You)
+LOB14;Добавить NPC противников:;Add NPC enemies:
+LOB15;Добавить;Add
 TEL1;TEL T1 Строительный БКК;TEL T1 Builder USV
 TEL2;TEL Т2 Электрошоковый БКК;TEL T2 Zapper USV
 TEL3;TEL Т3 Бомбардировочный БКК;TEL T3 Bomber USV

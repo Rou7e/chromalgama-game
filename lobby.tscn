@@ -193,6 +193,9 @@ margin_bottom = 195.0
 rect_pivot_offset = Vector2( -112, -125 )
 size_flags_horizontal = 2
 size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Sprite3" type="TextureRect" parent="Connect"]
 margin_right = 280.0
@@ -367,6 +370,120 @@ rotation = -1.5708
 scale = Vector2( 0.1, 2.80026 )
 texture = ExtResource( 14 )
 
+[node name="add_npcs" type="Panel" parent="."]
+visible = false
+anchor_left = 0.787
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -138.36
+margin_top = -185.0
+margin_right = -129.0
+margin_bottom = 195.0
+rect_pivot_offset = Vector2( -112, -125 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite3" type="TextureRect" parent="add_npcs"]
+margin_right = 280.0
+margin_bottom = 380.0
+rect_min_size = Vector2( 160, 220 )
+theme = ExtResource( 19 )
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IPLabel2" type="Label" parent="add_npcs"]
+anchor_bottom = 0.22
+margin_left = 15.0
+margin_top = 9.0
+margin_right = 57.0
+margin_bottom = -56.6
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = ExtResource( 19 )
+custom_fonts/font = ExtResource( 22 )
+text = "LOB14"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="add_npcs"]
+margin_left = 21.0
+margin_top = 36.0
+margin_right = 246.0
+margin_bottom = 322.0
+custom_fonts/font = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="add_npc" type="Button" parent="add_npcs"]
+margin_left = 102.0
+margin_top = 336.0
+margin_right = 167.0
+margin_bottom = 368.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = ExtResource( 19 )
+custom_fonts/font = ExtResource( 22 )
+text = "LOB15"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Corner" type="Sprite" parent="add_npcs"]
+position = Vector2( 285, 385 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 16 )
+
+[node name="Corner2" type="Sprite" parent="add_npcs"]
+position = Vector2( 285, -4.99924 )
+rotation = -1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 16 )
+
+[node name="Chrome" type="Sprite" parent="add_npcs"]
+position = Vector2( 285, 190 )
+scale = Vector2( 0.1, 3.79999 )
+texture = ExtResource( 14 )
+
+[node name="Corner3" type="Sprite" parent="add_npcs"]
+position = Vector2( -4.99973, 385.001 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 16 )
+
+[node name="Corner4" type="Sprite" parent="add_npcs"]
+position = Vector2( -4.99976, -4.99924 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 16 )
+
+[node name="Chrome2" type="Sprite" parent="add_npcs"]
+position = Vector2( -4.99954, 190.042 )
+rotation = 3.14159
+scale = Vector2( 0.1, 3.80082 )
+texture = ExtResource( 14 )
+
+[node name="Chrome3" type="Sprite" parent="add_npcs"]
+position = Vector2( 140.053, 385.001 )
+rotation = 1.5708
+scale = Vector2( 0.1, 2.80104 )
+texture = ExtResource( 14 )
+
+[node name="Chrome4" type="Sprite" parent="add_npcs"]
+position = Vector2( 140.003, -4.99902 )
+rotation = -1.5708
+scale = Vector2( 0.1, 2.80026 )
+texture = ExtResource( 14 )
+
 [node name="ErrorDialog" type="AcceptDialog" parent="."]
 margin_right = 55.0
 margin_bottom = 58.0
@@ -381,11 +498,13 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 640, 340 )
 stream = ExtResource( 2 )
 attenuation = 1e-05
 bus = "SFX"
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 640, 340 )
 stream = ExtResource( 20 )
 attenuation = 1e-05
 bus = "SFX"
@@ -396,3 +515,5 @@ bus = "SFX"
 [connection signal="pressed" from="Connect/Host" to="." method="_on_host_pressed"]
 [connection signal="mouse_entered" from="Connect/Join" to="." method="_on_Join_mouse_entered"]
 [connection signal="pressed" from="Connect/Join" to="." method="_on_join_pressed"]
+[connection signal="mouse_entered" from="add_npcs/add_npc" to="." method="_on_Join_mouse_entered"]
+[connection signal="pressed" from="add_npcs/add_npc" to="." method="_on_add_npc_pressed"]
