@@ -20,6 +20,7 @@ LOB12;Соединение поддерживается на порту 10567 -\
 LOB13;(Вы);(You)
 LOB14;Добавить NPC противников:;Add NPC enemies:
 LOB15;Добавить;Add
+LOB16;Убрать;Remove
 TEL1;TEL T1 Строительный БКК;TEL T1 Builder USV
 TEL2;TEL Т2 Электрошоковый БКК;TEL T2 Zapper USV
 TEL3;TEL Т3 Бомбардировочный БКК;TEL T3 Bomber USV

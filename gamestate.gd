@@ -94,18 +94,15 @@ remote func register_player(new_player_name, selected_ship):
 	selected_ships[id] = selected_ship
 	emit_signal("player_list_changed")
 
-remote func register_NPC(selected_ship):
-	#print(id)
-	NPCs.append( "NPC " + npc_type[selected_ship] + "/" + str(npc_id))
-	NPC_selected_ships.append(selected_ship) 
-	emit_signal("player_list_changed")
-	npc_id += 1
+
 
 func unregister_player(id):
 	players.erase(id)
 	selected_ships.erase(id)
 	emit_signal("player_list_changed")
 
+
+	
 
 remote func pre_start_game(spawn_points, npc_spawn_points):
 	# Change scene.
@@ -120,7 +117,7 @@ remote func pre_start_game(spawn_points, npc_spawn_points):
 	for p_id in spawn_points:
 		var spawn_pos = world.get_node("SpawnPoints/" + str(spawn_points[p_id])).position
 		
-		if p_id >= 500:
+		if p_id >= 500 and p_id <= 1000:
 			var enemy = enemy_scene.instance()
 			enemy.selected_ship = NPC_selected_ships[n_id]
 			
@@ -235,7 +232,10 @@ func end_game():
 	players.clear()
 	selected_ships.clear()
 	players_ready.clear()
+	NPCs.clear()
+	NPC_selected_ships.clear()
 	selected_ship = 0
+	npc_id = 0
 	
 
 func _ready():

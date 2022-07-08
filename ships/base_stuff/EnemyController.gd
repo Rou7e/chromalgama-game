@@ -68,11 +68,15 @@ func _physics_process(delta):
 	if get_parent().get_parent().get_node("Players").get_child_count() < 1:
 		return
 	var ship = get_node("BaseShip")
+	if is_instance_valid(ship)==false:
+		return
+	
 	if is_instance_valid(target)==false:
 		if get_parent().get_parent().get_node("Players").get_child_count() > 1:
 			for i in range(get_parent().get_parent().get_node("Players").get_child_count()):
-				if get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip").id != parent_id:
-					target = get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")
+				if is_instance_valid(get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")):
+					if get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip").id != parent_id:
+						target = get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")
 		return
 	ship.set_target_position(target.global_position)
 	#var path_to_enemy = target.global_position - ship.global_position
@@ -83,9 +87,9 @@ func _physics_process(delta):
 		input_vector.x=1
 
 	if ship.get_angle_to(target.global_position) < 0.1 and ship.get_angle_to(target.global_position) > -0.1:
-		if ship.global_position.distance_to(target.global_position) > 500:
+		if ship.global_position.distance_to(target.global_position) > 5000*ship.get_node("ShipCargo").scale.x:
 			input_vector.y=1
-		if ship.global_position.distance_to(target.global_position) < 500:
+		if ship.global_position.distance_to(target.global_position) < 5000*ship.get_node("ShipCargo").scale.x:
 			input_vector.y=-1
 			ship.set_primary(1)
 		

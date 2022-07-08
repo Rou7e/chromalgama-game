@@ -172,7 +172,7 @@ func refresh_lobby():
 
 
 func _on_start_pressed():
-	
+	$add_npcs.visible = false
 	gamestate.begin_game()
 
 func _on_Host_mouse_entered():
@@ -198,4 +198,23 @@ func _process(delta):
 func _on_add_npc_pressed():
 	if len($add_npcs/ItemList.get_selected_items())==0:
 		return
-	gamestate.register_NPC($add_npcs/ItemList.get_selected_items()[0])
+	rpc("register_NPC", $add_npcs/ItemList.get_selected_items()[0])
+		
+	
+
+func _on_add_npc2_pressed():
+	rpc("unregister_NPC")
+
+remotesync func unregister_NPC():
+	gamestate.NPCs.pop_back()
+	gamestate.NPC_selected_ships.pop_back()
+	gamestate.emit_signal("player_list_changed")
+	if gamestate.npc_id > 0:
+		gamestate.npc_id-=1
+		
+remotesync func register_NPC(selected_ship):
+	#print(id)
+	gamestate.NPCs.append( "NPC " + gamestate.npc_type[selected_ship] + "/" + str(gamestate.npc_id))
+	gamestate.NPC_selected_ships.append(selected_ship) 
+	gamestate.emit_signal("player_list_changed")
+	gamestate.npc_id += 1

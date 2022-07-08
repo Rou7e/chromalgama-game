@@ -369,6 +369,7 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 3 )
 
 [node name="GameOverMenu" type="Panel" parent="Camera2D"]
+visible = false
 margin_left = -426.0
 margin_top = -187.0
 margin_right = -202.0

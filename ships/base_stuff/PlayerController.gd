@@ -66,12 +66,11 @@ func _ready():
 				$Camera2D/ENEMY_UI/PRIMARY.max_value = get_parent().get_child(i).get_child(1).charge_states["primary"].charge
 				$Camera2D/ENEMY_UI/TURRET.max_value = get_parent().get_child(i).get_child(1).charge_states["secondary"].charge
 				$Camera2D/ENEMY_UI/SECONDARY.max_value = get_parent().get_child(i).get_child(1).charge_states["ability"].charge
-				
 				markf.global_position = $Camera2D/Sprite4.rect_min_size/2
+				
 	$Camera2D.current = is_network_master()
 	$Camera2D.visible = is_network_master()
 	
-
 	$BaseShip.id = "PC"+str(get_network_master())
 	#mark.global_position.x = ($BaseShip.global_position.x-2300)/9.11
 	#mark.global_position.y = ($BaseShip.global_position.y-1200)/8.1

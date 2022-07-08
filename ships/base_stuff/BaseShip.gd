@@ -140,35 +140,45 @@ remotesync func receive_damage(amount):
 	get_parent().get_child(0).get_node("DamageDealt").stream.loop = false
 	if cooling <= 0:
 		var explosion_mrp = explosion.instance()
+		var winner = ""
 		explosion_mrp.get_node("AnimatedSprite").scale = $ShipCargo.scale*10
 		explosion_mrp.global_position=global_position
 		get_node("/root").add_child(explosion_mrp)
-			
-		if get_parent().get_parent().name=="NPCs":
-			queue_free()
-			pass
-		if get_parent().get_parent().get_child_count() == 2 and get_parent().get_parent().name=="Players":
-			
-			#get_parent().get_parent().get_parent().get_node("GameOverMenu").visible = true
-			var winner = ""
-			for i in range(2):
-				if get_parent().get_player_name() != get_parent().get_parent().get_child(i).get_player_name():
-					winner = get_parent().get_parent().get_child(i).get_player_name()
-			#get_parent().get_parent().get_parent().get_node("GameOverMenu").make_score(winner)
-			for i in get_parent().get_parent().get_children():
-				if self.is_network_master():
-					i.rpc("game_over", winner)
-				queue_free()
-				#i.get_node("Camera2D").get_node("ThrusterSound").stop()
-				#i.get_node("Camera2D").get_node("ThrusterSound2").stop()
-				#i.get_node("Camera2D").get_node("ThrusterSound3").stop()
-				#i.get_node("Camera2D").get_node("EngineSound").stop()
-				#i.get_node("Camera2D").get_node("DamageDealt").stop()
-				#i.queue_free()
+		#if get_parent().get_parent().get_parent().get_node("NPCs").get_child_count()==0 and get_parent().get_parent().get_parent().get_node("Players").get_child_count()==1:
+		#	winner = get_parent().get_parent().get_parent().get_node("Players").get_child(0).name
+		#	get_parent().get_parent().get_parent().get_node("Players").get_child(0).rpc("game_over", winner)
+		#if get_parent().get_parent().get_child_count() <= 2 and get_parent().get_parent().name=="Players":
+		#	#get_parent().get_parent().get_parent().get_node("GameOverMenu").visible = true
+		#	
+		#	for i in range(get_parent().get_parent().get_child_count()):
+		#		if get_parent().get_player_name() != get_parent().get_parent().get_child(i).get_player_name():
+		#			winner = get_parent().get_parent().get_child(i).get_player_name()
+		if get_parent().get_parent().name=="Players":
+			if get_parent().get_parent().get_parent().get_node("NPCs").get_child_count()!=0 and get_parent().get_parent().get_parent().get_node("Players").get_child_count()==1:
+				get_parent().get_parent().rpc("game_over", "")
+			if get_parent().get_parent().get_parent().get_node("NPCs").get_child_count()==0 and get_parent().get_parent().get_parent().get_node("Players").get_child_count()==1:
+				get_parent().get_parent().rpc("game_over", get_parent().get_player_name())
+			get_parent().get_child(0).get_node("GameOverMenu").visible = true
+			if get_parent().get_parent().get_child_count() < 2:
+				get_parent().get_parent().get_parent().get_node("GameOverMenu").visible = true
+				
+				for i in range(get_parent().get_parent().get_child_count()):
+					if get_parent().get_player_name() != get_parent().get_parent().get_child(i).get_player_name():
+						winner = get_parent().get_parent().get_child(i).get_player_name()
+				get_parent().get_parent().get_parent().get_node("Players").get_child(0).rpc("game_over", winner)
 		
+		if get_parent().get_parent().name=="NPCs":
+			if get_parent().get_parent().get_parent().get_node("NPCs").get_child_count()==1 and get_parent().get_parent().get_parent().get_node("Players").get_child_count()==1:
+				get_parent().get_parent().get_parent().get_node("Players").get_child(0).rpc("game_over", get_parent().get_parent().get_parent().get_node("Players").get_child(0).name)
+				get_parent().get_parent().get_parent().get_node("Players").get_child(0).get_child(0).get_node("GameOverMenu").visible = true
 
-			
-	#queue_free()
+		get_parent().get_child(0).get_node("EngineSound").stop()
+		get_parent().get_child(0).get_node("ThrusterSound").stop()
+		get_parent().get_child(0).get_node("ThrusterSound2").stop()
+		get_parent().get_child(0).get_node("ThrusterSound3").stop()
+		get_parent().get_child(0).get_node("DamageDealt").stop()
+		
+		queue_free()
 
 func _on_BaseShip_area_entered(area):
 	return

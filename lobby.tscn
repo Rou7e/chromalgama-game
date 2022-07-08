@@ -425,15 +425,29 @@ __meta__ = {
 }
 
 [node name="add_npc" type="Button" parent="add_npcs"]
-margin_left = 102.0
+margin_left = 62.0
 margin_top = 336.0
-margin_right = 167.0
+margin_right = 127.0
 margin_bottom = 368.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 theme = ExtResource( 19 )
 custom_fonts/font = ExtResource( 22 )
 text = "LOB15"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="add_npc2" type="Button" parent="add_npcs"]
+margin_left = 142.0
+margin_top = 336.0
+margin_right = 207.0
+margin_bottom = 368.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+theme = ExtResource( 19 )
+custom_fonts/font = ExtResource( 22 )
+text = "LOB16"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -517,3 +531,5 @@ bus = "SFX"
 [connection signal="pressed" from="Connect/Join" to="." method="_on_join_pressed"]
 [connection signal="mouse_entered" from="add_npcs/add_npc" to="." method="_on_Join_mouse_entered"]
 [connection signal="pressed" from="add_npcs/add_npc" to="." method="_on_add_npc_pressed"]
+[connection signal="mouse_entered" from="add_npcs/add_npc2" to="." method="_on_Join_mouse_entered"]
+[connection signal="pressed" from="add_npcs/add_npc2" to="." method="_on_add_npc2_pressed"]
