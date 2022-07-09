@@ -89,6 +89,9 @@ func _connected_fail():
 
 remote func register_player(new_player_name, selected_ship):
 	var id = get_tree().get_rpc_sender_id()
+	NPCs.clear()
+	NPC_selected_ships.clear()
+	npc_id = 0
 	#print(id)
 	players[id] = new_player_name
 	selected_ships[id] = selected_ship
@@ -104,7 +107,7 @@ func unregister_player(id):
 
 	
 
-remote func pre_start_game(spawn_points, npc_spawn_points):
+remote func pre_start_game(spawn_points):
 	# Change scene.
 	var world = load("res://world.tscn").instance()
 	get_tree().get_root().add_child(world)
@@ -210,7 +213,7 @@ func begin_game():
 	for p in players:
 		spawn_points[p] = spawn_point_idx
 		spawn_point_idx += 1
-	for e in range(npc_id-1):
+	for e in range(npc_id):
 		spawn_points[e+500] = spawn_point_idx
 		npc_spawn_points.append(e)
 		spawn_point_idx += 1
@@ -218,7 +221,7 @@ func begin_game():
 	for p in players:
 		rpc_id(p, "pre_start_game", spawn_points)
 
-	pre_start_game(spawn_points, npc_spawn_points)
+	pre_start_game(spawn_points)
 
 
 func end_game():
