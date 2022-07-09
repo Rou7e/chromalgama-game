@@ -63,14 +63,15 @@ func _physics_process(delta):
 		if get_parent().get_child(0).get_node("EngineSound").playing == false:
 			get_parent().get_child(0).get_node("EngineSound").play()
 		for i in $Engines.get_children():
-			var exhaust_entity = exhaust.instance()
-			i.animation="running"
-			exhaust_entity.scale=i.scale
-			exhaust_entity.global_position=i.global_position
-			exhaust_entity.offset = i.offset
-			exhaust_entity.global_rotation = i.global_rotation
 			
-			get_node("/root").add_child(exhaust_entity)
+			#var exhaust_entity = exhaust.instance()
+			i.animation="running"
+			#exhaust_entity.scale=i.scale
+			#exhaust_entity.global_position=i.global_position
+			#exhaust_entity.offset = i.offset
+			#exhaust_entity.global_rotation = i.global_rotation
+			
+			#get_node("/root").add_child(exhaust_entity)
 	else:
 		get_parent().get_child(0).get_node("EngineSound").stop()
 		for i in $Engines.get_children():

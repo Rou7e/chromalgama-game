@@ -1,9 +1,6 @@
 extends Node2D
 
 var input_vector = Vector2.ZERO
-
-#const tel_t2 = preload("res://ships/tellurian_ships/tel_t2.tscn")
-
 var selected_ship
 
 # Called when the node enters the scene tree for the first time.
@@ -142,23 +139,21 @@ func _process(delta):
 	if get_parent().get_child_count() > 1:
 		for i in range(get_parent().get_child_count()):
 			if get_parent().get_child(i) != self:
-				var marke = gamestate.mark_enemy.instance()
+				var tracked_ship = get_parent().get_child(i).get_child(1)
 				if is_instance_valid(get_parent().get_child(i).get_child(1))==false:
-					return
-				marke.global_position = $Camera2D/Sprite4.rect_size/2-($BaseShip.global_position-get_parent().get_child(i).get_child(1).global_position)/($Camera2D.scale.x*10)
-				marke.global_rotation = get_parent().get_child(i).get_child(1).global_rotation
-				marke.scale = get_parent().get_child(i).get_child(1).get_node("ShipCargo").scale/2+Vector2(0.2,0.2)
-				if marke.global_position.x > $Camera2D/Sprite4.rect_size.x:
-					marke.global_position.x = $Camera2D/Sprite4.rect_size.x-2
-				if marke.global_position.y > $Camera2D/Sprite4.rect_size.y:
-					marke.global_position.y = $Camera2D/Sprite4.rect_size.y-2
-					
-				if marke.global_position.x < 0:
-					marke.global_position.x = 2
-				if marke.global_position.y < 0:
-					marke.global_position.y = 2
-				$Camera2D/Sprite4.add_child(marke)
-				#$Camera2D/Sprite4.add_child(mark)
+					continue
+				var marke = gamestate.mark_enemy.instance()
+				make_mark(tracked_ship, marke)
+	for i in get_parent().get_parent().get_node("NPCs").get_children():
+		if is_instance_valid(i.get_child(1))==false:
+			continue
+		if i.parent_id != ship.id:
+			var marke = gamestate.mark_enemy.instance()
+			make_mark(i.get_child(1), marke)
+		else:
+			markf = gamestate.mark_friend.instance()
+			make_mark(i.get_child(1), markf)
+			#$Camera2D/Sprite4.add_child(mark)
 	#for i in range(get_parent().get_child_count()):
 	#	mark.global_position.x = (get_parent().get_child(i).get_child(1).global_position.x-2300)/9.11
 	#	mark.global_position.y = (get_parent().get_child(i).get_child(1).global_position.y-1200)/8.1
@@ -177,7 +172,9 @@ func _input(event):
 		return
 	if not self.is_network_master():
 		return
-			
+	
+	rpc("make_score")
+	
 	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	input_vector.y = Input.get_action_strength("move_up") - Input.get_action_strength("move_down") 
 	var ship = get_node("BaseShip")
@@ -260,3 +257,19 @@ remotesync func game_over(winner):
 	$Camera2D/ENEMY_UI/SECONDARY.value = 0
 				
 	#$BaseShip.queue_free()
+
+func make_mark(tracked_ship, marke):
+	
+	marke.global_position = $Camera2D/Sprite4.rect_size/2-($BaseShip.global_position-tracked_ship.global_position)/($Camera2D.scale.x*10)
+	marke.global_rotation = tracked_ship.global_rotation
+	marke.scale = tracked_ship.get_node("ShipCargo").scale/2+Vector2(0.2,0.2)
+	if marke.global_position.x > $Camera2D/Sprite4.rect_size.x:
+		marke.global_position.x = $Camera2D/Sprite4.rect_size.x-2
+	if marke.global_position.y > $Camera2D/Sprite4.rect_size.y:
+		marke.global_position.y = $Camera2D/Sprite4.rect_size.y-2
+		
+	if marke.global_position.x < 0:
+		marke.global_position.x = 2
+	if marke.global_position.y < 0:
+		marke.global_position.y = 2
+	$Camera2D/Sprite4.add_child(marke)

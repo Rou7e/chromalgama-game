@@ -229,5 +229,6 @@ shape = SubResource( 39 )
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
 autoplay = true
+bus = "SFX"
 
 [connection signal="area_entered" from="." to="." method="_on_ExplosionArea_area_entered"]

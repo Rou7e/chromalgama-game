@@ -306,7 +306,7 @@ show_behind_parent = true
 position = Vector2( 1950.33, 801 )
 scale = Vector2( 3.75996, 3.75996 )
 frames = SubResource( 1 )
-frame = 25
+frame = 58
 playing = true
 
 [node name="Sprite2" type="Sprite" parent="."]
@@ -337,5 +337,6 @@ bus = "SFX"
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/Button3" to="." method="_on_Button3_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/Button4" to="." method="_on_Button4_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_Button4_pressed"]

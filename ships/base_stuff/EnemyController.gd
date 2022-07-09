@@ -64,8 +64,6 @@ func _ready():
 				target = get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")
 
 func _physics_process(delta):
-	if get_parent().get_parent().get_node("Players").get_child_count() < 1:
-		return
 	var ship = get_node("BaseShip")
 	if is_instance_valid(ship)==false:
 		for i in get_parent().get_parent().get_node("Players").get_children():
@@ -79,7 +77,14 @@ func _physics_process(delta):
 				if is_instance_valid(get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")):
 					if get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip").id != parent_id:
 						target = get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")
+		else:
+			if get_parent().get_parent().get_node("NPCs").get_child_count() > 0:
+				for i in range(get_parent().get_parent().get_node("NPCs").get_child_count()):
+						if is_instance_valid(get_parent().get_parent().get_node("NPCs").get_child(i).get_node("BaseShip")) and is_instance_valid(get_node("BaseShip")):
+							if get_parent().get_parent().get_node("NPCs").get_child(i).parent_id != parent_id:
+								target = get_parent().get_parent().get_node("NPCs").get_child(i).get_node("BaseShip")
 		return
+		
 	ship.set_target_position(target.global_position)
 	#var path_to_enemy = target.global_position - ship.global_position
 	
@@ -97,15 +102,5 @@ func _physics_process(delta):
 			ship.set_ability(1)
 			ship.set_shooting(1)
 		
-
-	
 	ship.set_input_vector(input_vector)
 	
-	#ship.set_shooting(Input.get_action_strength("shoot"))
-	#ship.set_ability(Input.get_action_strength("ability"))
-	#ship.set_primary(Input.get_action_strength("primary_shoot"))
-	
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

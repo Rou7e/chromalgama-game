@@ -22,7 +22,7 @@ func _ready():
 		return
 	
 	if is_instance_valid(target)==false:
-		if get_parent().get_parent().get_node("Players").get_child_count() > 1:
+		if get_parent().get_parent().get_node("Players").get_child_count() > 0:
 			for i in range(get_parent().get_parent().get_node("Players").get_child_count()):
 				if is_instance_valid(get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")):
 					if get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip").id != parent_id:
