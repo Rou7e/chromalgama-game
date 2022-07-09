@@ -15,3 +15,11 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("key_escape"):
 		get_tree().change_scene("res://MainMenu.tscn")
+
+
+func _on_Start_pressed():
+	OS.shell_open("https://t.me/+uSYk1w1THY5iOTli")
+
+
+func _on_Start2_pressed():
+	OS.shell_open("https://github.com/Rou7e/chromalgama-game/issues")

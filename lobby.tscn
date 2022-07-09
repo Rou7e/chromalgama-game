@@ -110,7 +110,7 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 theme = ExtResource( 19 )
 custom_fonts/font = ExtResource( 22 )
-text = "START!"
+text = "LOB17"
 
 [node name="List" type="ItemList" parent="Players"]
 margin_left = 25.0
