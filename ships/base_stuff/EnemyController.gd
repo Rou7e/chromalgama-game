@@ -14,7 +14,6 @@ var selected_ship
 # var a = 2
 # var b = "text"
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if ship == null:
@@ -69,6 +68,9 @@ func _physics_process(delta):
 		return
 	var ship = get_node("BaseShip")
 	if is_instance_valid(ship)==false:
+		for i in get_parent().get_parent().get_node("Players").get_children():
+			i.rpc("make_score")
+		queue_free()
 		return
 	
 	if is_instance_valid(target)==false:
@@ -92,6 +94,8 @@ func _physics_process(delta):
 		if ship.global_position.distance_to(target.global_position) < 5000*ship.get_node("ShipCargo").scale.x:
 			input_vector.y=-1
 			ship.set_primary(1)
+			ship.set_ability(1)
+			ship.set_shooting(1)
 		
 
 	

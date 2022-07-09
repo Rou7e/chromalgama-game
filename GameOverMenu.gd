@@ -25,6 +25,6 @@ func _on_BackToMenu_pressed():
 func make_score(winner):
 	for i in get_parent().get_parent().get_parent().get_children():
 		if i.get_player_name() == winner:
-			$Stats.add_item(i.get_player_name() + "PLA8")
+			$Stats.add_item(i.get_player_name() + " " + TranslationServer.translate("PLA8"))
 		else:
 			$Stats.add_item(i.get_player_name())

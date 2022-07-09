@@ -94,7 +94,7 @@ shape = SubResource( 1 )
 [node name="Plasmagun" type="Node2D" parent="."]
 position = Vector2( -5, 0 )
 script = ExtResource( 4 )
-fire_rate = 60.0
+fire_rate = 30.0
 bullet_damage = 2.0
 projectile = ExtResource( 30 )
 
@@ -141,6 +141,7 @@ rotation = 1.5708
 scale = Vector2( 0.00361751, 0.00412765 )
 frames = SubResource( 2 )
 animation = "stopped"
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -150,6 +151,7 @@ rotation = 1.5708
 scale = Vector2( 0.00338651, 0.00412894 )
 frames = SubResource( 2 )
 animation = "stopped"
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 

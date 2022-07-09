@@ -153,25 +153,6 @@ remotesync func receive_damage(amount):
 		#	for i in range(get_parent().get_parent().get_child_count()):
 		#		if get_parent().get_player_name() != get_parent().get_parent().get_child(i).get_player_name():
 		#			winner = get_parent().get_parent().get_child(i).get_player_name()
-		if get_parent().get_parent().name=="Players":
-			if get_parent().get_parent().get_parent().get_node("NPCs").get_child_count()!=0 and get_parent().get_parent().get_parent().get_node("Players").get_child_count()==1:
-				get_parent().get_parent().rpc("game_over", "")
-			if get_parent().get_parent().get_parent().get_node("NPCs").get_child_count()==0 and get_parent().get_parent().get_parent().get_node("Players").get_child_count()==1:
-				get_parent().get_parent().rpc("game_over", get_parent().get_player_name())
-			get_parent().get_child(0).get_node("GameOverMenu").visible = true
-			if get_parent().get_parent().get_child_count() < 2:
-				get_parent().get_parent().get_parent().get_node("GameOverMenu").visible = true
-				
-				for i in range(get_parent().get_parent().get_child_count()):
-					if get_parent().get_player_name() != get_parent().get_parent().get_child(i).get_player_name():
-						winner = get_parent().get_parent().get_child(i).get_player_name()
-				get_parent().get_parent().get_parent().get_node("Players").get_child(0).rpc("game_over", winner)
-		
-		if get_parent().get_parent().name=="NPCs":
-			if get_parent().get_parent().get_parent().get_node("NPCs").get_child_count()==1 and get_parent().get_parent().get_parent().get_node("Players").get_child_count()==1:
-				get_parent().get_parent().get_parent().get_node("Players").get_child(0).rpc("game_over", get_parent().get_parent().get_parent().get_node("Players").get_child(0).name)
-				get_parent().get_parent().get_parent().get_node("Players").get_child(0).get_child(0).get_node("GameOverMenu").visible = true
-
 		get_parent().get_child(0).get_node("EngineSound").stop()
 		get_parent().get_child(0).get_node("ThrusterSound").stop()
 		get_parent().get_child(0).get_node("ThrusterSound2").stop()

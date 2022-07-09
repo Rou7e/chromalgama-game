@@ -140,7 +140,7 @@ rotation = 1.5708
 scale = Vector2( 0.0177404, 0.0166888 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -150,7 +150,7 @@ rotation = 1.5708
 scale = Vector2( 0.0199459, 0.0178722 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -160,7 +160,7 @@ rotation = 1.5708
 scale = Vector2( 0.0181177, 0.0163655 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 6
+frame = 2
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -266,6 +266,8 @@ script = ExtResource( 31 )
 gun_group = "primary"
 fire_rate = 30.0
 cost = 50.0
+turnable = false
+bullet_damage = 4.0
 open_hangar = false
 launched_ship = ExtResource( 36 )
 projectile = ExtResource( 37 )

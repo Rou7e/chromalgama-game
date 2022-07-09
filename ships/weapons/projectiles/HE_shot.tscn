@@ -230,3 +230,5 @@ frames = SubResource( 38 )
 animation = "flying"
 frame = 6
 playing = true
+
+[connection signal="area_entered" from="." to="." method="_on_ChargedBullet_area_entered"]

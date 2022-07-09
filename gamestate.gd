@@ -29,7 +29,7 @@ const npc_type = ["ACL T1", "TEL T1", "TEL T2", "TEL T3", "TEL T4", "TEL T5", "T
 # Max number of players.
 const MAX_PEERS = 12
 
-var npc_id = 1
+var npc_id = 0
 var peer = null
 
 # Name for my player.
@@ -207,7 +207,6 @@ func begin_game():
 
 	# Create a dictionary with peer id and respective spawn points, could be improved by randomizing.
 	var spawn_points = {}
-	var npc_spawn_points = []
 	spawn_points[1] = 0 # Server in spawn point 0.
 	var spawn_point_idx = 1
 	for p in players:
@@ -215,7 +214,6 @@ func begin_game():
 		spawn_point_idx += 1
 	for e in range(npc_id):
 		spawn_points[e+500] = spawn_point_idx
-		npc_spawn_points.append(e)
 		spawn_point_idx += 1
 	# Call to pre-start game with the spawn points.
 	for p in players:

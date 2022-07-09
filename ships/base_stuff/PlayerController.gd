@@ -85,9 +85,11 @@ func _ready():
 func _process(delta):
 	#if is_instance_valid(get_node("BaseShip"))==false:
 	#	return
-	if get_child_count() <= 1:
+	var ship = get_node("BaseShip")
+	if is_instance_valid(ship)==false:
+		for i in get_parent().get_parent().get_node("Players").get_children():
+			i.rpc("make_score")
 		return
-
 	
 	
 	
@@ -121,6 +123,22 @@ func _process(delta):
 	markc.global_position = $Camera2D/Sprite4.rect_size/2-($BaseShip.global_position-get_global_mouse_position())/($Camera2D.scale.x*10)
 	$Camera2D/Sprite4.add_child(markc)
 	
+	
+	if get_enemy() != null:
+		$Camera2D/ENEMY_UI/Label5.text = get_enemy().desc
+		$Camera2D/ENEMY_UI/HEAT.max_value = get_enemy().max_cooling
+		$Camera2D/ENEMY_UI/HEAT.value = get_enemy().cooling
+		$Camera2D/ENEMY_UI/PRIMARY.value = get_enemy().charge_states["primary"].charge
+		$Camera2D/ENEMY_UI/TURRET.value = get_enemy().charge_states["secondary"].charge
+		$Camera2D/ENEMY_UI/SECONDARY.value = get_enemy().charge_states["ability"].charge
+	else:
+		$Camera2D/ENEMY_UI/Label5.text = "\n\n"
+		$Camera2D/ENEMY_UI/HEAT.max_value = 0
+		$Camera2D/ENEMY_UI/HEAT.value = 0
+		$Camera2D/ENEMY_UI/PRIMARY.value = 0
+		$Camera2D/ENEMY_UI/TURRET.value = 0
+		$Camera2D/ENEMY_UI/SECONDARY.value = 0
+
 	if get_parent().get_child_count() > 1:
 		for i in range(get_parent().get_child_count()):
 			if get_parent().get_child(i) != self:
@@ -140,12 +158,6 @@ func _process(delta):
 				if marke.global_position.y < 0:
 					marke.global_position.y = 2
 				$Camera2D/Sprite4.add_child(marke)
-				$Camera2D/ENEMY_UI/Label5.text = get_parent().get_child(i).get_child(1).desc
-				$Camera2D/ENEMY_UI/HEAT.max_value = get_parent().get_child(i).get_child(1).max_cooling
-				$Camera2D/ENEMY_UI/HEAT.value = get_parent().get_child(i).get_child(1).cooling
-				$Camera2D/ENEMY_UI/PRIMARY.value = get_parent().get_child(i).get_child(1).charge_states["primary"].charge
-				$Camera2D/ENEMY_UI/TURRET.value = get_parent().get_child(i).get_child(1).charge_states["secondary"].charge
-				$Camera2D/ENEMY_UI/SECONDARY.value = get_parent().get_child(i).get_child(1).charge_states["ability"].charge
 				#$Camera2D/Sprite4.add_child(mark)
 	#for i in range(get_parent().get_child_count()):
 	#	mark.global_position.x = (get_parent().get_child(i).get_child(1).global_position.x-2300)/9.11
@@ -202,7 +214,34 @@ func get_player_name():
 	return $Camera2D.get_node("label").text
 
 func get_enemy():
-	get_parent().get_node("EnemyController").get_child(0)
+
+	if get_parent().get_child_count() > 1:
+		for i in range(get_parent().get_child_count()):
+			if is_instance_valid(get_parent().get_child(i).get_node("BaseShip")):
+				if get_parent().get_child(i) != self:
+					return get_parent().get_child(i).get_node("BaseShip")
+	elif get_parent().get_parent().get_node("NPCs").get_child_count() > 0:
+		for i in range(get_parent().get_parent().get_node("NPCs").get_child_count()):
+			if is_instance_valid(get_parent().get_parent().get_node("NPCs").get_child(i).get_node("BaseShip")) and is_instance_valid(get_node("BaseShip")):
+				if get_parent().get_parent().get_node("NPCs").get_child(i).parent_id != get_node("BaseShip").id:
+					return get_parent().get_parent().get_node("NPCs").get_child(i).get_node("BaseShip")
+	else:
+		 return null
+		
+
+
+remotesync func make_score():
+
+	if is_instance_valid(get_node("BaseShip"))==false:
+		if $Camera2D/GameOverMenu.visible == false:
+			$Camera2D/GameOverMenu.make_score("")
+		$Camera2D/GameOverMenu.visible = true
+		
+	elif get_enemy() == null:
+		if $Camera2D/GameOverMenu.visible == false:
+			$Camera2D/GameOverMenu.make_score(get_player_name())
+		$Camera2D/GameOverMenu.visible = true
+		
 
 remotesync func game_over(winner):
 	

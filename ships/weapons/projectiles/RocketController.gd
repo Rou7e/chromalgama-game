@@ -18,20 +18,26 @@ func _ready():
 	vessel.global_rotation = rot
 	vessel.speed_vector = velocity
 	add_child(vessel)
-	if get_parent().get_parent().get_node("Players").get_child_count() > 1:
-		for i in range(get_parent().get_parent().get_node("Players").get_child_count()):
-			if is_instance_valid(get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")):
-				if get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip").id != parent_id:
-					target = get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")
-
+	if is_instance_valid(ship)==false:
+		return
+	
+	if is_instance_valid(target)==false:
+		if get_parent().get_parent().get_node("Players").get_child_count() > 1:
+			for i in range(get_parent().get_parent().get_node("Players").get_child_count()):
+				if is_instance_valid(get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")):
+					if get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip").id != parent_id:
+						target = get_parent().get_parent().get_node("Players").get_child(i).get_node("BaseShip")
+		elif get_parent().get_parent().get_node("NPCs").get_child_count() > 1:
+			for i in range(get_parent().get_parent().get_node("NPCs").get_child_count()):
+				if is_instance_valid(get_parent().get_parent().get_node("NPCs").get_child(i).get_node("BaseShip")):
+					if get_parent().get_parent().get_node("NPCs").get_child(i).get_node("BaseShip").id != parent_id and get_parent().get_parent().get_node("NPCs").get_child(i).parent_id != parent_id:
+						target = get_parent().get_parent().get_node("NPCs").get_child(i).get_node("BaseShip")
+		return
 func _physics_process(delta):
 	var ship = get_node("BaseShip")
 	if is_instance_valid(ship)==false:
 		queue_free()
 		return
-	if get_parent().get_parent().get_node("Players").get_child_count() <= 1:
-		return
-	
 	if is_instance_valid(target)==false:
 		return
 	ship.set_target_position(target.global_position)

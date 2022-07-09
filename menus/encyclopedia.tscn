@@ -18,7 +18,7 @@
 [ext_resource path="res://resources/menu_hologram/12.png" type="Texture" id=16]
 [ext_resource path="res://resources/menu_hologram/6.png" type="Texture" id=17]
 [ext_resource path="res://resources/menu_hologram/5.png" type="Texture" id=18]
-[ext_resource path="res://resources/encyclopedia/mrp.png" type="Texture" id=19]
+[ext_resource path="res://resources/encyclopedia/unknown.png" type="Texture" id=19]
 [ext_resource path="res://menus/encyclopedia.gd" type="Script" id=20]
 [ext_resource path="res://resources/ui/uncut_bg.png" type="Texture" id=21]
 [ext_resource path="res://resources/fonts/plain_text.tres" type="DynamicFont" id=22]
@@ -204,7 +204,6 @@ margin_top = 231.0
 margin_right = 1233.0
 margin_bottom = 673.0
 custom_fonts/normal_font = ExtResource( 22 )
-text = "Some text about that stuff"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -216,7 +215,6 @@ margin_right = 923.0
 margin_bottom = 119.0
 theme = ExtResource( 3 )
 custom_fonts/normal_font = ExtResource( 2 )
-text = "The title lol"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -228,7 +226,6 @@ margin_right = 923.0
 margin_bottom = 200.0
 theme = ExtResource( 3 )
 custom_fonts/normal_font = ExtResource( 22 )
-text = "Some epic quote idk"
 __meta__ = {
 "_edit_use_anchors_": false
 }

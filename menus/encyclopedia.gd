@@ -254,7 +254,7 @@ func showWeapons():
 	button = Button.new()
 	button.set_script(butScript)
 	button.theme = menuTheme
-	button.text = "TEL OSC"
+	button.text = "TEL ENG"
 	button.title = TranslationServer.translate("WEP1")
 	button.quote = TranslationServer.translate('')
 	button.paragraph = TranslationServer.translate("WEP1DESC")
@@ -272,7 +272,7 @@ func showWeapons():
 	button = Button.new()
 	button.set_script(butScript)
 	button.theme = menuTheme
-	button.text = "TEL ESD"
+	button.text = "TEL PLA"
 	button.title = TranslationServer.translate("WEP3")
 	button.quote = TranslationServer.translate('')
 	button.paragraph = TranslationServer.translate("WEP3DESC")
@@ -281,7 +281,7 @@ func showWeapons():
 	button = Button.new()
 	button.set_script(butScript)
 	button.theme = menuTheme
-	button.text = "TEL ESD"
+	button.text = "TEL MWA"
 	button.title = TranslationServer.translate("WEP4")
 	button.quote = TranslationServer.translate('')
 	button.paragraph = TranslationServer.translate("WEP4DESC")
@@ -290,7 +290,7 @@ func showWeapons():
 	button = Button.new()
 	button.set_script(butScript)
 	button.theme = menuTheme
-	button.text = "TEL ESD"
+	button.text = "TEL UVL"
 	button.title = TranslationServer.translate("WEP5")
 	button.quote = TranslationServer.translate('')
 	button.paragraph = TranslationServer.translate("WEP5DESC")
@@ -299,7 +299,7 @@ func showWeapons():
 	button = Button.new()
 	button.set_script(butScript)
 	button.theme = menuTheme
-	button.text = "TEL ESD"
+	button.text = "TEL NEU"
 	button.title = TranslationServer.translate("WEP6")
 	button.quote = TranslationServer.translate('')
 	button.paragraph = TranslationServer.translate("WEP6DESC")
@@ -308,7 +308,7 @@ func showWeapons():
 	button = Button.new()
 	button.set_script(butScript)
 	button.theme = menuTheme
-	button.text = "TEL ESD"
+	button.text = "TEL AMB"
 	button.title = TranslationServer.translate("WEP7")
 	button.quote = TranslationServer.translate('')
 	button.paragraph = TranslationServer.translate("WEP7DESC")
@@ -317,7 +317,7 @@ func showWeapons():
 	button = Button.new()
 	button.set_script(butScript)
 	button.theme = menuTheme
-	button.text = "TEL ESD"
+	button.text = "SEL OSC"
 	button.title = TranslationServer.translate("WEP8")
 	button.quote = TranslationServer.translate('')
 	button.paragraph = TranslationServer.translate("WEP8DESC")
@@ -326,7 +326,7 @@ func showWeapons():
 	button = Button.new()
 	button.set_script(butScript)
 	button.theme = menuTheme
-	button.text = "TEL ESD"
+	button.text = "SEL POW"
 	button.title = TranslationServer.translate("WEP9")
 	button.quote = TranslationServer.translate('')
 	button.paragraph = TranslationServer.translate("WEP9DESC")
@@ -335,7 +335,7 @@ func showWeapons():
 	button = Button.new()
 	button.set_script(butScript)
 	button.theme = menuTheme
-	button.text = "TEL ESD"
+	button.text = "SEL MIS"
 	button.title = TranslationServer.translate("WEP10")
 	button.quote = TranslationServer.translate('')
 	button.paragraph = TranslationServer.translate("WEP10DESC")
@@ -344,7 +344,7 @@ func showWeapons():
 	button = Button.new()
 	button.set_script(butScript)
 	button.theme = menuTheme
-	button.text = "TEL ESD"
+	button.text = "SEL MRP"
 	button.title = TranslationServer.translate("WEP11")
 	button.quote = TranslationServer.translate('')
 	button.paragraph = TranslationServer.translate("WEP11DESC")
@@ -353,7 +353,7 @@ func showWeapons():
 	button = Button.new()
 	button.set_script(butScript)
 	button.theme = menuTheme
-	button.text = "TEL ESD"
+	button.text = "SEL IRL"
 	button.title = TranslationServer.translate("WEP12")
 	button.quote = TranslationServer.translate('')
 	button.paragraph = TranslationServer.translate("WEP12DESC")
@@ -362,7 +362,7 @@ func showWeapons():
 	button = Button.new()
 	button.set_script(butScript)
 	button.theme = menuTheme
-	button.text = "TEL ESD"
+	button.text = "SEL GAS"
 	button.title = TranslationServer.translate("WEP13")
 	button.quote = TranslationServer.translate('')
 	button.paragraph = TranslationServer.translate("WEP13DESC")
@@ -371,7 +371,7 @@ func showWeapons():
 	button = Button.new()
 	button.set_script(butScript)
 	button.theme = menuTheme
-	button.text = "TEL ESD"
+	button.text = "SEL TNB"
 	button.title = TranslationServer.translate("WEP14")
 	button.quote = TranslationServer.translate('')
 	button.paragraph = TranslationServer.translate("WEP14DESC")

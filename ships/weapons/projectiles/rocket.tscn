@@ -82,7 +82,6 @@ rotation = 1.5708
 scale = Vector2( 0.000716148, 0.00185879 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -92,7 +91,6 @@ rotation = 1.5708
 scale = Vector2( 0.00131182, 0.00712581 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -102,7 +100,6 @@ rotation = 1.5708
 scale = Vector2( 0.000683017, 0.00160235 )
 frames = SubResource( 2 )
 animation = "stopped"
-frame = 3
 playing = true
 offset = Vector2( -1788.93, -955.845 )
 
@@ -114,7 +111,6 @@ position = Vector2( -3, -3 )
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="LeftThrusters"]
@@ -122,7 +118,6 @@ position = Vector2( -1, -2 )
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="LeftThrusters"]
@@ -131,7 +126,6 @@ rotation = 3.14159
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
 playing = true
 
 [node name="RightThrusters" type="Node2D" parent="."]
@@ -144,7 +138,6 @@ rotation = 2.6226e-06
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="RightThrusters"]
@@ -153,7 +146,6 @@ rotation = 2.6226e-06
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="RightThrusters"]
@@ -162,7 +154,6 @@ rotation = -3.14159
 scale = Vector2( 0.035, 0.035 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
 playing = true
 
 [node name="BackThrusters" type="Node2D" parent="."]
@@ -174,7 +165,6 @@ rotation = 1.5708
 scale = Vector2( 0.0361136, 0.0361136 )
 frames = SubResource( 3 )
 animation = "running"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
