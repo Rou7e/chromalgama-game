@@ -22,8 +22,10 @@ func _ready():
 		for i in langfile.get_sections():
 			language = langfile.get_value(i, "language")
 	else:
-		print("LANG FILE NOT FOUND")
-		get_tree().quit()
+		language="en"
+		keybinds={"shoot":16777237,"ability":81,"primary_shoot":32,"key_escape":16777217,"move_up":87,"move_down":83,"move_right":68,"move_left":65}
+		volumes={"master":100.0,"music":0.0,"sfx":0.0}
+		write_config()
 
 	if volumefile.load(volumepath) == OK:
 		for key in volumefile.get_section_keys("volume"):
@@ -35,9 +37,10 @@ func _ready():
 				volumes[key] = null
 			
 	else:
-		print("VOLUME FILE NOT FOUND")
-		get_tree().quit()
-	
+		language="en"
+		keybinds={"shoot":16777237,"ability":81,"primary_shoot":32,"key_escape":16777217,"move_up":87,"move_down":83,"move_right":68,"move_left":65}
+		volumes={"master":100.0,"music":0.0,"sfx":0.0}
+		write_config()
 	#language = volumes["language"]
 	
 	if configfile.load(filepath) == OK:
@@ -50,8 +53,10 @@ func _ready():
 			else:
 				keybinds[key] = null
 	else:
-		print("CONFIG FILE NOT FOUND")
-		get_tree().quit()
+		language="en"
+		keybinds={"shoot":16777237,"ability":81,"primary_shoot":32,"key_escape":16777217,"move_up":87,"move_down":83,"move_right":68,"move_left":65}
+		volumes={"master":100.0,"music":0.0,"sfx":0.0}
+		write_config()
 	
 	set_game_binds()
 
@@ -102,5 +107,3 @@ func write_config():
 		else:
 			volumefile.set_value("volume", i, "")
 	volumefile.save(volumepath)
-
-	
