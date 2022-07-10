@@ -18,7 +18,7 @@ func _process(delta):
 
 
 func _on_Start_pressed():
-	OS.shell_open("https://t.me/+uSYk1w1THY5iOTli")
+	OS.shell_open("https://discord.gg/vckVDhtFGn")
 
 
 func _on_Start2_pressed():
