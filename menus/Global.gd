@@ -24,7 +24,7 @@ func _ready():
 	else:
 		language="en"
 		keybinds={"shoot":16777237,"ability":81,"primary_shoot":32,"key_escape":16777217,"move_up":87,"move_down":83,"move_right":68,"move_left":65}
-		volumes={"master":100.0,"music":0.0,"sfx":0.0}
+		volumes={"master":100.0,"music":50.0,"sfx":50.0}
 		write_config()
 
 	if volumefile.load(volumepath) == OK:

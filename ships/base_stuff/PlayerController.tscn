@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://resources/menu_hologram/6.png" type="Texture" id=1]
 [ext_resource path="res://ships/base_stuff/PlayerController.gd" type="Script" id=2]
@@ -29,6 +29,10 @@
 [ext_resource path="res://GameOverMenu.gd" type="Script" id=27]
 [ext_resource path="res://resources/ui/menu_theme.tres" type="Theme" id=28]
 [ext_resource path="res://resources/fonts/plain_text.tres" type="DynamicFont" id=29]
+[ext_resource path="res://addons/joystick_control/assets/joystick.gd" type="Script" id=30]
+[ext_resource path="res://addons/joystick_control/assets/ball.png" type="Texture" id=31]
+[ext_resource path="res://addons/joystick_control/assets/zoom_out.png" type="Texture" id=32]
+[ext_resource path="res://addons/joystick_control/assets/zoom_in.png" type="Texture" id=33]
 
 [sub_resource type="AnimatedTexture" id=3]
 flags = 4
@@ -300,15 +304,18 @@ __meta__ = {
 
 [node name="Sprite4" type="TextureRect" parent="Camera2D"]
 show_behind_parent = true
-margin_left = 341.0
+margin_left = -155.0
 margin_top = 180.0
-margin_right = 642.0
+margin_right = 146.0
 margin_bottom = 360.0
 rect_min_size = Vector2( 160, 180 )
 rect_pivot_offset = Vector2( -559, -180 )
 texture = SubResource( 3 )
 expand = true
 stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Chrome" type="Sprite" parent="Camera2D"]
 position = Vector2( -452.5, -152.447 )
@@ -349,31 +356,44 @@ scale = Vector2( 0.1, -0.1 )
 texture = ExtResource( 3 )
 
 [node name="Chrome5" type="Sprite" parent="Camera2D"]
-position = Vector2( 314, 392 )
+position = Vector2( 304.628, 341.01 )
 rotation = 3.14159
 scale = Vector2( 0.1, -2.2461 )
 texture = ExtResource( 16 )
-offset = Vector2( -225, -44.4072 )
+offset = Vector2( 4641.28, -21.7063 )
 
 [node name="Chrome6" type="Sprite" parent="Camera2D"]
-position = Vector2( 358, 152.5 )
+position = Vector2( -138, 152.5 )
 rotation = -1.5708
 scale = Vector2( 0.1, -3.023 )
 texture = ExtResource( 16 )
 offset = Vector2( -225, -44.4072 )
 
 [node name="Corner3" type="Sprite" parent="Camera2D"]
-position = Vector2( 336.5, 175 )
+position = Vector2( -159.5, 175 )
 rotation = 3.14159
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 3 )
 
+[node name="Chrome7" type="Sprite" parent="Camera2D"]
+position = Vector2( -307.534, 340.984 )
+rotation = 3.14159
+scale = Vector2( -0.0987987, -2.24694 )
+texture = ExtResource( 16 )
+offset = Vector2( 4641.28, -21.7063 )
+
+[node name="Corner4" type="Sprite" parent="Camera2D"]
+position = Vector2( 151, 175 )
+rotation = 3.14159
+scale = Vector2( -0.1, 0.1 )
+texture = ExtResource( 3 )
+
 [node name="GameOverMenu" type="Panel" parent="Camera2D"]
 visible = false
-margin_left = -426.0
-margin_top = -187.0
-margin_right = -202.0
-margin_bottom = -187.0
+margin_left = -348.5
+margin_top = -306.0
+margin_right = -124.5
+margin_bottom = -306.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 script = ExtResource( 27 )
@@ -483,4 +503,87 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MOVE" type="Control" parent="Camera2D"]
+margin_left = -454.5
+margin_top = 168.5
+margin_right = -414.5
+margin_bottom = 208.5
+rect_scale = Vector2( 2, 2 )
+script = ExtResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_up"
+action_down = "move_down"
+
+[node name="FIRE" type="Button" parent="Camera2D"]
+modulate = Color( 1, 1, 1, 0.572549 )
+margin_left = 393.0
+margin_top = 245.0
+margin_right = 589.0
+margin_bottom = 348.0
+theme = ExtResource( 28 )
+custom_fonts/font = ExtResource( 22 )
+text = "FIRE"
+icon = ExtResource( 31 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FIRE2" type="Button" parent="Camera2D"]
+modulate = Color( 1, 1, 1, 0.45098 )
+margin_left = 425.0
+margin_top = 124.0
+margin_right = 622.0
+margin_bottom = 229.0
+theme = ExtResource( 28 )
+custom_fonts/font = ExtResource( 22 )
+text = "SPAWN"
+icon = ExtResource( 31 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ZOOM_IN" type="Button" parent="Camera2D"]
+modulate = Color( 1, 1, 1, 0.45098 )
+margin_left = 536.0
+margin_top = -119.0
+margin_right = 582.0
+margin_bottom = -73.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 28 )
+custom_fonts/font = ExtResource( 22 )
+icon = ExtResource( 33 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ZOOM_OUT" type="Button" parent="Camera2D"]
+modulate = Color( 1, 1, 1, 0.45098 )
+margin_left = 536.0
+margin_top = -20.0
+margin_right = 582.0
+margin_bottom = 26.0
+rect_scale = Vector2( 2, 2 )
+theme = ExtResource( 28 )
+custom_fonts/font = ExtResource( 22 )
+icon = ExtResource( 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="Button" parent="Camera2D"]
+margin_left = -80.5
+margin_top = -360.5
+margin_right = 90.5
+margin_bottom = -325.5
+theme = ExtResource( 28 )
+text = "SET11"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="Camera2D/GameOverMenu/BackToMenu" to="Camera2D/GameOverMenu" method="_on_BackToMenu_pressed"]
+[connection signal="pressed" from="Camera2D/back" to="." method="_on_back_pressed"]

@@ -2,7 +2,9 @@ extends Node2D
 
 var input_vector = Vector2.ZERO
 var selected_ship
-
+#var view2D = Vector2(0,0)
+var scroll_up=0
+var scroll_down=0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Camera2D/GameOverMenu.visible = false
@@ -88,8 +90,19 @@ func _process(delta):
 			i.rpc("make_score")
 		return
 	
-	
-	
+	if $Camera2D/FIRE2.pressed:
+		ship.set_ability(1)
+	if $Camera2D/FIRE.pressed:
+		ship.set_primary(1)
+	if $Camera2D/ZOOM_IN.pressed:
+		scroll_down=1
+	else:
+		scroll_down=0
+	if $Camera2D/ZOOM_OUT.pressed:
+		scroll_up=1
+	else:
+		scroll_up=0
+
 	$Camera2D.global_position = $BaseShip.global_position
 	
 	$Camera2D/Player_UI/HEAT.value = $BaseShip.cooling
@@ -159,12 +172,12 @@ func _process(delta):
 	#	mark.global_position.y = (get_parent().get_child(i).get_child(1).global_position.y-1200)/8.1
 	#	$Camera2D/Sprite.add_child(mark)
 
-func _physics_process(delta):
-	if is_instance_valid(get_node("BaseShip")):
-		if self.is_network_master():
-			var ship = get_node("BaseShip")
-			ship.set_target_position(get_global_mouse_position())
-			
+#func _physics_process(delta):
+#	if is_instance_valid(get_node("BaseShip")):
+#		if self.is_network_master():
+#			var ship = get_node("BaseShip")
+#			ship.set_target_position(get_global_mouse_position())
+#			
 
 
 func _input(event):
@@ -180,29 +193,26 @@ func _input(event):
 	var ship = get_node("BaseShip")
 	
 	ship.set_input_vector(input_vector)
-	
-	
-	
+	if event == InputEventScreenTouch and $Camera2D/MOVE.is_pressed()==false and $Camera2D/FIRE2.pressed==false and $Camera2D/FIRE.pressed==false:
+		ship.set_shooting(1)
 
 	if $Camera2D.scale.x < 16*get_child(1).get_child(0).scale.x:
-		$Camera2D.zoom.x += Input.get_action_strength("scroll_up")*get_child(1).get_child(0).scale.x
-		$Camera2D.zoom.y += Input.get_action_strength("scroll_up")*get_child(1).get_child(0).scale.x
-		$Camera2D.scale.x += Input.get_action_strength("scroll_up")*get_child(1).get_child(0).scale.x
-		$Camera2D.scale.y += Input.get_action_strength("scroll_up")*get_child(1).get_child(0).scale.x
+		$Camera2D.zoom.x += scroll_up*get_child(1).get_child(0).scale.x
+		$Camera2D.zoom.y += scroll_up*get_child(1).get_child(0).scale.x
+		$Camera2D.scale.x += scroll_up*get_child(1).get_child(0).scale.x
+		$Camera2D.scale.y += scroll_up*get_child(1).get_child(0).scale.x
 	if $Camera2D.zoom.x > 4*get_child(1).get_child(0).scale.x:
-		$Camera2D.zoom.x -= Input.get_action_strength("scroll_down")*get_child(1).get_child(0).scale.x
-		$Camera2D.zoom.y -= Input.get_action_strength("scroll_down")*get_child(1).get_child(0).scale.x
-		$Camera2D.scale.x -= Input.get_action_strength("scroll_down")*get_child(1).get_child(0).scale.x
-		$Camera2D.scale.y -= Input.get_action_strength("scroll_down")*get_child(1).get_child(0).scale.x
-
-
-
-	ship.set_shooting(Input.get_action_strength("shoot"))
-	ship.set_ability(Input.get_action_strength("ability"))
-	ship.set_primary(Input.get_action_strength("primary_shoot"))
+		$Camera2D.zoom.x -= scroll_down*get_child(1).get_child(0).scale.x
+		$Camera2D.zoom.y -= scroll_down*get_child(1).get_child(0).scale.x
+		$Camera2D.scale.x -= scroll_down*get_child(1).get_child(0).scale.x
+		$Camera2D.scale.y -= scroll_down*get_child(1).get_child(0).scale.x
+	
+	#ship.set_shooting(Input.get_action_strength("shoot"))
+	#ship.set_ability(Input.get_action_strength("ability"))
+	#ship.set_primary(Input.get_action_strength("primary_shoot"))
 	#ship.set_boarding(Input.get_action_strength("act_board"))
-	
-	
+	if self.is_network_master():
+		ship.set_target_position(get_global_mouse_position())
 
 func set_player_name(new_name):
 	$Camera2D.get_node("label").set_text(new_name)
@@ -273,3 +283,8 @@ func make_mark(tracked_ship, marke):
 	if marke.global_position.y < 0:
 		marke.global_position.y = 2
 	$Camera2D/Sprite4.add_child(marke)
+
+
+func _on_back_pressed():
+	gamestate.end_game()
+	get_tree().change_scene("res://MainMenu.tscn")

@@ -63,9 +63,9 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 15 )
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 394.0
+margin_left = 344.0
 margin_top = 114.0
-margin_right = 894.0
+margin_right = 932.0
 margin_bottom = 614.0
 rect_min_size = Vector2( 500, 500 )
 rect_scale = Vector2( 0.983285, 1 )
@@ -74,6 +74,7 @@ __meta__ = {
 }
 
 [node name="Sprite3" type="TextureRect" parent="Panel"]
+visible = false
 margin_right = 500.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 160, 220 )
@@ -86,54 +87,62 @@ __meta__ = {
 }
 
 [node name="Corner" type="Sprite" parent="Panel"]
+visible = false
 position = Vector2( 505.449, 505 )
 scale = Vector2( 0.101699, 0.1 )
 texture = ExtResource( 11 )
 
 [node name="Corner2" type="Sprite" parent="Panel"]
+visible = false
 position = Vector2( 505.448, -4.99951 )
 rotation = -1.5708
 scale = Vector2( 0.1, 0.100849 )
 texture = ExtResource( 11 )
 
 [node name="Chrome" type="Sprite" parent="Panel"]
+visible = false
 position = Vector2( 505.449, 250 )
 scale = Vector2( 0.1, 4.99999 )
 texture = ExtResource( 6 )
 
 [node name="Corner3" type="Sprite" parent="Panel"]
+visible = false
 position = Vector2( -4.99976, 505.006 )
 rotation = 1.5708
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 11 )
 
 [node name="Corner4" type="Sprite" parent="Panel"]
+visible = false
 position = Vector2( -4.99976, -4.99924 )
 rotation = 3.14159
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 11 )
 
 [node name="Chrome2" type="Sprite" parent="Panel"]
+visible = false
 position = Vector2( -4.99939, 250.117 )
 rotation = 3.14159
 scale = Vector2( 0.1, 5.00232 )
 texture = ExtResource( 6 )
 
 [node name="Chrome3" type="Sprite" parent="Panel"]
+visible = false
 position = Vector2( 250.334, 505.007 )
 rotation = 1.5708
 scale = Vector2( 0.1, 5.00667 )
 texture = ExtResource( 6 )
 
 [node name="Chrome4" type="Sprite" parent="Panel"]
+visible = false
 position = Vector2( 250.198, -4.99942 )
 rotation = -1.5708
 scale = Vector2( 0.1, 5.00415 )
 texture = ExtResource( 6 )
 
 [node name="Sprite4" type="TextureRect" parent="Panel"]
-margin_left = -358.0
-margin_right = -61.0
+margin_left = -10.32
+margin_right = 577.68
 margin_bottom = 500.0
 rect_min_size = Vector2( 160, 220 )
 theme = ExtResource( 4 )
@@ -144,114 +153,61 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Corner5" type="Sprite" parent="Panel"]
-position = Vector2( -57.968, 505 )
-scale = Vector2( 0.101699, 0.1 )
-texture = ExtResource( 11 )
-
-[node name="Corner6" type="Sprite" parent="Panel"]
-position = Vector2( -57.962, -5 )
-rotation = -1.5708
-scale = Vector2( 0.1, 0.100849 )
-texture = ExtResource( 11 )
-
-[node name="Chrome5" type="Sprite" parent="Panel"]
-position = Vector2( -57.9688, 250 )
-scale = Vector2( 0.1, 4.99999 )
-texture = ExtResource( 6 )
-
 [node name="Corner7" type="Sprite" parent="Panel"]
-position = Vector2( -363, 505.006 )
+position = Vector2( -15.1178, 505 )
 rotation = 1.5708
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.1, 0.10236 )
 texture = ExtResource( 11 )
 
 [node name="Corner8" type="Sprite" parent="Panel"]
-position = Vector2( -362.983, -4.99927 )
+position = Vector2( -15.1707, -4.99927 )
 rotation = 3.14159
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 11 )
 
 [node name="Chrome6" type="Sprite" parent="Panel"]
-position = Vector2( -362.983, 250.117 )
+position = Vector2( -15.1687, 250.117 )
 rotation = 3.14159
 scale = Vector2( 0.1, 5.00232 )
 texture = ExtResource( 6 )
 
-[node name="Chrome7" type="Sprite" parent="Panel"]
-position = Vector2( -210.467, 505.007 )
-rotation = 1.5708
-scale = Vector2( 0.1, 2.95065 )
-texture = ExtResource( 6 )
-
 [node name="Chrome8" type="Sprite" parent="Panel"]
-position = Vector2( -210.507, -4.99905 )
+position = Vector2( 133.815, -4.99906 )
 rotation = -1.5708
-scale = Vector2( 0.1, 2.95005 )
+scale = Vector2( 0.1, 2.9036 )
 texture = ExtResource( 6 )
-
-[node name="Sprite5" type="TextureRect" parent="Panel"]
-margin_left = 561.367
-margin_right = 858.367
-margin_bottom = 500.0
-rect_min_size = Vector2( 160, 220 )
-theme = ExtResource( 4 )
-texture = SubResource( 1 )
-expand = true
-stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Corner9" type="Sprite" parent="Panel"]
-position = Vector2( 861.399, 505 )
+position = Vector2( 582.741, 505 )
 scale = Vector2( 0.101699, 0.1 )
 texture = ExtResource( 11 )
 
 [node name="Corner10" type="Sprite" parent="Panel"]
-position = Vector2( 861.409, -5 )
+position = Vector2( 582.799, -5 )
 rotation = -1.5708
-scale = Vector2( 0.1, 0.100849 )
+scale = Vector2( 0.1, 0.100344 )
 texture = ExtResource( 11 )
 
 [node name="Chrome9" type="Sprite" parent="Panel"]
-position = Vector2( 861.398, 250 )
+position = Vector2( 582.74, 250 )
 scale = Vector2( 0.1, 4.99999 )
 texture = ExtResource( 6 )
 
-[node name="Corner11" type="Sprite" parent="Panel"]
-position = Vector2( 556.31, 505 )
-rotation = 1.5708
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 11 )
-
-[node name="Corner12" type="Sprite" parent="Panel"]
-position = Vector2( 556.385, -4.99927 )
-rotation = 3.14159
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 11 )
-
-[node name="Chrome10" type="Sprite" parent="Panel"]
-position = Vector2( 556.383, 250.117 )
-rotation = 3.14159
-scale = Vector2( 0.1, 5.00232 )
-texture = ExtResource( 6 )
-
 [node name="Chrome11" type="Sprite" parent="Panel"]
-position = Vector2( 708.533, 505.006 )
+position = Vector2( 283.681, 505.005 )
 rotation = 1.5708
-scale = Vector2( 0.1, 2.95065 )
+scale = Vector2( 0.1, 5.87946 )
 texture = ExtResource( 6 )
 
 [node name="Chrome12" type="Sprite" parent="Panel"]
-position = Vector2( 708.678, -4.99905 )
+position = Vector2( 428.389, -4.99903 )
 rotation = -1.5708
-scale = Vector2( 0.1, 2.95377 )
+scale = Vector2( 0.1, 2.98786 )
 texture = ExtResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-margin_left = 9.0
-margin_right = 498.0
+margin_left = 49.68
+margin_right = 538.68
 margin_bottom = 396.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -261,9 +217,9 @@ __meta__ = {
 }
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Panel"]
-margin_left = 576.0
+margin_left = 297.342
 margin_top = 12.0
-margin_right = 844.0
+margin_right = 565.342
 margin_bottom = 408.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -284,9 +240,9 @@ margin_bottom = 68.0
 text = "Russian/Русский"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
-margin_left = -348.0
+margin_left = -0.186218
 margin_top = 12.0
-margin_right = -74.0
+margin_right = 273.814
 margin_bottom = 481.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -370,9 +326,9 @@ __meta__ = {
 }
 
 [node name="back" type="Button" parent="Panel"]
-margin_left = 52.5656
+margin_left = 93.2456
 margin_top = 413.149
-margin_right = 223.566
+margin_right = 264.246
 margin_bottom = 480.149
 theme = ExtResource( 3 )
 text = "SET11"
@@ -381,9 +337,9 @@ __meta__ = {
 }
 
 [node name="save" type="Button" parent="Panel"]
-margin_left = 263.48
+margin_left = 304.16
 margin_top = 414.007
-margin_right = 434.48
+margin_right = 475.16
 margin_bottom = 481.007
 theme = ExtResource( 3 )
 text = "SET12"

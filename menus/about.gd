@@ -23,3 +23,7 @@ func _on_Start_pressed():
 
 func _on_Start2_pressed():
 	OS.shell_open("https://github.com/Rou7e/chromalgama-game/issues")
+
+
+func _on_back_pressed():
+	get_tree().change_scene("res://MainMenu.tscn")

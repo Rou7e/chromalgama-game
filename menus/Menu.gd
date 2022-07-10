@@ -12,13 +12,63 @@ var buttons = {}
 var key_labels = ["SET1","SET2","SET3","SET4","SET5","SET6","SET7","SET8","SET9","SET10"]
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var i = 0
-	keybinds = Global.keybinds.duplicate()
 	volumes = Global.volumes.duplicate()
-	
 	$Panel/VBoxContainer2/HScrollBar.value=volumes["master"]
 	$Panel/VBoxContainer2/HScrollBar2.value=volumes["music"]
 	$Panel/VBoxContainer2/HScrollBar3.value=volumes["sfx"]
+	
+	#wrap_keys()
+
+func change_bind(key, value):
+	keybinds[key] = value
+	for k in keybinds.keys():
+		if k != key and value != null and keybinds[k] == value:
+			keybinds[k] = null
+			buttons[k].value = null
+			buttons[k].text = "Unassigned"
+
+
+func back():
+	get_tree().change_scene("res://MainMenu.tscn")
+
+
+func save():
+	#Global.keybinds = keybinds.duplicate()
+	Global.volumes = volumes.duplicate()
+	Global.set_game_binds()
+	Global.write_config()
+	back()
+
+func _input(event):
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().change_scene("res://MainMenu.tscn")
+
+
+func _on_HScrollBar_value_changed(value):
+	volumes["master"]=$Panel/VBoxContainer2/HScrollBar.value
+	Global.set_game_binds()
+
+func _on_HScrollBar2_value_changed(value):
+	volumes["music"]=$Panel/VBoxContainer2/HScrollBar2.value
+	Global.set_game_binds()
+
+func _on_HScrollBar3_value_changed(value):
+	volumes["sfx"]=$Panel/VBoxContainer2/HScrollBar3.value
+	Global.set_game_binds()
+
+func _on_Button_pressed():
+	Global.language = 0
+	Global.set_game_binds()
+
+
+func _on_Button2_pressed():
+	Global.language = 1
+	Global.set_game_binds()
+
+func wrap_keys():
+	var i = 0
+	keybinds = Global.keybinds.duplicate()
+
 	
 	for key in keybinds.keys():
 		
@@ -54,49 +104,3 @@ func _ready():
 		buttoncontainer.add_child(hbox)
 		i=i+1
 		buttons[key] = button
-
-func change_bind(key, value):
-	keybinds[key] = value
-	for k in keybinds.keys():
-		if k != key and value != null and keybinds[k] == value:
-			keybinds[k] = null
-			buttons[k].value = null
-			buttons[k].text = "Unassigned"
-
-
-func back():
-	get_tree().change_scene("res://MainMenu.tscn")
-
-
-func save():
-	Global.keybinds = keybinds.duplicate()
-	Global.volumes = volumes.duplicate()
-	Global.set_game_binds()
-	Global.write_config()
-	back()
-
-func _input(event):
-	if Input.is_key_pressed(KEY_ESCAPE):
-		get_tree().change_scene("res://MainMenu.tscn")
-
-
-func _on_HScrollBar_value_changed(value):
-	volumes["master"]=$Panel/VBoxContainer2/HScrollBar.value
-	Global.set_game_binds()
-
-func _on_HScrollBar2_value_changed(value):
-	volumes["music"]=$Panel/VBoxContainer2/HScrollBar2.value
-	Global.set_game_binds()
-
-func _on_HScrollBar3_value_changed(value):
-	volumes["sfx"]=$Panel/VBoxContainer2/HScrollBar3.value
-	Global.set_game_binds()
-
-func _on_Button_pressed():
-	Global.language = 0
-	Global.set_game_binds()
-
-
-func _on_Button2_pressed():
-	Global.language = 1
-	Global.set_game_binds()

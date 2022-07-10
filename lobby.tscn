@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://lobby.gd" type="Script" id=1]
 [ext_resource path="res://sounds/sfx/mouse_click.mp3" type="AudioStream" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://sounds/sfx/mouse_hover.mp3" type="AudioStream" id=20]
 [ext_resource path="res://resources/fonts/header.tres" type="DynamicFont" id=21]
 [ext_resource path="res://resources/fonts/plain_text.tres" type="DynamicFont" id=22]
+[ext_resource path="res://resources/ui/menu_theme.tres" type="Theme" id=23]
 
 [sub_resource type="AnimatedTexture" id=1]
 flags = 4
@@ -523,6 +524,16 @@ stream = ExtResource( 20 )
 attenuation = 1e-05
 bus = "SFX"
 
+[node name="back" type="Button" parent="."]
+margin_left = 567.0
+margin_right = 738.0
+margin_bottom = 35.0
+theme = ExtResource( 23 )
+text = "SET11"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="mouse_entered" from="Players/Start" to="." method="_on_Start_mouse_entered"]
 [connection signal="pressed" from="Players/Start" to="." method="_on_start_pressed"]
 [connection signal="mouse_entered" from="Connect/Host" to="." method="_on_Host_mouse_entered"]
@@ -533,3 +544,4 @@ bus = "SFX"
 [connection signal="pressed" from="add_npcs/add_npc" to="." method="_on_add_npc_pressed"]
 [connection signal="mouse_entered" from="add_npcs/add_npc2" to="." method="_on_Join_mouse_entered"]
 [connection signal="pressed" from="add_npcs/add_npc2" to="." method="_on_add_npc2_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

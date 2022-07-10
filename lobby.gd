@@ -218,3 +218,7 @@ remotesync func register_NPC(selected_ship):
 	gamestate.NPC_selected_ships.append(selected_ship) 
 	gamestate.emit_signal("player_list_changed")
 	gamestate.npc_id += 1
+
+
+func _on_back_pressed():
+	get_tree().change_scene("res://MainMenu.tscn")

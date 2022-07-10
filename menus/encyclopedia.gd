@@ -555,3 +555,7 @@ func showFactions():
 func _input(event):
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().change_scene("res://MainMenu.tscn")
+
+
+func _on_back_pressed():
+	get_tree().change_scene("res://MainMenu.tscn")
